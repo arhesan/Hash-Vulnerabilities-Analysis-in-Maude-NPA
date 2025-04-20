@@ -1,0 +1,269 @@
+Authenticating with public key "rsa-key-20250129"
+    ┌──────────────────────────────────────────────────────────────────────┐
+    │                 • MobaXterm Personal Edition v25.0 •                 │
+    │               (SSH client, X server and network tools)               │
+    │                                                                      │
+    │ ⮞ SSH session to ahernandez@safe-trust.dsic.upv.es                   │
+    │   • Direct SSH      :  ✓                                             │
+    │   • SSH compression :  ✓                                             │
+    │   • SSH-browser     :  ✓                                             │
+    │   • X11-forwarding  :  ✓  (remote display is forwarded through SSH)  │
+    │                                                                      │
+    │ ⮞ For more info, ctrl+click on help or visit our website.            │
+    └──────────────────────────────────────────────────────────────────────┘
+
+Welcome to Ubuntu 24.04.2 LTS (GNU/Linux 6.8.0-56-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/pro
+
+ System information as of Thu Apr 17 01:41:21 PM CEST 2025
+
+  System load:  8.16                Temperature:           43.0 C
+  Usage of /:   13.5% of 438.52GB   Processes:             380
+  Memory usage: 17%                 Users logged in:       1
+  Swap usage:   0%                  IPv4 address for eno5: 158.42.186.56
+*** System restart required ***
+ahernandez@safe-trust:~$ cd maude-npa
+ahernandez@safe-trust:~/maude-npa$ cd Github_Hah
+-bash: cd: Github_Hah: No such file or directory
+ahernandez@safe-trust:~/maude-npa$ cd Github_Hash
+ahernandez@safe-trust:~/maude-npa/Github_Hash$ maude
+                     \||||||||||||||||||/
+                   --- Welcome to Maude ---
+                     /||||||||||||||||||\
+             Maude 3.5 built: Sep 25 2024 12:00:00
+             Copyright 1997-2024 SRI International
+                   Thu Apr 17 13:41:45 2025
+Maude> load maude-npa
+Advisory: "maude-npa.maude", line 14352 (fmod BACK-NARROWING): all the variables in the left-hand side of assignment condition fragment
+    M:Msg := downMsgSet(getTerm(metaReduce(removeVariantLabel(clearNonExecEqs(eraseRls(onlyEqsNoBuiltInUnify(flipRls(
+    STRAND-EXAMPLE-RULES))))), upTerm(M':Msg)))) are bound before the matching takes place.
+Advisory: "maude-npa.maude", line 14376 (fmod BACK-NARROWING): all the variables in the left-hand side of assignment condition fragment
+    M:Msg := downMsgSet(getTerm(metaReduce(removeVariantLabel(clearNonExecEqs(eraseRls(onlyEqsNoBuiltInUnify(flipRls(
+    STRAND-EXAMPLE-RULES))))), upTerm(M':Msg)))) are bound before the matching takes place.
+Advisory: "maude-npa.maude", line 14392 (fmod BACK-NARROWING): all the variables in the left-hand side of assignment condition fragment
+    M:Msg := downMsgSet(getTerm(metaReduce(removeVariantLabel(clearNonExecEqs(eraseRls(onlyEqsNoBuiltInUnify(flipRls(
+    STRAND-EXAMPLE-RULES))))), upTerm(M:Msg)))) are bound before the matching takes place.
+
+            Maude-NPA Version: 3.1.4 (June 2nd 2020)
+            with direct composition, irreducibility constraints and time
+            (To be run with Maude 3.0 or above)
+            Copyright (c) 2020, University of Illinois
+            All rights reserved.
+
+ Commands:
+ red unification? .           returns the unification algorithm to be used
+ red new-strands? .           returns the actual protocol strands
+ red displayGrammars .        for generating grammars
+ red run(X,Y).                for Y backwards analysis steps for attack pattern X
+ red debug(X,Y).              more information than run command
+ red digest(X,Y).             less information than run command
+ red summary(X,Y).            for summary of analysis steps
+ red ids(X,Y).                for set of state ids
+ red initials(X,Y).           for showing only initial steps
+Maude> load SIGMA_attack_event_based.maude
+Maude> red run[1 . 1 . 10 . 3](3,3) .
+reduce in MAUDE-NPA : run[1 . 1 . 10 . 3](3, 3) .
+rewrites: 34373696 in 22472ms cpu (22471ms real) (1529623 rewrites/second)
+result ShortIdSystem: < 1 . 1 . 10 . 3 > (
+:: nil ::
+[ nil |
+   -(sign(sk(b), H(#0:Exp ; cp2(exp(g, n(a, #1:Fresh)) ; a ; #2:Exp, #0:Exp) ; exp(g, n(b, #3:Fresh)) ; b))),
+   +(sign(sk(b), H(exp(g, n(a, #1:Fresh)) ; a ; #2:Exp ; cp1(exp(g, n(a, #1:Fresh)) ; a ; #2:Exp, #0:Exp) ; exp(g, n(b, #3:Fresh)) ;
+    b))), nil]  &
+:: #1:Fresh ::
+[ nil,
+   +(exp(g, n(a, #1:Fresh)) ; a),
+   -(#2:Exp ; cp1(exp(g, n(a, #1:Fresh)) ; a ; #2:Exp, #0:Exp) ; exp(g, n(b, #3:Fresh)) ; b),
+   +(sign(sk(a), H(exp(g, n(a, #1:Fresh)) ; a ; #2:Exp ; cp1(exp(g, n(a, #1:Fresh)) ; a ; #2:Exp, #0:Exp) ; exp(g, n(b, #3:Fresh)) ;
+    b))) |
+   -(sign(sk(b), H(exp(g, n(a, #1:Fresh)) ; a ; #2:Exp ; cp1(exp(g, n(a, #1:Fresh)) ; a ; #2:Exp, #0:Exp) ; exp(g, n(b, #3:Fresh)) ;
+    b))),
+   +(ok), nil]  &
+:: #3:Fresh ::
+[ nil,
+   -(#0:Exp ; cp2(exp(g, n(a, #1:Fresh)) ; a ; #2:Exp, #0:Exp)),
+   +(exp(g, n(b, #3:Fresh)) ; b) |
+   -(sign(sk(a), H(#0:Exp ; cp2(exp(g, n(a, #1:Fresh)) ; a ; #2:Exp, #0:Exp) ; exp(g, n(b, #3:Fresh)) ; b))),
+   +(sign(sk(b), H(#0:Exp ; cp2(exp(g, n(a, #1:Fresh)) ; a ; #2:Exp, #0:Exp) ; exp(g, n(b, #3:Fresh)) ; b))),
+   -(ok), nil] )
+|
+ok !inI,
+sign(sk(b), H(#0:Exp ; cp2(exp(g, n(a, #1:Fresh)) ; a ; #2:Exp, #0:Exp) ; exp(g, n(b, #3:Fresh)) ; b)) !inI,
+sign(sk(b), H(exp(g, n(a, #1:Fresh)) ; a ; #2:Exp ; cp1(exp(g, n(a, #1:Fresh)) ; a ; #2:Exp, #0:Exp) ; exp(g, n(b, #3:Fresh)) ; b))
+    !inI,
+sign(sk(a), H(#0:Exp ; cp2(exp(g, n(a, #1:Fresh)) ; a ; #2:Exp, #0:Exp) ; exp(g, n(b, #3:Fresh)) ; b)) inI
+|
+-(sign(sk(a), H(#0:Exp ; cp2(exp(g, n(a, #1:Fresh)) ; a ; #2:Exp, #0:Exp) ; exp(g, n(b, #3:Fresh)) ; b))),
++(sign(sk(b), H(#0:Exp ; cp2(exp(g, n(a, #1:Fresh)) ; a ; #2:Exp, #0:Exp) ; exp(g, n(b, #3:Fresh)) ; b))),
+-(sign(sk(b), H(#0:Exp ; cp2(exp(g, n(a, #1:Fresh)) ; a ; #2:Exp, #0:Exp) ; exp(g, n(b, #3:Fresh)) ; b))),
++(sign(sk(b), H(exp(g, n(a, #1:Fresh)) ; a ; #2:Exp ; cp1(exp(g, n(a, #1:Fresh)) ; a ; #2:Exp, #0:Exp) ; exp(g, n(b, #3:Fresh)) ; b))),
+
+-(sign(sk(b), H(exp(g, n(a, #1:Fresh)) ; a ; #2:Exp ; cp1(exp(g, n(a, #1:Fresh)) ; a ; #2:Exp, #0:Exp) ; exp(g, n(b, #3:Fresh)) ; b))),
+
++(ok),
+-(ok)
+|
+nil
+Maude> red initials[1 . 1 . 10 . 3](3,4) .
+reduce in MAUDE-NPA : initials[1 . 1 . 10 . 3](3, 4) .
+rewrites: 1012529 in 820ms cpu (819ms real) (1234791 rewrites/second)
+result IdSystemSet: (empty).IdSystemSet
+Maude> red initials[1 . 1 . 10 . 3](3,5) .
+reduce in MAUDE-NPA : initials[1 . 1 . 10 . 3](3, 5) .
+rewrites: 3630822 in 2380ms cpu (2380ms real) (1525555 rewrites/second)
+result IdSystemSet: (empty).IdSystemSet
+Maude> red initials[1 . 1 . 10 . 3](3,6) .
+reduce in MAUDE-NPA : initials[1 . 1 . 10 . 3](3, 6) .
+rewrites: 9717540 in 5946ms cpu (5946ms real) (1634298 rewrites/second)
+result IdSystemSet: (empty).IdSystemSet
+Maude> red initials[1 . 1 . 10 . 3](3,7) .
+reduce in MAUDE-NPA : initials[1 . 1 . 10 . 3](3, 7) .
+rewrites: 15353420 in 9338ms cpu (9337ms real) (1644187 rewrites/second)
+result IdSystemSet: (empty).IdSystemSet
+Maude> red initials[1 . 1 . 10 . 3](3,8) .
+reduce in MAUDE-NPA : initials[1 . 1 . 10 . 3](3, 8) .
+rewrites: 31243401 in 17213ms cpu (17213ms real) (1815104 rewrites/second)
+result IdSystemSet: (empty).IdSystemSet
+Maude> red initials[1 . 1 . 10 . 3](3,9) .
+reduce in MAUDE-NPA : initials[1 . 1 . 10 . 3](3, 9) .
+rewrites: 54100037 in 28018ms cpu (28018ms real) (1930902 rewrites/second)
+result IdSystemSet: (empty).IdSystemSet
+Maude> red initials[1 . 1 . 10 . 3](3,10) .
+reduce in MAUDE-NPA : initials[1 . 1 . 10 . 3](3, 10) .
+rewrites: 53299021 in 26814ms cpu (26813ms real) (1987731 rewrites/second)
+result IdSystemSet: (empty).IdSystemSet
+Maude> red summary[1 . 1 . 10 . 3](3,10) .
+reduce in MAUDE-NPA : summary[1 . 1 . 10 . 3](3, 10) .
+rewrites: 2177 in 2ms cpu (2ms real) (1088500 rewrites/second)
+result Summary: States>> 6 Solutions>> 0
+Maude> red initials[1 . 1 . 10 . 3](3,11) .
+reduce in MAUDE-NPA : initials[1 . 1 . 10 . 3](3, 11) .
+rewrites: 19246455 in 12634ms cpu (12633ms real) (1523385 rewrites/second)
+result IdSystemSet: (empty).IdSystemSet
+Maude> red initials[1 . 1 . 10 . 3](3,12) .
+reduce in MAUDE-NPA : initials[1 . 1 . 10 . 3](3, 12) .
+rewrites: 3718326 in 1487ms cpu (1487ms real) (2500555 rewrites/second)
+result IdSystemSet: (empty).IdSystemSet
+Maude> red initials[1 . 1 . 10 . 3](3,13) .
+reduce in MAUDE-NPA : initials[1 . 1 . 10 . 3](3, 13) .
+rewrites: 7873503 in 2860ms cpu (2860ms real) (2752973 rewrites/second)
+result ShortIdSystem: < 1 . 1 . 10 . 3 . 5 . 1 . 6 . 7 . 2 . 8 . 8 . 10 . 6 . 1 > (
+:: nil ::
+[ nil |
+   -(#2:Exp),
+   -(cp2(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, #2:Exp)),
+   +(#2:Exp ; cp2(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, #2:Exp)), nil]  &
+:: nil ::
+[ nil |
+   -(#0:Exp),
+   -(cp1(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, #2:Exp) ; exp(g, n(b, #3:Fresh)) ; b),
+   +(#0:Exp ; cp1(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, #2:Exp) ; exp(g, n(b, #3:Fresh)) ; b), nil]  &
+:: nil ::
+[ nil |
+   -(exp(g, n(a, #1:Fresh)) ; a),
+   -(#0:Exp),
+   +(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp), nil]  &
+:: nil ::
+[ nil |
+   -(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp),
+   -(#2:Exp),
+   +(cp1(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, #2:Exp)), nil]  &
+:: nil ::
+[ nil |
+   -(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp),
+   -(#2:Exp),
+   +(cp2(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, #2:Exp)), nil]  &
+:: nil ::
+[ nil |
+   -(sign(sk(a), H(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp ; cp1(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, #2:Exp) ; exp(g, n(b, #3:Fresh)) ;
+    b))),
+   +(sign(sk(a), H(#2:Exp ; cp2(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, #2:Exp) ; exp(g, n(b, #3:Fresh)) ; b))), nil]  &
+:: nil ::
+[ nil |
+   -(sign(sk(b), H(#2:Exp ; cp2(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, #2:Exp) ; exp(g, n(b, #3:Fresh)) ; b))),
+   +(sign(sk(b), H(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp ; cp1(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, #2:Exp) ; exp(g, n(b, #3:Fresh)) ;
+    b))), nil]  &
+:: nil ::
+[ nil |
+   -(cp1(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, #2:Exp)),
+   -(exp(g, n(b, #3:Fresh)) ; b),
+   +(cp1(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, #2:Exp) ; exp(g, n(b, #3:Fresh)) ; b), nil]  &
+:: #1:Fresh ::
+[ nil |
+   +(exp(g, n(a, #1:Fresh)) ; a),
+   -(#0:Exp ; cp1(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, #2:Exp) ; exp(g, n(b, #3:Fresh)) ; b),
+   +(sign(sk(a), H(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp ; cp1(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, #2:Exp) ; exp(g, n(b, #3:Fresh)) ;
+    b))),
+   -(sign(sk(b), H(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp ; cp1(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, #2:Exp) ; exp(g, n(b, #3:Fresh)) ;
+    b))),
+   +(ok), nil]  &
+:: #3:Fresh ::
+[ nil |
+   -(#2:Exp ; cp2(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, #2:Exp)),
+   +(exp(g, n(b, #3:Fresh)) ; b),
+   -(sign(sk(a), H(#2:Exp ; cp2(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, #2:Exp) ; exp(g, n(b, #3:Fresh)) ; b))),
+   +(sign(sk(b), H(#2:Exp ; cp2(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, #2:Exp) ; exp(g, n(b, #3:Fresh)) ; b))),
+   -(ok), nil] )
+|
+ok !inI,
+#2:Exp !inI,
+#0:Exp !inI,
+(#2:Exp ; cp2(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, #2:Exp)) !inI,
+(exp(g, n(a, #1:Fresh)) ; a) !inI,
+(exp(g, n(b, #3:Fresh)) ; b) !inI,
+(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp) !inI,
+(cp1(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, #2:Exp) ; exp(g, n(b, #3:Fresh)) ; b) !inI,
+(#0:Exp ; cp1(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, #2:Exp) ; exp(g, n(b, #3:Fresh)) ; b) !inI,
+sign(sk(a), H(#2:Exp ; cp2(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, #2:Exp) ; exp(g, n(b, #3:Fresh)) ; b)) !inI,
+sign(sk(a), H(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp ; cp1(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, #2:Exp) ; exp(g, n(b, #3:Fresh)) ; b))
+    !inI,
+sign(sk(b), H(#2:Exp ; cp2(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, #2:Exp) ; exp(g, n(b, #3:Fresh)) ; b)) !inI,
+sign(sk(b), H(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp ; cp1(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, #2:Exp) ; exp(g, n(b, #3:Fresh)) ; b))
+    !inI,
+cp1(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, #2:Exp) !inI,
+cp2(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, #2:Exp) !inI
+|
++(exp(g, n(a, #1:Fresh)) ; a),
+generatedByIntruder(#0:Exp),
+-(exp(g, n(a, #1:Fresh)) ; a),
+-(#0:Exp),
++(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp),
+generatedByIntruder(#2:Exp),
+-(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp),
+-(#2:Exp),
++(cp2(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, #2:Exp)),
+-(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp),
+-(#2:Exp),
++(cp1(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, #2:Exp)),
+-(#2:Exp),
+-(cp2(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, #2:Exp)),
++(#2:Exp ; cp2(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, #2:Exp)),
+-(#2:Exp ; cp2(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, #2:Exp)),
++(exp(g, n(b, #3:Fresh)) ; b),
+-(cp1(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, #2:Exp)),
+-(exp(g, n(b, #3:Fresh)) ; b),
++(cp1(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, #2:Exp) ; exp(g, n(b, #3:Fresh)) ; b),
+-(#0:Exp),
+-(cp1(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, #2:Exp) ; exp(g, n(b, #3:Fresh)) ; b),
++(#0:Exp ; cp1(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, #2:Exp) ; exp(g, n(b, #3:Fresh)) ; b),
+-(#0:Exp ; cp1(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, #2:Exp) ; exp(g, n(b, #3:Fresh)) ; b),
++(sign(sk(a), H(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp ; cp1(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, #2:Exp) ; exp(g, n(b, #3:Fresh)) ; b))),
+
+-(sign(sk(a), H(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp ; cp1(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, #2:Exp) ; exp(g, n(b, #3:Fresh)) ; b))),
+
++(sign(sk(a), H(#2:Exp ; cp2(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, #2:Exp) ; exp(g, n(b, #3:Fresh)) ; b))),
+-(sign(sk(a), H(#2:Exp ; cp2(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, #2:Exp) ; exp(g, n(b, #3:Fresh)) ; b))),
++(sign(sk(b), H(#2:Exp ; cp2(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, #2:Exp) ; exp(g, n(b, #3:Fresh)) ; b))),
+-(sign(sk(b), H(#2:Exp ; cp2(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, #2:Exp) ; exp(g, n(b, #3:Fresh)) ; b))),
++(sign(sk(b), H(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp ; cp1(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, #2:Exp) ; exp(g, n(b, #3:Fresh)) ; b))),
+
+-(sign(sk(b), H(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp ; cp1(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, #2:Exp) ; exp(g, n(b, #3:Fresh)) ; b))),
+
++(ok),
+-(ok)
+|
+nil
+Maude>

@@ -1,0 +1,370 @@
+nohup: ignoring input
+./prueba_SIGMA: 1: datedate
+: not found
+		     \||||||||||||||||||/
+		   --- Welcome to Maude ---
+		     /||||||||||||||||||\
+	     Maude alpha162 built: May 30 2024 20:17:49
+	     Copyright 1997-2024 SRI International
+		   Mon Mar 31 22:27:40 2025
+Advisory: "maude-npa.maude", line 14352 (fmod BACK-NARROWING): all the
+    variables in the left-hand side of assignment condition fragment M:Msg :=
+    downMsgSet(getTerm(metaReduce(removeVariantLabel(clearNonExecEqs(eraseRls(
+    onlyEqsNoBuiltInUnify(flipRls(STRAND-EXAMPLE-RULES))))), upTerm(M':Msg))))
+    are bound before the matching takes place.
+Advisory: "maude-npa.maude", line 14376 (fmod BACK-NARROWING): all the
+    variables in the left-hand side of assignment condition fragment M:Msg :=
+    downMsgSet(getTerm(metaReduce(removeVariantLabel(clearNonExecEqs(eraseRls(
+    onlyEqsNoBuiltInUnify(flipRls(STRAND-EXAMPLE-RULES))))), upTerm(M':Msg))))
+    are bound before the matching takes place.
+Advisory: "maude-npa.maude", line 14392 (fmod BACK-NARROWING): all the
+    variables in the left-hand side of assignment condition fragment M:Msg :=
+    downMsgSet(getTerm(metaReduce(removeVariantLabel(clearNonExecEqs(eraseRls(
+    onlyEqsNoBuiltInUnify(flipRls(STRAND-EXAMPLE-RULES))))), upTerm(M:Msg))))
+    are bound before the matching takes place.
+
+	    Maude-NPA Version: 3.1.4 (June 2nd 2020)
+	    with direct composition, irreducibility constraints and time
+	    (To be run with Maude 3.0 or above)
+	    Copyright (c) 2020, University of Illinois
+	    All rights reserved.
+
+ Commands:
+ red unification? .           returns the unification algorithm to be used
+ red new-strands? .           returns the actual protocol strands
+ red displayGrammars .        for generating grammars
+ red run(X,Y).                for Y backwards analysis steps for attack pattern
+    X
+ red debug(X,Y).              more information than run command
+ red digest(X,Y).             less information than run command
+ red summary(X,Y).            for summary of analysis steps
+ red ids(X,Y).                for set of state ids
+ red initials(X,Y).           for showing only initial steps
+==========================================
+reduce in MAUDE-NPA : displayGrammars .
+rewrites: 20177637 in 24587ms cpu (24586ms real) (820662 rewrites/second)
+result GrammarList: (
+grl #0:Msg inL => (#1:Msg ; #0:Msg) inL .  ; 
+grl #0:Msg inL => (#0:Msg ; #1:Msg) inL .  ; 
+grl #0:Msg inL => sign(sk(#1:Name), #0:Msg) inL .  ; 
+grl #0:Msg notInI,
+   #0:Msg notLeq exp(g, n(#1:Name, #2:Fresh)) => (#0:Msg ; #3:Msg) inL . )
+| (
+grl #0:Msg inL => (#1:Msg ; #0:Msg) inL .  ; 
+grl #0:Msg inL => (#0:Msg ; #1:Msg) inL .  ; 
+grl #0:Msg inL => sign(sk(#1:Name), #0:Msg) inL .  ; 
+grl #0:Msg notInI => (#1:Msg ; #0:Msg) inL . )
+| (
+grl #0:Msg inL => (#1:Msg ; #0:Msg) inL .  ; 
+grl #0:Msg inL => (#0:Msg ; #1:Msg) inL .  ; 
+grl #0:Msg inL => sign(sk(#1:Name), #0:Msg) inL .  ; 
+grl #0:Msg notInI => cp1(#0:Msg, #1:Msg) inL . )
+| (
+grl #0:Msg inL => (#1:Msg ; #0:Msg) inL .  ; 
+grl #0:Msg inL => (#0:Msg ; #1:Msg) inL .  ; 
+grl #0:Msg inL => sign(sk(#1:Name), #0:Msg) inL .  ; 
+grl #0:Msg notInI => cp1(#1:Msg, #0:Msg) inL . )
+| (
+grl #0:Msg inL => (#1:Msg ; #0:Msg) inL .  ; 
+grl #0:Msg inL => (#0:Msg ; #1:Msg) inL .  ; 
+grl #0:Msg inL => sign(sk(#1:Name), #0:Msg) inL .  ; 
+grl cp1(#0:Msg, #1:Msg) notLeq cp1(#2:MsgElem ; #3:MsgElem ; #4:MsgElem,
+    #5:MsgElem) => cp1(#0:Msg, #1:Msg) inL . )
+| (
+grl #0:Msg inL => (#1:Msg ; #0:Msg) inL .  ; 
+grl #0:Msg inL => (#0:Msg ; #1:Msg) inL .  ; 
+grl #0:Msg inL => sign(sk(#1:Name), #0:Msg) inL .  ; 
+grl #0:Msg notInI => cp2(#0:Msg, #1:Msg) inL . )
+| (
+grl #0:Msg inL => (#1:Msg ; #0:Msg) inL .  ; 
+grl #0:Msg inL => (#0:Msg ; #1:Msg) inL .  ; 
+grl #0:Msg inL => sign(sk(#1:Name), #0:Msg) inL .  ; 
+grl #0:Msg notInI => cp2(#1:Msg, #0:Msg) inL . )
+| (
+grl #0:Msg inL => (#1:Msg ; #0:Msg) inL .  ; 
+grl #0:Msg inL => (#0:Msg ; #1:Msg) inL .  ; 
+grl #0:Msg inL => sign(sk(#1:Name), #0:Msg) inL .  ; 
+grl cp2(#0:Msg, #1:Msg) notLeq cp2(#2:MsgElem ; #3:MsgElem ; #4:MsgElem,
+    #5:MsgElem) => cp2(#0:Msg, #1:Msg) inL . )
+| (
+grl #0:Msg inL => (#1:Msg ; #0:Msg) inL .  ; 
+grl #0:Msg inL => (#0:Msg ; #1:Msg) inL .  ; 
+grl #0:Msg inL => sign(sk(#1:Name), #0:Msg) inL .  ; 
+grl #0:GenvExp notInI => exp(#0:GenvExp, #1:NeNonceSet) inL . )
+| (
+grl #0:Msg inL => (#1:Msg ; #0:Msg) inL .  ; 
+grl #0:Msg inL => (#0:Msg ; #1:Msg) inL .  ; 
+grl #0:Msg inL => sign(sk(#1:Name), #0:Msg) inL .  ; 
+grl #0:NeNonceSet notInI,
+   (#0:NeNonceSet notLeq n(#1:Name, #2:Fresh)),
+   #0:NeNonceSet notLeq #3:NeNonceSet * #4:NeNonceSet => exp(#5:GenvExp,
+    #0:NeNonceSet) inL . )
+| (
+grl #0:Msg inL => (#1:Msg ; #0:Msg) inL .  ; 
+grl #0:Msg inL => (#0:Msg ; #1:Msg) inL .  ; 
+grl #0:Msg inL => sign(sk(#1:Name), #0:Msg) inL .  ; 
+grl #0:Msg notInI,
+   (#0:Msg notLeq #1:MsgElem ; cp2(#2:MsgElem ; #3:MsgElem ; #4:MsgElem,
+    #1:MsgElem) ; #5:MsgElem ; #6:MsgElem),
+   (#0:Msg notLeq #7:Exp ; #8:Msg ; exp(g, n(#9:Name, #10:Fresh)) ; #9:Name),
+   #0:Msg notLeq exp(g, n(#11:Name, #12:Fresh)) ; #11:Name ; #13:Exp ; #14:Msg
+    => H(#0:Msg) inL . )
+| (
+grl #0:Msg inL => (#1:Msg ; #0:Msg) inL .  ; 
+grl #0:Msg inL => (#0:Msg ; #1:Msg) inL .  ; 
+grl #0:Msg inL => sign(sk(#1:Name), #0:Msg) inL .  ; 
+grl n(#0:Name, #1:Fresh) notLeq n(i, #2:Fresh) => n(#0:Name, #1:Fresh) inL . )
+| (
+grl empty => sec(#0:Name, #1:Fresh) inL .  ; 
+grl #0:Msg inL => (#1:Msg ; #0:Msg) inL .  ; 
+grl #0:Msg inL => (#0:Msg ; #1:Msg) inL .  ; 
+grl #0:Msg inL => sign(sk(#1:Name), #0:Msg) inL . )
+| (
+grl #0:Msg inL => (#1:Msg ; #0:Msg) inL .  ; 
+grl #0:Msg inL => (#0:Msg ; #1:Msg) inL .  ; 
+grl #0:Msg inL => sign(sk(#1:Name), #0:Msg) inL .  ; 
+grl #0:Key notInI,
+   #0:Key notLeq sk(#1:Name) => sign(#0:Key, #2:Msg) inL . )
+| (
+grl #0:Msg inL => (#1:Msg ; #0:Msg) inL .  ; 
+grl #0:Msg inL => (#0:Msg ; #1:Msg) inL .  ; 
+grl #0:Msg inL => sign(sk(#1:Name), #0:Msg) inL .  ; 
+grl #0:Msg notInI,
+   (#0:Msg notLeq H(#1:MsgElem ; cp2(exp(g, n(#2:Name, #3:Fresh)) ; #2:Name ;
+    #4:Exp, #1:MsgElem) ; #5:MsgElem ; #6:MsgElem)),
+   (#0:Msg notLeq H(#7:MsgElem ; cp2(#8:Exp ; #9:MsgElem ; #10:MsgElem,
+    #7:MsgElem) ; exp(g, n(#11:Name, #12:Fresh)) ; #11:Name)),
+   (#0:Msg notLeq H(#13:Exp ; #14:Msg ; exp(g, n(#15:Name, #16:Fresh)) ;
+    #15:Name)),
+   #0:Msg notLeq H(exp(g, n(#17:Name, #18:Fresh)) ; #17:Name ; #19:Exp ;
+    #20:Msg) => sign(#21:Key, #0:Msg) inL . )
+| 
+grl #0:Msg inL => (#1:Msg ; #0:Msg) inL .  ; 
+grl #0:Msg inL => (#0:Msg ; #1:Msg) inL .  ; 
+grl #0:Msg inL => sign(sk(#1:Name), #0:Msg) inL .  ; 
+grl (sign(#0:Key, #1:Msg) notLeq sign(sk(i), #2:Msg)),
+   (sign(#0:Key, #1:Msg) notLeq sign(sk(#3:Name), H(#4:MsgElem ; cp2(#5:Exp ;
+    #6:MsgElem ; #7:MsgElem, #4:MsgElem) ; exp(g, n(#3:Name, #8:Fresh)) ;
+    #3:Name))),
+   (sign(#0:Key, #1:Msg) notLeq sign(sk(#9:Name), H(#10:MsgElem ; cp2(exp(g, n(
+    #9:Name, #11:Fresh)) ; #9:Name ; #12:Exp, #10:MsgElem) ; #13:MsgElem ;
+    #14:MsgElem))),
+   (sign(#0:Key, #1:Msg) notLeq sign(sk(#15:Name), H(#16:Exp ; #17:Msg ; exp(g,
+    n(#15:Name, #18:Fresh)) ; #15:Name))),
+   sign(#0:Key, #1:Msg) notLeq sign(sk(#19:Name), H(exp(g, n(#19:Name,
+    #20:Fresh)) ; #19:Name ; #21:Exp ; #22:Msg)) => sign(#0:Key, #1:Msg) inL . 
+==========================================
+reduce in MAUDE-NPA : summary(4, 0) .
+rewrites: 8214 in 89ms cpu (88ms real) (92292 rewrites/second)
+result Summary: States>> 1 Solutions>> 0
+==========================================
+reduce in MAUDE-NPA : initials(4, 0) .
+rewrites: 92 in 0ms cpu (0ms real) (~ rewrites/second)
+result IdSystemSet: (empty).IdSystemSet
+==========================================
+reduce in MAUDE-NPA : summary(4, 1) .
+rewrites: 3279727 in 2226ms cpu (2225ms real) (1473372 rewrites/second)
+result Summary: States>> 6 Solutions>> 0
+==========================================
+reduce in MAUDE-NPA : initials(4, 1) .
+rewrites: 179 in 1ms cpu (0ms real) (179000 rewrites/second)
+result IdSystemSet: (empty).IdSystemSet
+==========================================
+reduce in MAUDE-NPA : summary(4, 2) .
+rewrites: 24521048 in 13943ms cpu (13942ms real) (1758663 rewrites/second)
+result Summary: States>> 20 Solutions>> 0
+==========================================
+reduce in MAUDE-NPA : initials(4, 2) .
+rewrites: 478 in 0ms cpu (0ms real) (~ rewrites/second)
+result IdSystemSet: (empty).IdSystemSet
+==========================================
+reduce in MAUDE-NPA : summary(4, 3) .
+rewrites: 265306032 in 128915ms cpu (128914ms real) (2057991 rewrites/second)
+result Summary: States>> 68 Solutions>> 0
+==========================================
+reduce in MAUDE-NPA : initials(4, 3) .
+rewrites: 1547 in 1ms cpu (0ms real) (1547000 rewrites/second)
+result IdSystemSet: (empty).IdSystemSet
+==========================================
+reduce in MAUDE-NPA : summary(4, 4) .
+rewrites: 1412022080 in 604241ms cpu (604240ms real) (2336852 rewrites/second)
+result Summary: States>> 119 Solutions>> 0
+==========================================
+reduce in MAUDE-NPA : initials(4, 4) .
+rewrites: 3445 in 1ms cpu (1ms real) (3445000 rewrites/second)
+result IdSystemSet: (empty).IdSystemSet
+==========================================
+reduce in MAUDE-NPA : summary(4, 5) .
+rewrites: 4374382005 in 1805378ms cpu (1805378ms real) (2422972
+    rewrites/second)
+result Summary: States>> 210 Solutions>> 0
+==========================================
+reduce in MAUDE-NPA : initials(4, 5) .
+rewrites: 7088 in 3ms cpu (3ms real) (2362666 rewrites/second)
+result IdSystemSet: (empty).IdSystemSet
+==========================================
+reduce in MAUDE-NPA : summary(4, 6) .
+rewrites: 13012152251 in 5178398ms cpu (5178397ms real) (2512775
+    rewrites/second)
+result Summary: States>> 342 Solutions>> 0
+==========================================
+reduce in MAUDE-NPA : initials(4, 6) .
+rewrites: 13344 in 7ms cpu (7ms real) (1906285 rewrites/second)
+result IdSystemSet: (empty).IdSystemSet
+==========================================
+reduce in MAUDE-NPA : summary(4, 7) .
+rewrites: 34641667439 in 13327122ms cpu (13327121ms real) (2599335
+    rewrites/second)
+result Summary: States>> 515 Solutions>> 0
+==========================================
+reduce in MAUDE-NPA : initials(4, 7) .
+rewrites: 23010 in 20ms cpu (19ms real) (1150500 rewrites/second)
+result IdSystemSet: (empty).IdSystemSet
+==========================================
+reduce in MAUDE-NPA : summary(4, 7) .
+rewrites: 24042 in 20ms cpu (20ms real) (1202100 rewrites/second)
+result Summary: States>> 515 Solutions>> 0
+==========================================
+reduce in MAUDE-NPA : initials(4, 7) .
+rewrites: 23010 in 20ms cpu (19ms real) (1150500 rewrites/second)
+result IdSystemSet: (empty).IdSystemSet
+==========================================
+reduce in MAUDE-NPA : summary(4, 9) .
+rewrites: 279398586168 in 110514091ms cpu (110514090ms real) (2528171
+    rewrites/second)
+result Summary: States>> 1050 Solutions>> 0
+==========================================
+reduce in MAUDE-NPA : initials(4, 9) .
+rewrites: 59804 in 132ms cpu (132ms real) (453060 rewrites/second)
+result IdSystemSet: (empty).IdSystemSet
+==========================================
+reduce in MAUDE-NPA : summary(4, 10) .
+rewrites: 418880069239 in 182258496ms cpu (182258495ms real) (2298274
+    rewrites/second)
+result Summary: States>> 1386 Solutions>> 0
+==========================================
+reduce in MAUDE-NPA : initials(4, 10) .
+rewrites: 89160 in 409ms cpu (408ms real) (217995 rewrites/second)
+result IdSystemSet: (empty).IdSystemSet
+==========================================
+reduce in MAUDE-NPA : summary(4, 11) .
+rewrites: 873484938933 in 1034633967ms cpu (1034636273ms real) (844245
+    rewrites/second)
+result Summary: States>> 1745 Solutions>> 1
+==========================================
+reduce in MAUDE-NPA : initials(4, 11) .
+rewrites: 126551 in 1341ms cpu (1341ms real) (94370 rewrites/second)
+result ShortIdSystem: < 1 . 3 . 1 . 2 . 6 . 7 . 2 . 8 . 8 . 10 . 6 . 1 > (
+:: nil ::
+[ nil | 
+   -(#2:Exp), 
+   -(cp2(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, #2:Exp)), 
+   +(#2:Exp ; cp2(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, #2:Exp)), nil]  & 
+:: nil ::
+[ nil | 
+   -(#0:Exp), 
+   -(cp1(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, #2:Exp) ; exp(g, n(b, #3:Fresh))
+    ; b), 
+   +(#0:Exp ; cp1(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, #2:Exp) ; exp(g, n(b,
+    #3:Fresh)) ; b), nil]  & 
+:: nil ::
+[ nil | 
+   -(exp(g, n(a, #1:Fresh)) ; a), 
+   -(#0:Exp), 
+   +(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp), nil]  & 
+:: nil ::
+[ nil | 
+   -(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp), 
+   -(#2:Exp), 
+   +(cp1(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, #2:Exp)), nil]  & 
+:: nil ::
+[ nil | 
+   -(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp), 
+   -(#2:Exp), 
+   +(cp2(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, #2:Exp)), nil]  & 
+:: nil ::
+[ nil | 
+   -(cp1(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, #2:Exp)), 
+   -(exp(g, n(b, #3:Fresh)) ; b), 
+   +(cp1(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, #2:Exp) ; exp(g, n(b, #3:Fresh))
+    ; b), nil]  & 
+:: #1:Fresh ::
+[ nil | 
+   +(exp(g, n(a, #1:Fresh)) ; a), 
+   -(#0:Exp ; cp1(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, #2:Exp) ; exp(g, n(b,
+    #3:Fresh)) ; b), 
+   +(sign(sk(a), H(#2:Exp ; cp2(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, #2:Exp) ;
+    exp(g, n(b, #3:Fresh)) ; b))), 
+   -(sign(sk(b), H(#2:Exp ; cp2(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, #2:Exp) ;
+    exp(g, n(b, #3:Fresh)) ; b))), 
+   +(ok), nil]  & 
+:: #3:Fresh ::
+[ nil | 
+   -(#2:Exp ; cp2(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, #2:Exp)), 
+   +(exp(g, n(b, #3:Fresh)) ; b), 
+   -(sign(sk(a), H(#2:Exp ; cp2(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, #2:Exp) ;
+    exp(g, n(b, #3:Fresh)) ; b))), 
+   +(sign(sk(b), H(#2:Exp ; cp2(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, #2:Exp) ;
+    exp(g, n(b, #3:Fresh)) ; b))), 
+   -(ok), nil] )
+| 
+ok !inI,
+#2:Exp !inI,
+#0:Exp !inI,
+(#2:Exp ; cp2(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, #2:Exp)) !inI,
+(exp(g, n(a, #1:Fresh)) ; a) !inI,
+(exp(g, n(b, #3:Fresh)) ; b) !inI,
+(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp) !inI,
+(cp1(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, #2:Exp) ; exp(g, n(b, #3:Fresh)) ; b)
+    !inI,
+(#0:Exp ; cp1(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, #2:Exp) ; exp(g, n(b,
+    #3:Fresh)) ; b) !inI,
+sign(sk(a), H(#2:Exp ; cp2(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, #2:Exp) ; exp(
+    g, n(b, #3:Fresh)) ; b)) !inI,
+sign(sk(b), H(#2:Exp ; cp2(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, #2:Exp) ; exp(
+    g, n(b, #3:Fresh)) ; b)) !inI,
+cp1(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, #2:Exp) !inI,
+cp2(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, #2:Exp) !inI
+| 
++(exp(g, n(a, #1:Fresh)) ; a), 
+generatedByIntruder(#0:Exp), 
+-(exp(g, n(a, #1:Fresh)) ; a), 
+-(#0:Exp), 
++(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp), 
+generatedByIntruder(#2:Exp), 
+-(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp), 
+-(#2:Exp), 
++(cp2(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, #2:Exp)), 
+-(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp), 
+-(#2:Exp), 
++(cp1(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, #2:Exp)), 
+-(#2:Exp), 
+-(cp2(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, #2:Exp)), 
++(#2:Exp ; cp2(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, #2:Exp)), 
+-(#2:Exp ; cp2(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, #2:Exp)), 
++(exp(g, n(b, #3:Fresh)) ; b), 
+-(cp1(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, #2:Exp)), 
+-(exp(g, n(b, #3:Fresh)) ; b), 
++(cp1(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, #2:Exp) ; exp(g, n(b, #3:Fresh)) ;
+    b), 
+-(#0:Exp), 
+-(cp1(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, #2:Exp) ; exp(g, n(b, #3:Fresh)) ;
+    b), 
++(#0:Exp ; cp1(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, #2:Exp) ; exp(g, n(b,
+    #3:Fresh)) ; b), 
+-(#0:Exp ; cp1(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, #2:Exp) ; exp(g, n(b,
+    #3:Fresh)) ; b), 
++(sign(sk(a), H(#2:Exp ; cp2(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, #2:Exp) ;
+    exp(g, n(b, #3:Fresh)) ; b))), 
+-(sign(sk(a), H(#2:Exp ; cp2(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, #2:Exp) ;
+    exp(g, n(b, #3:Fresh)) ; b))), 
++(sign(sk(b), H(#2:Exp ; cp2(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, #2:Exp) ;
+    exp(g, n(b, #3:Fresh)) ; b))), 
+-(sign(sk(b), H(#2:Exp ; cp2(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, #2:Exp) ;
+    exp(g, n(b, #3:Fresh)) ; b))), 
++(ok), 
+-(ok)
+| 
+nil
+==========================================
+reduce in MAUDE-NPA : summary(4, 12) .
