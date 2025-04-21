@@ -1,0 +1,182 @@
+***(
+Meadows_v2 process specification
+)***
+fmod PROTOCOL-EXAMPLE-SYMBOLS is
+  --- Importing sorts Msg, Fresh, Public, and GhostData
+  protecting DEFINITION-PROTOCOL-RULES .
+  
+  ----------------------------------------------------------
+  --- Overwrite this module with the syntax of your protocol
+  --- Notes:
+  --- * Sort Msg and Fresh are special and imported
+  --- * Every sort must be a subsort of Msg
+  --- * No sort can be a supersort of Msg
+  ----------------------------------------------------------
+
+  --- Sort Information 
+  sorts Name Nonce Honest Intruder Key Mac Hash MsgGroup T1 T2 T3 T4 .
+  subsort Mac MsgGroup < Msg .
+  subsort Key Hash T3 Nonce Name T4 < MsgGroup . 
+  subsort T1 < Hash .
+  subsort Name < Key .
+  subsort Name < Public .
+  subsort Honest Intruder < Name .
+  subsort T2 < T1 .
+
+  --- Operator Meadows ---
+  op mac : Key MsgGroup -> Mac .
+  op key : Name Name -> Key [comm] . --- Symetric key
+  op ok : -> Msg .
+
+    --- Nonce operator
+  op n : Name Fresh -> Nonce [frozen] .
+
+  --- The intruder cannot deconcatenate messages in this protocol
+  op _;_ : MsgGroup  MsgGroup  -> T4 [frozen gather (e E)] . ---assoc
+
+  --- Principals
+  ops a b : -> Honest .
+  op i : -> Intruder .
+  
+
+  --- Exclusive or (DY strand not included to reduce search space) 
+  op _*_ : MsgGroup MsgGroup -> MsgGroup [comm frozen prec 11 gather (e E)]  .  ---assco
+  op null : -> MsgGroup .
+  --- HASH FUNCTION
+  op H : T3 -> T1 [frozen] . 
+  op H : T4 -> T2 [frozen] . 
+  op pi2 : T4 -> T3 [frozen] .
+  op inLeak : T2 -> T4  [frozen] .
+  
+endfm
+
+fmod PROTOCOL-EXAMPLE-ALGEBRAIC is
+  protecting PROTOCOL-EXAMPLE-SYMBOLS .
+  
+  ----------------------------------------------------------
+  --- Overwrite this module with the algebraic properties 
+  --- of your protocol
+  ----------------------------------------------------------
+
+  *** Exclusive or properties
+  vars XN YN : MsgGroup .
+  eq XN * XN = null    [variant] .
+  eq XN * XN * YN = YN [variant] .
+  eq XN * null = XN    [variant] .
+
+*** Hash function algebraic properties ***
+  vars H : Hash .
+  vars X : MsgGroup .
+  var Y : T4 .
+
+ eq H(pi2(Y)) = H(Y) [variant] . --- sndPreImg
+ eq inLeak(H(Y)) = Y [variant] .
+
+endfm
+
+fmod PROTOCOL-SPECIFICATION is
+  protecting PROTOCOL-EXAMPLE-SYMBOLS .
+  protecting DEFINITION-PROTOCOL-RULES .
+  protecting DEFINITION-CONSTRAINTS-INPUT .
+
+  ----------------------------------------------------------
+  --- Overwrite this module with the strands 
+  --- of your protocol
+  ----------------------------------------------------------
+
+  var Ke : Key .
+  vars X Y : MsgGroup .
+  vars r rA rB : Fresh .
+  vars AB : Honest .
+  vars A B : Name .
+  var I : Intruder .
+  vars N NA NB : Nonce .
+  vars HA : T2 . 
+  var T : T4 .
+  var T' : T3 .
+
+  eq STRANDS-DOLEVYAO =
+     :: nil :: [ nil | +(null), nil ] & 
+     :: nil :: [ nil | +(key(i,AB)), nil ] &
+     :: nil :: [ nil | -(X), 
+                       -(Y), 
+                       +(X ; Y), nil ] &
+     :: nil :: [ nil | -(Ke),
+                       -(X), 
+                       +(mac(Ke,X)), nil ] &
+     ------------------------- HASH PROPERTIES ------------------------------
+     :: nil :: [ nil | -(T), +(pi2(T)), nil ] &
+     :: nil :: [ nil | -(HA), +(inLeak(HA)), nil ] &
+     :: nil :: [ nil | -(T), +(H(T)), nil ] &
+     :: nil :: [ nil | -(T'), +(H(T')), nil ] &
+     ------------------------------------------------------------------------
+     :: nil :: [ nil | -(X), -(Y), +(X * Y),  nil ]    
+  [nonexec] .
+
+eq STRANDS-PROTOCOL =
+--- Alice (Prover)
+:: rA ::
+[ nil |
+  -(NB),
+  +(NB * H(A ; n(A,rA))),
+  +(mac(key(A,B), A ; n(A,rA) ; NB)),
+  -(ok),
+  nil]
+&
+ --- Bob (Verifier)
+ :: rB ::
+ [ nil |
+    +(n(B, rB)),
+    -(n(B, rB) * HA),
+    -(mac(key(A,B), A ; NA ; n(B, rB))),
+    (n(B, rB) * HA)
+    eq
+    (n(B, rB) * H(A ; NA)),
+    +(ok),
+    nil]
+    [nonexec] .
+
+
+  eq ATTACK-STATE(10) 
+    =
+  --- Alice's Strand (Prover)
+ :: rA ::
+      [ nil,
+        -(n(b, rB)),
+        +(n(b, rB) * H(a ; n(a,rA))),
+        +(mac(key(a,b), a ; n(a,rA) ; n(b, rB))),
+        -(ok) |
+        nil]
+      &
+      --- Bob's Strand (Verifier)
+      :: rB ::
+      [ nil,
+          +(n(b, rB)),
+          -(n(b, rB) * H(T')),
+          -(mac(key(a,b), a ; n(a,rA) ; n(b, rB))),
+          (n(b, rB) * H(T'))
+          eq
+          (n(b, rB) * H(a ; n(a,rA))),
+          +(ok) |
+          nil] &
+      :: nil ::
+      [nil,
+        -(H(a ; n(a,rA))),
+        +(inLeak(H(a ; n(a,rA)))) | nil] &
+      :: nil ::
+      [nil,
+        -(inLeak(H(a ; n(a,rA)))),
+        +(pi2(inLeak(H(a ; n(a,rA))))) | nil] &
+      :: nil ::
+      [nil, 
+        -(pi2(inLeak(H(a ; n(a,rA))))),
+        +(H(pi2(inLeak(H(a ; n(a,rA)))))) | nil] 
+        || pi2(inLeak(H(a ; n(a,rA)))) != (a ; n(a,rA))
+        || nil
+        || nil
+        || nil
+    [nonexec] .
+  
+endfm
+
+select MAUDE-NPA .
