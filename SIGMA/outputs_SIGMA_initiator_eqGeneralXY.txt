@@ -1,0 +1,2152 @@
+nohup: ignoring input
+./prueba_SIGMA: 1: datedate: not found
+		     \||||||||||||||||||/
+		   --- Welcome to Maude ---
+		     /||||||||||||||||||\
+	     Maude 3.5 built: Sep 25 2024 12:00:00
+	     Copyright 1997-2024 SRI International
+		   Wed Apr 23 13:22:52 2025
+Advisory: "maude-npa.maude", line 14352 (fmod BACK-NARROWING): all the
+    variables in the left-hand side of assignment condition fragment M:Msg :=
+    downMsgSet(getTerm(metaReduce(removeVariantLabel(clearNonExecEqs(eraseRls(
+    onlyEqsNoBuiltInUnify(flipRls(STRAND-EXAMPLE-RULES))))), upTerm(M':Msg))))
+    are bound before the matching takes place.
+Advisory: "maude-npa.maude", line 14376 (fmod BACK-NARROWING): all the
+    variables in the left-hand side of assignment condition fragment M:Msg :=
+    downMsgSet(getTerm(metaReduce(removeVariantLabel(clearNonExecEqs(eraseRls(
+    onlyEqsNoBuiltInUnify(flipRls(STRAND-EXAMPLE-RULES))))), upTerm(M':Msg))))
+    are bound before the matching takes place.
+Advisory: "maude-npa.maude", line 14392 (fmod BACK-NARROWING): all the
+    variables in the left-hand side of assignment condition fragment M:Msg :=
+    downMsgSet(getTerm(metaReduce(removeVariantLabel(clearNonExecEqs(eraseRls(
+    onlyEqsNoBuiltInUnify(flipRls(STRAND-EXAMPLE-RULES))))), upTerm(M:Msg))))
+    are bound before the matching takes place.
+
+	    Maude-NPA Version: 3.1.4 (June 2nd 2020)
+	    with direct composition, irreducibility constraints and time
+	    (To be run with Maude 3.0 or above)
+	    Copyright (c) 2020, University of Illinois
+	    All rights reserved.
+
+ Commands:
+ red unification? .           returns the unification algorithm to be used
+ red new-strands? .           returns the actual protocol strands
+ red displayGrammars .        for generating grammars
+ red run(X,Y).                for Y backwards analysis steps for attack pattern
+    X
+ red debug(X,Y).              more information than run command
+ red digest(X,Y).             less information than run command
+ red summary(X,Y).            for summary of analysis steps
+ red ids(X,Y).                for set of state ids
+ red initials(X,Y).           for showing only initial steps
+==========================================
+reduce in MAUDE-NPA : displayGrammars .
+rewrites: 3840973 in 4388ms cpu (4387ms real) (875335 rewrites/second)
+result GrammarList: (
+grl #0:Msg inL => sign(sk(#1:Name), #0:Msg) inL .  ; 
+grl #0:Msg notInI,
+   (#0:Msg notLeq #1:Msg ; cp2(#2:Msg, #1:Msg)),
+   (#0:Msg notLeq #3:Exp ; #4:MsgElem ; exp(g, n(#5:Name, #6:Fresh)) ;
+    #5:Name),
+   #0:Msg notLeq exp(g, n(#7:Name, #8:Fresh)) ; #7:Name ; #9:Exp ; #10:MsgElem
+    => H(#0:Msg) inL . )
+| (
+grl #0:Msg inL => sign(sk(#1:Name), #0:Msg) inL .  ; 
+grl #0:Msg notInI,
+   #0:Msg notLeq exp(g, n(#1:Name, #2:Fresh)) => (#0:Msg ; #3:Msg) inL . )
+| (
+grl #0:Msg inL => sign(sk(#1:Name), #0:Msg) inL .  ; 
+grl #0:Msg notInI => (#1:Msg ; #0:Msg) inL . )
+| (
+grl #0:Msg inL => sign(sk(#1:Name), #0:Msg) inL .  ; 
+grl ((#0:Msg ; #1:Msg) notLeq #2:Msg ; #3:MsgElem),
+   ((#0:Msg ; #1:Msg) notLeq #4:MsgElem ; #5:Msg),
+   ((#0:Msg ; #1:Msg) notLeq #6:Msg ; #7:Msg ; #8:MsgElem ; #9:Msg),
+   (#0:Msg ; #1:Msg) notLeq #10:Msg ; #11:MsgElem ; #12:Msg ; #13:Msg => (
+    #0:Msg ; #1:Msg) inL . )
+| (
+grl #0:Msg inL => (#1:Msg ; #0:Msg) inL .  ; 
+grl #0:Msg inL => (#0:Msg ; #1:Msg) inL .  ; 
+grl #0:Msg inL => sign(sk(#1:Name), #0:Msg) inL .  ; 
+grl #0:Msg notInI => cp1(#0:Msg, #1:Msg) inL . )
+| (
+grl #0:Msg inL => (#1:Msg ; #0:Msg) inL .  ; 
+grl #0:Msg inL => (#0:Msg ; #1:Msg) inL .  ; 
+grl #0:Msg inL => sign(sk(#1:Name), #0:Msg) inL .  ; 
+grl #0:Msg notInI => cp1(#1:Msg, #0:Msg) inL . )
+| (
+grl #0:Msg inL => (#1:Msg ; #0:Msg) inL .  ; 
+grl #0:Msg inL => (#0:Msg ; #1:Msg) inL .  ; 
+grl #0:Msg inL => sign(sk(#1:Name), #0:Msg) inL .  ; 
+grl #0:Msg notInI => cp2(#0:Msg, #1:Msg) inL . )
+| (
+grl #0:Msg inL => (#1:Msg ; #0:Msg) inL .  ; 
+grl #0:Msg inL => (#0:Msg ; #1:Msg) inL .  ; 
+grl #0:Msg inL => sign(sk(#1:Name), #0:Msg) inL .  ; 
+grl #0:Msg notInI => cp2(#1:Msg, #0:Msg) inL . )
+| (
+grl #0:Msg inL => (#1:Msg ; #0:Msg) inL .  ; 
+grl #0:Msg inL => (#0:Msg ; #1:Msg) inL .  ; 
+grl #0:Msg inL => sign(sk(#1:Name), #0:Msg) inL .  ; 
+grl #0:Exp inL => exp(#0:Exp, #1:NeNonceSet) inL .  ; 
+grl #0:GenvExp notInI => exp(#0:GenvExp, #1:NeNonceSet) inL . )
+| (
+grl #0:Msg inL => sign(sk(#1:Name), #0:Msg) inL .  ; 
+grl n(#0:Name, #1:Fresh) notLeq n(i, #2:Fresh) => n(#0:Name, #1:Fresh) inL . )
+| (
+grl #0:Msg inL => sign(sk(#1:Name), #0:Msg) inL .  ; 
+grl #0:Key notInI,
+   #0:Key notLeq sk(#1:Name) => sign(#0:Key, #2:Msg) inL . )
+| (
+grl #0:Msg inL => sign(sk(#1:Name), #0:Msg) inL .  ; 
+grl #0:Msg notInI,
+   (#0:Msg notLeq H(#1:Msg ; cp2(exp(g, n(#2:Name, #3:Fresh)) ; #2:Name ;
+    #4:Exp, #1:Msg))),
+   (#0:Msg notLeq H(#5:Exp ; #6:MsgElem ; exp(g, n(#7:Name, #8:Fresh)) ;
+    #7:Name)),
+   #0:Msg notLeq H(exp(g, n(#9:Name, #10:Fresh)) ; #9:Name ; #11:Exp ;
+    #12:MsgElem) => sign(#13:Key, #0:Msg) inL . )
+| 
+grl #0:Msg inL => sign(sk(#1:Name), #0:Msg) inL .  ; 
+grl (sign(#0:Key, #1:Msg) notLeq sign(sk(i), #2:Msg)),
+   (sign(#0:Key, #1:Msg) notLeq sign(sk(#3:Name), H(#4:Msg ; cp2(exp(g, n(
+    #3:Name, #5:Fresh)) ; #3:Name ; #6:Exp, #4:Msg)))),
+   (sign(#0:Key, #1:Msg) notLeq sign(sk(#7:Name), H(#8:Exp ; #9:MsgElem ; exp(
+    g, n(#7:Name, #10:Fresh)) ; #7:Name))),
+   sign(#0:Key, #1:Msg) notLeq sign(sk(#11:Name), H(exp(g, n(#11:Name,
+    #12:Fresh)) ; #11:Name ; #13:Exp ; #14:MsgElem)) => sign(#0:Key, #1:Msg)
+    inL . 
+==========================================
+reduce in MAUDE-NPA : summary(6, 0) .
+rewrites: 7549 in 73ms cpu (72ms real) (103410 rewrites/second)
+result Summary: States>> 1 Solutions>> 0
+==========================================
+reduce in MAUDE-NPA : initials(6, 0) .
+rewrites: 92 in 0ms cpu (0ms real) (~ rewrites/second)
+result IdSystemSet: (empty).IdSystemSet
+==========================================
+reduce in MAUDE-NPA : summary(6, 1) .
+rewrites: 497338 in 507ms cpu (506ms real) (980942 rewrites/second)
+result Summary: States>> 2 Solutions>> 0
+==========================================
+reduce in MAUDE-NPA : initials(6, 1) .
+rewrites: 133 in 1ms cpu (0ms real) (133000 rewrites/second)
+result IdSystemSet: (empty).IdSystemSet
+==========================================
+reduce in MAUDE-NPA : summary(6, 2) .
+rewrites: 2220000 in 1538ms cpu (1538ms real) (1443433 rewrites/second)
+result Summary: States>> 5 Solutions>> 0
+==========================================
+reduce in MAUDE-NPA : initials(6, 2) .
+rewrites: 218 in 1ms cpu (0ms real) (218000 rewrites/second)
+result IdSystemSet: (empty).IdSystemSet
+==========================================
+reduce in MAUDE-NPA : summary(6, 3) .
+rewrites: 7127023 in 3697ms cpu (3697ms real) (1927785 rewrites/second)
+result Summary: States>> 9 Solutions>> 0
+==========================================
+reduce in MAUDE-NPA : initials(6, 3) .
+rewrites: 363 in 0ms cpu (0ms real) (~ rewrites/second)
+result IdSystemSet: (empty).IdSystemSet
+==========================================
+reduce in MAUDE-NPA : summary(6, 4) .
+rewrites: 23169056 in 10012ms cpu (10012ms real) (2314128 rewrites/second)
+result Summary: States>> 13 Solutions>> 0
+==========================================
+reduce in MAUDE-NPA : initials(6, 4) .
+rewrites: 583 in 0ms cpu (0ms real) (~ rewrites/second)
+result IdSystemSet: (empty).IdSystemSet
+==========================================
+reduce in MAUDE-NPA : summary(6, 5) .
+rewrites: 49266621 in 19930ms cpu (19930ms real) (2471982 rewrites/second)
+result Summary: States>> 21 Solutions>> 0
+==========================================
+reduce in MAUDE-NPA : initials(6, 5) .
+rewrites: 961 in 1ms cpu (0ms real) (961000 rewrites/second)
+result IdSystemSet: (empty).IdSystemSet
+==========================================
+reduce in MAUDE-NPA : summary(6, 6) .
+rewrites: 103205606 in 40079ms cpu (40079ms real) (2575054 rewrites/second)
+result Summary: States>> 23 Solutions>> 1
+==========================================
+reduce in MAUDE-NPA : initials(6, 6) .
+rewrites: 1357 in 0ms cpu (0ms real) (~ rewrites/second)
+result ShortIdSystem: < 1 . 1 . 3 . 2 . 2 . 2 . 1 > (
+:: #1:Fresh ::
+[ nil | 
+   -(exp(g, n(a, #0:Fresh)) ; a), 
+   +(exp(g, n(b, #1:Fresh)) ; b), 
+   -(sign(sk(a), H(exp(g, n(a, #0:Fresh)) ; a ; exp(g, n(b, #1:Fresh)) ; b))), 
+   H(exp(g, n(a, #0:Fresh)) ; a ; exp(g, n(b, #1:Fresh)) ; b) eq H(exp(g, n(a,
+    #0:Fresh)) ; a ; exp(g, n(b, #1:Fresh)) ; b), 
+   +(sign(sk(b), H(exp(g, n(a, #0:Fresh)) ; a ; exp(g, n(b, #1:Fresh)) ; b))),
+    nil]  & 
+:: #0:Fresh ::
+[ nil | 
+   +(exp(g, n(a, #0:Fresh)) ; a), 
+   -(exp(g, n(b, #1:Fresh)) ; b), 
+   +(sign(sk(a), H(exp(g, n(a, #0:Fresh)) ; a ; exp(g, n(b, #1:Fresh)) ; b))), 
+   -(sign(sk(b), H(exp(g, n(a, #0:Fresh)) ; a ; exp(g, n(b, #1:Fresh)) ; b))), 
+   +(ok), nil] )
+| 
+(exp(g, n(a, #0:Fresh)) ; a) !inI,
+(exp(g, n(b, #1:Fresh)) ; b) !inI,
+sign(sk(a), H(exp(g, n(a, #0:Fresh)) ; a ; exp(g, n(b, #1:Fresh)) ; b)) !inI,
+sign(sk(b), H(exp(g, n(a, #0:Fresh)) ; a ; exp(g, n(b, #1:Fresh)) ; b)) !inI
+| 
++(exp(g, n(a, #0:Fresh)) ; a), 
+-(exp(g, n(a, #0:Fresh)) ; a), 
++(exp(g, n(b, #1:Fresh)) ; b), 
+-(exp(g, n(b, #1:Fresh)) ; b), 
++(sign(sk(a), H(exp(g, n(a, #0:Fresh)) ; a ; exp(g, n(b, #1:Fresh)) ; b))), 
+-(sign(sk(a), H(exp(g, n(a, #0:Fresh)) ; a ; exp(g, n(b, #1:Fresh)) ; b))), 
++(sign(sk(b), H(exp(g, n(a, #0:Fresh)) ; a ; exp(g, n(b, #1:Fresh)) ; b))), 
+-(sign(sk(b), H(exp(g, n(a, #0:Fresh)) ; a ; exp(g, n(b, #1:Fresh)) ; b))), 
++(ok)
+| 
+nil
+==========================================
+reduce in MAUDE-NPA : summary(6, 7) .
+rewrites: 144348972 in 55197ms cpu (55197ms real) (2615159 rewrites/second)
+result Summary: States>> 27 Solutions>> 1
+==========================================
+reduce in MAUDE-NPA : initials(6, 7) .
+rewrites: 1861 in 1ms cpu (1ms real) (1861000 rewrites/second)
+result ShortIdSystem: < 1 . 1 . 3 . 2 . 2 . 2 . 1 > (
+:: #1:Fresh ::
+[ nil | 
+   -(exp(g, n(a, #0:Fresh)) ; a), 
+   +(exp(g, n(b, #1:Fresh)) ; b), 
+   -(sign(sk(a), H(exp(g, n(a, #0:Fresh)) ; a ; exp(g, n(b, #1:Fresh)) ; b))), 
+   H(exp(g, n(a, #0:Fresh)) ; a ; exp(g, n(b, #1:Fresh)) ; b) eq H(exp(g, n(a,
+    #0:Fresh)) ; a ; exp(g, n(b, #1:Fresh)) ; b), 
+   +(sign(sk(b), H(exp(g, n(a, #0:Fresh)) ; a ; exp(g, n(b, #1:Fresh)) ; b))),
+    nil]  & 
+:: #0:Fresh ::
+[ nil | 
+   +(exp(g, n(a, #0:Fresh)) ; a), 
+   -(exp(g, n(b, #1:Fresh)) ; b), 
+   +(sign(sk(a), H(exp(g, n(a, #0:Fresh)) ; a ; exp(g, n(b, #1:Fresh)) ; b))), 
+   -(sign(sk(b), H(exp(g, n(a, #0:Fresh)) ; a ; exp(g, n(b, #1:Fresh)) ; b))), 
+   +(ok), nil] )
+| 
+(exp(g, n(a, #0:Fresh)) ; a) !inI,
+(exp(g, n(b, #1:Fresh)) ; b) !inI,
+sign(sk(a), H(exp(g, n(a, #0:Fresh)) ; a ; exp(g, n(b, #1:Fresh)) ; b)) !inI,
+sign(sk(b), H(exp(g, n(a, #0:Fresh)) ; a ; exp(g, n(b, #1:Fresh)) ; b)) !inI
+| 
++(exp(g, n(a, #0:Fresh)) ; a), 
+-(exp(g, n(a, #0:Fresh)) ; a), 
++(exp(g, n(b, #1:Fresh)) ; b), 
+-(exp(g, n(b, #1:Fresh)) ; b), 
++(sign(sk(a), H(exp(g, n(a, #0:Fresh)) ; a ; exp(g, n(b, #1:Fresh)) ; b))), 
+-(sign(sk(a), H(exp(g, n(a, #0:Fresh)) ; a ; exp(g, n(b, #1:Fresh)) ; b))), 
++(sign(sk(b), H(exp(g, n(a, #0:Fresh)) ; a ; exp(g, n(b, #1:Fresh)) ; b))), 
+-(sign(sk(b), H(exp(g, n(a, #0:Fresh)) ; a ; exp(g, n(b, #1:Fresh)) ; b))), 
++(ok)
+| 
+nil
+==========================================
+reduce in MAUDE-NPA : summary(6, 8) .
+rewrites: 306532204 in 104442ms cpu (104441ms real) (2934951 rewrites/second)
+result Summary: States>> 40 Solutions>> 1
+==========================================
+reduce in MAUDE-NPA : initials(6, 8) .
+rewrites: 2700 in 1ms cpu (1ms real) (2700000 rewrites/second)
+result ShortIdSystem: < 1 . 1 . 3 . 2 . 2 . 2 . 1 > (
+:: #1:Fresh ::
+[ nil | 
+   -(exp(g, n(a, #0:Fresh)) ; a), 
+   +(exp(g, n(b, #1:Fresh)) ; b), 
+   -(sign(sk(a), H(exp(g, n(a, #0:Fresh)) ; a ; exp(g, n(b, #1:Fresh)) ; b))), 
+   H(exp(g, n(a, #0:Fresh)) ; a ; exp(g, n(b, #1:Fresh)) ; b) eq H(exp(g, n(a,
+    #0:Fresh)) ; a ; exp(g, n(b, #1:Fresh)) ; b), 
+   +(sign(sk(b), H(exp(g, n(a, #0:Fresh)) ; a ; exp(g, n(b, #1:Fresh)) ; b))),
+    nil]  & 
+:: #0:Fresh ::
+[ nil | 
+   +(exp(g, n(a, #0:Fresh)) ; a), 
+   -(exp(g, n(b, #1:Fresh)) ; b), 
+   +(sign(sk(a), H(exp(g, n(a, #0:Fresh)) ; a ; exp(g, n(b, #1:Fresh)) ; b))), 
+   -(sign(sk(b), H(exp(g, n(a, #0:Fresh)) ; a ; exp(g, n(b, #1:Fresh)) ; b))), 
+   +(ok), nil] )
+| 
+(exp(g, n(a, #0:Fresh)) ; a) !inI,
+(exp(g, n(b, #1:Fresh)) ; b) !inI,
+sign(sk(a), H(exp(g, n(a, #0:Fresh)) ; a ; exp(g, n(b, #1:Fresh)) ; b)) !inI,
+sign(sk(b), H(exp(g, n(a, #0:Fresh)) ; a ; exp(g, n(b, #1:Fresh)) ; b)) !inI
+| 
++(exp(g, n(a, #0:Fresh)) ; a), 
+-(exp(g, n(a, #0:Fresh)) ; a), 
++(exp(g, n(b, #1:Fresh)) ; b), 
+-(exp(g, n(b, #1:Fresh)) ; b), 
++(sign(sk(a), H(exp(g, n(a, #0:Fresh)) ; a ; exp(g, n(b, #1:Fresh)) ; b))), 
+-(sign(sk(a), H(exp(g, n(a, #0:Fresh)) ; a ; exp(g, n(b, #1:Fresh)) ; b))), 
++(sign(sk(b), H(exp(g, n(a, #0:Fresh)) ; a ; exp(g, n(b, #1:Fresh)) ; b))), 
+-(sign(sk(b), H(exp(g, n(a, #0:Fresh)) ; a ; exp(g, n(b, #1:Fresh)) ; b))), 
++(ok)
+| 
+nil
+==========================================
+reduce in MAUDE-NPA : summary(6, 9) .
+rewrites: 590605698 in 202300ms cpu (202299ms real) (2919454 rewrites/second)
+result Summary: States>> 46 Solutions>> 1
+==========================================
+reduce in MAUDE-NPA : initials(6, 9) .
+rewrites: 3668 in 2ms cpu (1ms real) (1834000 rewrites/second)
+result ShortIdSystem: < 1 . 1 . 3 . 2 . 2 . 2 . 1 > (
+:: #1:Fresh ::
+[ nil | 
+   -(exp(g, n(a, #0:Fresh)) ; a), 
+   +(exp(g, n(b, #1:Fresh)) ; b), 
+   -(sign(sk(a), H(exp(g, n(a, #0:Fresh)) ; a ; exp(g, n(b, #1:Fresh)) ; b))), 
+   H(exp(g, n(a, #0:Fresh)) ; a ; exp(g, n(b, #1:Fresh)) ; b) eq H(exp(g, n(a,
+    #0:Fresh)) ; a ; exp(g, n(b, #1:Fresh)) ; b), 
+   +(sign(sk(b), H(exp(g, n(a, #0:Fresh)) ; a ; exp(g, n(b, #1:Fresh)) ; b))),
+    nil]  & 
+:: #0:Fresh ::
+[ nil | 
+   +(exp(g, n(a, #0:Fresh)) ; a), 
+   -(exp(g, n(b, #1:Fresh)) ; b), 
+   +(sign(sk(a), H(exp(g, n(a, #0:Fresh)) ; a ; exp(g, n(b, #1:Fresh)) ; b))), 
+   -(sign(sk(b), H(exp(g, n(a, #0:Fresh)) ; a ; exp(g, n(b, #1:Fresh)) ; b))), 
+   +(ok), nil] )
+| 
+(exp(g, n(a, #0:Fresh)) ; a) !inI,
+(exp(g, n(b, #1:Fresh)) ; b) !inI,
+sign(sk(a), H(exp(g, n(a, #0:Fresh)) ; a ; exp(g, n(b, #1:Fresh)) ; b)) !inI,
+sign(sk(b), H(exp(g, n(a, #0:Fresh)) ; a ; exp(g, n(b, #1:Fresh)) ; b)) !inI
+| 
++(exp(g, n(a, #0:Fresh)) ; a), 
+-(exp(g, n(a, #0:Fresh)) ; a), 
++(exp(g, n(b, #1:Fresh)) ; b), 
+-(exp(g, n(b, #1:Fresh)) ; b), 
++(sign(sk(a), H(exp(g, n(a, #0:Fresh)) ; a ; exp(g, n(b, #1:Fresh)) ; b))), 
+-(sign(sk(a), H(exp(g, n(a, #0:Fresh)) ; a ; exp(g, n(b, #1:Fresh)) ; b))), 
++(sign(sk(b), H(exp(g, n(a, #0:Fresh)) ; a ; exp(g, n(b, #1:Fresh)) ; b))), 
+-(sign(sk(b), H(exp(g, n(a, #0:Fresh)) ; a ; exp(g, n(b, #1:Fresh)) ; b))), 
++(ok)
+| 
+nil
+==========================================
+reduce in MAUDE-NPA : summary(6, 10) .
+rewrites: 686873572 in 242187ms cpu (242187ms real) (2836128 rewrites/second)
+result Summary: States>> 38 Solutions>> 1
+==========================================
+reduce in MAUDE-NPA : initials(6, 10) .
+rewrites: 4355 in 2ms cpu (2ms real) (2177500 rewrites/second)
+result ShortIdSystem: < 1 . 1 . 3 . 2 . 2 . 2 . 1 > (
+:: #1:Fresh ::
+[ nil | 
+   -(exp(g, n(a, #0:Fresh)) ; a), 
+   +(exp(g, n(b, #1:Fresh)) ; b), 
+   -(sign(sk(a), H(exp(g, n(a, #0:Fresh)) ; a ; exp(g, n(b, #1:Fresh)) ; b))), 
+   H(exp(g, n(a, #0:Fresh)) ; a ; exp(g, n(b, #1:Fresh)) ; b) eq H(exp(g, n(a,
+    #0:Fresh)) ; a ; exp(g, n(b, #1:Fresh)) ; b), 
+   +(sign(sk(b), H(exp(g, n(a, #0:Fresh)) ; a ; exp(g, n(b, #1:Fresh)) ; b))),
+    nil]  & 
+:: #0:Fresh ::
+[ nil | 
+   +(exp(g, n(a, #0:Fresh)) ; a), 
+   -(exp(g, n(b, #1:Fresh)) ; b), 
+   +(sign(sk(a), H(exp(g, n(a, #0:Fresh)) ; a ; exp(g, n(b, #1:Fresh)) ; b))), 
+   -(sign(sk(b), H(exp(g, n(a, #0:Fresh)) ; a ; exp(g, n(b, #1:Fresh)) ; b))), 
+   +(ok), nil] )
+| 
+(exp(g, n(a, #0:Fresh)) ; a) !inI,
+(exp(g, n(b, #1:Fresh)) ; b) !inI,
+sign(sk(a), H(exp(g, n(a, #0:Fresh)) ; a ; exp(g, n(b, #1:Fresh)) ; b)) !inI,
+sign(sk(b), H(exp(g, n(a, #0:Fresh)) ; a ; exp(g, n(b, #1:Fresh)) ; b)) !inI
+| 
++(exp(g, n(a, #0:Fresh)) ; a), 
+-(exp(g, n(a, #0:Fresh)) ; a), 
++(exp(g, n(b, #1:Fresh)) ; b), 
+-(exp(g, n(b, #1:Fresh)) ; b), 
++(sign(sk(a), H(exp(g, n(a, #0:Fresh)) ; a ; exp(g, n(b, #1:Fresh)) ; b))), 
+-(sign(sk(a), H(exp(g, n(a, #0:Fresh)) ; a ; exp(g, n(b, #1:Fresh)) ; b))), 
++(sign(sk(b), H(exp(g, n(a, #0:Fresh)) ; a ; exp(g, n(b, #1:Fresh)) ; b))), 
+-(sign(sk(b), H(exp(g, n(a, #0:Fresh)) ; a ; exp(g, n(b, #1:Fresh)) ; b))), 
++(ok)
+| 
+nil
+==========================================
+reduce in MAUDE-NPA : summary(6, 11) .
+rewrites: 1047805657 in 400939ms cpu (400939ms real) (2613379 rewrites/second)
+result Summary: States>> 33 Solutions>> 3
+==========================================
+reduce in MAUDE-NPA : initials(6, 11) .
+rewrites: 5039 in 3ms cpu (2ms real) (1679666 rewrites/second)
+result IdSystemSet: (< 1 . 1 . 3 . 2 . 2 . 2 . 1 > (
+:: #1:Fresh ::
+[ nil | 
+   -(exp(g, n(a, #0:Fresh)) ; a), 
+   +(exp(g, n(b, #1:Fresh)) ; b), 
+   -(sign(sk(a), H(exp(g, n(a, #0:Fresh)) ; a ; exp(g, n(b, #1:Fresh)) ; b))), 
+   H(exp(g, n(a, #0:Fresh)) ; a ; exp(g, n(b, #1:Fresh)) ; b) eq H(exp(g, n(a,
+    #0:Fresh)) ; a ; exp(g, n(b, #1:Fresh)) ; b), 
+   +(sign(sk(b), H(exp(g, n(a, #0:Fresh)) ; a ; exp(g, n(b, #1:Fresh)) ; b))),
+    nil]  & 
+:: #0:Fresh ::
+[ nil | 
+   +(exp(g, n(a, #0:Fresh)) ; a), 
+   -(exp(g, n(b, #1:Fresh)) ; b), 
+   +(sign(sk(a), H(exp(g, n(a, #0:Fresh)) ; a ; exp(g, n(b, #1:Fresh)) ; b))), 
+   -(sign(sk(b), H(exp(g, n(a, #0:Fresh)) ; a ; exp(g, n(b, #1:Fresh)) ; b))), 
+   +(ok), nil] )
+| 
+(exp(g, n(a, #0:Fresh)) ; a) !inI,
+(exp(g, n(b, #1:Fresh)) ; b) !inI,
+sign(sk(a), H(exp(g, n(a, #0:Fresh)) ; a ; exp(g, n(b, #1:Fresh)) ; b)) !inI,
+sign(sk(b), H(exp(g, n(a, #0:Fresh)) ; a ; exp(g, n(b, #1:Fresh)) ; b)) !inI
+| 
++(exp(g, n(a, #0:Fresh)) ; a), 
+-(exp(g, n(a, #0:Fresh)) ; a), 
++(exp(g, n(b, #1:Fresh)) ; b), 
+-(exp(g, n(b, #1:Fresh)) ; b), 
++(sign(sk(a), H(exp(g, n(a, #0:Fresh)) ; a ; exp(g, n(b, #1:Fresh)) ; b))), 
+-(sign(sk(a), H(exp(g, n(a, #0:Fresh)) ; a ; exp(g, n(b, #1:Fresh)) ; b))), 
++(sign(sk(b), H(exp(g, n(a, #0:Fresh)) ; a ; exp(g, n(b, #1:Fresh)) ; b))), 
+-(sign(sk(b), H(exp(g, n(a, #0:Fresh)) ; a ; exp(g, n(b, #1:Fresh)) ; b))), 
++(ok)
+| 
+nil)
+(< 1 . 1 . 4 . 1 . 5 . 8 . 11 . 15 . 7 . 1 . 4 . 1 > (
+:: nil ::
+[ nil | 
+   -(#0:Exp), 
+   -(exp(g, n(b, #1:Fresh)) ; b), 
+   +(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp), nil]  & 
+:: nil ::
+[ nil | 
+   -(#0:Exp), 
+   -(cp1(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ;
+    #3:Exp)), 
+   +(#0:Exp ; cp1(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ;
+    a ; #3:Exp)), nil]  & 
+:: nil ::
+[ nil | 
+   -(#3:Exp), 
+   -(exp(g, n(a, #2:Fresh)) ; a), 
+   +(exp(g, n(a, #2:Fresh)) ; a ; #3:Exp), nil]  & 
+:: nil ::
+[ nil | 
+   -(#3:Exp), 
+   -(cp2(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ;
+    #3:Exp)), 
+   +(#3:Exp ; cp2(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ;
+    a ; #3:Exp)), nil]  & 
+:: nil ::
+[ nil | 
+   -(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp), 
+   -(exp(g, n(a, #2:Fresh)) ; a ; #3:Exp), 
+   +(cp1(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ;
+    #3:Exp)), nil]  & 
+:: nil ::
+[ nil | 
+   -(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp), 
+   -(exp(g, n(a, #2:Fresh)) ; a ; #3:Exp), 
+   +(cp2(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ;
+    #3:Exp)), nil]  & 
+:: #1:Fresh ::
+[ nil | 
+   +(exp(g, n(b, #1:Fresh)) ; b), 
+   -(#0:Exp ; cp1(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ;
+    a ; #3:Exp)), 
+   +(sign(sk(b), H(exp(g, n(a, #2:Fresh)) ; a ; #3:Exp ; cp2(exp(g, n(b,
+    #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ; #3:Exp)))), nil]  & 
+:: #2:Fresh ::
+[ nil | 
+   +(exp(g, n(a, #2:Fresh)) ; a), 
+   -(#3:Exp ; cp2(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ;
+    a ; #3:Exp)), 
+   +(sign(sk(a), H(exp(g, n(a, #2:Fresh)) ; a ; #3:Exp ; cp2(exp(g, n(b,
+    #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ; #3:Exp)))), 
+   -(sign(sk(b), H(exp(g, n(a, #2:Fresh)) ; a ; #3:Exp ; cp2(exp(g, n(b,
+    #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ; #3:Exp)))), 
+   +(ok), nil] )
+| 
+#0:Exp !inI,
+#3:Exp !inI,
+(#0:Exp ; cp1(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ;
+    #3:Exp)) !inI,
+(#3:Exp ; cp2(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ;
+    #3:Exp)) !inI,
+(exp(g, n(a, #2:Fresh)) ; a) !inI,
+(exp(g, n(b, #1:Fresh)) ; b) !inI,
+(exp(g, n(a, #2:Fresh)) ; a ; #3:Exp) !inI,
+(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp) !inI,
+sign(sk(b), H(exp(g, n(a, #2:Fresh)) ; a ; #3:Exp ; cp2(exp(g, n(b, #1:Fresh))
+    ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ; #3:Exp))) !inI,
+cp1(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ; #3:Exp)
+    !inI,
+cp2(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ; #3:Exp)
+    !inI
+| 
++(exp(g, n(a, #2:Fresh)) ; a), 
+generatedByIntruder(#3:Exp), 
+-(#3:Exp), 
+-(exp(g, n(a, #2:Fresh)) ; a), 
++(exp(g, n(a, #2:Fresh)) ; a ; #3:Exp), 
++(exp(g, n(b, #1:Fresh)) ; b), 
+generatedByIntruder(#0:Exp), 
+-(#0:Exp), 
+-(exp(g, n(b, #1:Fresh)) ; b), 
++(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp), 
+-(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp), 
+-(exp(g, n(a, #2:Fresh)) ; a ; #3:Exp), 
++(cp2(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ;
+    #3:Exp)), 
+-(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp), 
+-(exp(g, n(a, #2:Fresh)) ; a ; #3:Exp), 
++(cp1(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ;
+    #3:Exp)), 
+-(#3:Exp), 
+-(cp2(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ;
+    #3:Exp)), 
++(#3:Exp ; cp2(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a
+    ; #3:Exp)), 
+-(#0:Exp), 
+-(cp1(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ;
+    #3:Exp)), 
++(#0:Exp ; cp1(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a
+    ; #3:Exp)), 
+-(#3:Exp ; cp2(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a
+    ; #3:Exp)), 
++(sign(sk(a), H(exp(g, n(a, #2:Fresh)) ; a ; #3:Exp ; cp2(exp(g, n(b,
+    #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ; #3:Exp)))), 
+-(#0:Exp ; cp1(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a
+    ; #3:Exp)), 
++(sign(sk(b), H(exp(g, n(a, #2:Fresh)) ; a ; #3:Exp ; cp2(exp(g, n(b,
+    #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ; #3:Exp)))), 
+-(sign(sk(b), H(exp(g, n(a, #2:Fresh)) ; a ; #3:Exp ; cp2(exp(g, n(b,
+    #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ; #3:Exp)))), 
++(ok)
+| 
+nil)
+< 1 . 1 . 5 . 1 . 5 . 8 . 11 . 15 . 7 . 1 . 4 . 1 > (
+:: nil ::
+[ nil | 
+   -(#0:Exp), 
+   -(exp(g, n(a, #1:Fresh)) ; a), 
+   +(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp), nil]  & 
+:: nil ::
+[ nil | 
+   -(#0:Exp), 
+   -(cp1(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ;
+    #3:Exp)), 
+   +(#0:Exp ; cp1(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ;
+    b ; #3:Exp)), nil]  & 
+:: nil ::
+[ nil | 
+   -(#3:Exp), 
+   -(exp(g, n(b, #2:Fresh)) ; b), 
+   +(exp(g, n(b, #2:Fresh)) ; b ; #3:Exp), nil]  & 
+:: nil ::
+[ nil | 
+   -(#3:Exp), 
+   -(cp2(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ;
+    #3:Exp)), 
+   +(#3:Exp ; cp2(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ;
+    b ; #3:Exp)), nil]  & 
+:: nil ::
+[ nil | 
+   -(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp), 
+   -(exp(g, n(b, #2:Fresh)) ; b ; #3:Exp), 
+   +(cp1(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ;
+    #3:Exp)), nil]  & 
+:: nil ::
+[ nil | 
+   -(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp), 
+   -(exp(g, n(b, #2:Fresh)) ; b ; #3:Exp), 
+   +(cp2(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ;
+    #3:Exp)), nil]  & 
+:: #1:Fresh ::
+[ nil | 
+   +(exp(g, n(a, #1:Fresh)) ; a), 
+   -(#0:Exp ; cp1(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ;
+    b ; #3:Exp)), 
+   +(sign(sk(a), H(exp(g, n(b, #2:Fresh)) ; b ; #3:Exp ; cp2(exp(g, n(a,
+    #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ; #3:Exp)))), 
+   -(sign(sk(b), H(exp(g, n(b, #2:Fresh)) ; b ; #3:Exp ; cp2(exp(g, n(a,
+    #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ; #3:Exp)))), 
+   +(ok), nil]  & 
+:: #2:Fresh ::
+[ nil | 
+   +(exp(g, n(b, #2:Fresh)) ; b), 
+   -(#3:Exp ; cp2(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ;
+    b ; #3:Exp)), 
+   +(sign(sk(b), H(exp(g, n(b, #2:Fresh)) ; b ; #3:Exp ; cp2(exp(g, n(a,
+    #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ; #3:Exp)))), nil] )
+| 
+#0:Exp !inI,
+#3:Exp !inI,
+(#0:Exp ; cp1(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ;
+    #3:Exp)) !inI,
+(#3:Exp ; cp2(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ;
+    #3:Exp)) !inI,
+(exp(g, n(a, #1:Fresh)) ; a) !inI,
+(exp(g, n(b, #2:Fresh)) ; b) !inI,
+(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp) !inI,
+(exp(g, n(b, #2:Fresh)) ; b ; #3:Exp) !inI,
+sign(sk(b), H(exp(g, n(b, #2:Fresh)) ; b ; #3:Exp ; cp2(exp(g, n(a, #1:Fresh))
+    ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ; #3:Exp))) !inI,
+cp1(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ; #3:Exp)
+    !inI,
+cp2(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ; #3:Exp)
+    !inI
+| 
++(exp(g, n(b, #2:Fresh)) ; b), 
+generatedByIntruder(#3:Exp), 
+-(#3:Exp), 
+-(exp(g, n(b, #2:Fresh)) ; b), 
++(exp(g, n(b, #2:Fresh)) ; b ; #3:Exp), 
++(exp(g, n(a, #1:Fresh)) ; a), 
+generatedByIntruder(#0:Exp), 
+-(#0:Exp), 
+-(exp(g, n(a, #1:Fresh)) ; a), 
++(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp), 
+-(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp), 
+-(exp(g, n(b, #2:Fresh)) ; b ; #3:Exp), 
++(cp2(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ;
+    #3:Exp)), 
+-(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp), 
+-(exp(g, n(b, #2:Fresh)) ; b ; #3:Exp), 
++(cp1(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ;
+    #3:Exp)), 
+-(#3:Exp), 
+-(cp2(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ;
+    #3:Exp)), 
++(#3:Exp ; cp2(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b
+    ; #3:Exp)), 
+-(#0:Exp), 
+-(cp1(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ;
+    #3:Exp)), 
++(#0:Exp ; cp1(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b
+    ; #3:Exp)), 
+-(#0:Exp ; cp1(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b
+    ; #3:Exp)), 
++(sign(sk(a), H(exp(g, n(b, #2:Fresh)) ; b ; #3:Exp ; cp2(exp(g, n(a,
+    #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ; #3:Exp)))), 
+-(#3:Exp ; cp2(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b
+    ; #3:Exp)), 
++(sign(sk(b), H(exp(g, n(b, #2:Fresh)) ; b ; #3:Exp ; cp2(exp(g, n(a,
+    #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ; #3:Exp)))), 
+-(sign(sk(b), H(exp(g, n(b, #2:Fresh)) ; b ; #3:Exp ; cp2(exp(g, n(a,
+    #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ; #3:Exp)))), 
++(ok)
+| 
+nil
+==========================================
+reduce in MAUDE-NPA : summary(6, 12) .
+rewrites: 4856145044 in 2140321ms cpu (2140321ms real) (2268886
+    rewrites/second)
+result Summary: States>> 36 Solutions>> 7
+==========================================
+reduce in MAUDE-NPA : initials(6, 12) .
+rewrites: 5918 in 3ms cpu (3ms real) (1972666 rewrites/second)
+result IdSystemSet: (< 1 . 1 . 3 . 2 . 2 . 2 . 1 > (
+:: #1:Fresh ::
+[ nil | 
+   -(exp(g, n(a, #0:Fresh)) ; a), 
+   +(exp(g, n(b, #1:Fresh)) ; b), 
+   -(sign(sk(a), H(exp(g, n(a, #0:Fresh)) ; a ; exp(g, n(b, #1:Fresh)) ; b))), 
+   H(exp(g, n(a, #0:Fresh)) ; a ; exp(g, n(b, #1:Fresh)) ; b) eq H(exp(g, n(a,
+    #0:Fresh)) ; a ; exp(g, n(b, #1:Fresh)) ; b), 
+   +(sign(sk(b), H(exp(g, n(a, #0:Fresh)) ; a ; exp(g, n(b, #1:Fresh)) ; b))),
+    nil]  & 
+:: #0:Fresh ::
+[ nil | 
+   +(exp(g, n(a, #0:Fresh)) ; a), 
+   -(exp(g, n(b, #1:Fresh)) ; b), 
+   +(sign(sk(a), H(exp(g, n(a, #0:Fresh)) ; a ; exp(g, n(b, #1:Fresh)) ; b))), 
+   -(sign(sk(b), H(exp(g, n(a, #0:Fresh)) ; a ; exp(g, n(b, #1:Fresh)) ; b))), 
+   +(ok), nil] )
+| 
+(exp(g, n(a, #0:Fresh)) ; a) !inI,
+(exp(g, n(b, #1:Fresh)) ; b) !inI,
+sign(sk(a), H(exp(g, n(a, #0:Fresh)) ; a ; exp(g, n(b, #1:Fresh)) ; b)) !inI,
+sign(sk(b), H(exp(g, n(a, #0:Fresh)) ; a ; exp(g, n(b, #1:Fresh)) ; b)) !inI
+| 
++(exp(g, n(a, #0:Fresh)) ; a), 
+-(exp(g, n(a, #0:Fresh)) ; a), 
++(exp(g, n(b, #1:Fresh)) ; b), 
+-(exp(g, n(b, #1:Fresh)) ; b), 
++(sign(sk(a), H(exp(g, n(a, #0:Fresh)) ; a ; exp(g, n(b, #1:Fresh)) ; b))), 
+-(sign(sk(a), H(exp(g, n(a, #0:Fresh)) ; a ; exp(g, n(b, #1:Fresh)) ; b))), 
++(sign(sk(b), H(exp(g, n(a, #0:Fresh)) ; a ; exp(g, n(b, #1:Fresh)) ; b))), 
+-(sign(sk(b), H(exp(g, n(a, #0:Fresh)) ; a ; exp(g, n(b, #1:Fresh)) ; b))), 
++(ok)
+| 
+nil)
+(< 1 . 1 . 4 . 1 . 5 . 8 . 11 . 15 . 7 . 1 . 4 . 1 > (
+:: nil ::
+[ nil | 
+   -(#0:Exp), 
+   -(exp(g, n(b, #1:Fresh)) ; b), 
+   +(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp), nil]  & 
+:: nil ::
+[ nil | 
+   -(#0:Exp), 
+   -(cp1(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ;
+    #3:Exp)), 
+   +(#0:Exp ; cp1(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ;
+    a ; #3:Exp)), nil]  & 
+:: nil ::
+[ nil | 
+   -(#3:Exp), 
+   -(exp(g, n(a, #2:Fresh)) ; a), 
+   +(exp(g, n(a, #2:Fresh)) ; a ; #3:Exp), nil]  & 
+:: nil ::
+[ nil | 
+   -(#3:Exp), 
+   -(cp2(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ;
+    #3:Exp)), 
+   +(#3:Exp ; cp2(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ;
+    a ; #3:Exp)), nil]  & 
+:: nil ::
+[ nil | 
+   -(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp), 
+   -(exp(g, n(a, #2:Fresh)) ; a ; #3:Exp), 
+   +(cp1(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ;
+    #3:Exp)), nil]  & 
+:: nil ::
+[ nil | 
+   -(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp), 
+   -(exp(g, n(a, #2:Fresh)) ; a ; #3:Exp), 
+   +(cp2(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ;
+    #3:Exp)), nil]  & 
+:: #1:Fresh ::
+[ nil | 
+   +(exp(g, n(b, #1:Fresh)) ; b), 
+   -(#0:Exp ; cp1(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ;
+    a ; #3:Exp)), 
+   +(sign(sk(b), H(exp(g, n(a, #2:Fresh)) ; a ; #3:Exp ; cp2(exp(g, n(b,
+    #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ; #3:Exp)))), nil]  & 
+:: #2:Fresh ::
+[ nil | 
+   +(exp(g, n(a, #2:Fresh)) ; a), 
+   -(#3:Exp ; cp2(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ;
+    a ; #3:Exp)), 
+   +(sign(sk(a), H(exp(g, n(a, #2:Fresh)) ; a ; #3:Exp ; cp2(exp(g, n(b,
+    #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ; #3:Exp)))), 
+   -(sign(sk(b), H(exp(g, n(a, #2:Fresh)) ; a ; #3:Exp ; cp2(exp(g, n(b,
+    #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ; #3:Exp)))), 
+   +(ok), nil] )
+| 
+#0:Exp !inI,
+#3:Exp !inI,
+(#0:Exp ; cp1(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ;
+    #3:Exp)) !inI,
+(#3:Exp ; cp2(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ;
+    #3:Exp)) !inI,
+(exp(g, n(a, #2:Fresh)) ; a) !inI,
+(exp(g, n(b, #1:Fresh)) ; b) !inI,
+(exp(g, n(a, #2:Fresh)) ; a ; #3:Exp) !inI,
+(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp) !inI,
+sign(sk(b), H(exp(g, n(a, #2:Fresh)) ; a ; #3:Exp ; cp2(exp(g, n(b, #1:Fresh))
+    ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ; #3:Exp))) !inI,
+cp1(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ; #3:Exp)
+    !inI,
+cp2(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ; #3:Exp)
+    !inI
+| 
++(exp(g, n(a, #2:Fresh)) ; a), 
+generatedByIntruder(#3:Exp), 
+-(#3:Exp), 
+-(exp(g, n(a, #2:Fresh)) ; a), 
++(exp(g, n(a, #2:Fresh)) ; a ; #3:Exp), 
++(exp(g, n(b, #1:Fresh)) ; b), 
+generatedByIntruder(#0:Exp), 
+-(#0:Exp), 
+-(exp(g, n(b, #1:Fresh)) ; b), 
++(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp), 
+-(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp), 
+-(exp(g, n(a, #2:Fresh)) ; a ; #3:Exp), 
++(cp2(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ;
+    #3:Exp)), 
+-(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp), 
+-(exp(g, n(a, #2:Fresh)) ; a ; #3:Exp), 
++(cp1(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ;
+    #3:Exp)), 
+-(#3:Exp), 
+-(cp2(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ;
+    #3:Exp)), 
++(#3:Exp ; cp2(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a
+    ; #3:Exp)), 
+-(#0:Exp), 
+-(cp1(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ;
+    #3:Exp)), 
++(#0:Exp ; cp1(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a
+    ; #3:Exp)), 
+-(#3:Exp ; cp2(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a
+    ; #3:Exp)), 
++(sign(sk(a), H(exp(g, n(a, #2:Fresh)) ; a ; #3:Exp ; cp2(exp(g, n(b,
+    #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ; #3:Exp)))), 
+-(#0:Exp ; cp1(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a
+    ; #3:Exp)), 
++(sign(sk(b), H(exp(g, n(a, #2:Fresh)) ; a ; #3:Exp ; cp2(exp(g, n(b,
+    #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ; #3:Exp)))), 
+-(sign(sk(b), H(exp(g, n(a, #2:Fresh)) ; a ; #3:Exp ; cp2(exp(g, n(b,
+    #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ; #3:Exp)))), 
++(ok)
+| 
+nil)
+(< 1 . 1 . 5 . 1 . 5 . 8 . 11 . 15 . 7 . 1 . 4 . 1 > (
+:: nil ::
+[ nil | 
+   -(#0:Exp), 
+   -(exp(g, n(a, #1:Fresh)) ; a), 
+   +(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp), nil]  & 
+:: nil ::
+[ nil | 
+   -(#0:Exp), 
+   -(cp1(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ;
+    #3:Exp)), 
+   +(#0:Exp ; cp1(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ;
+    b ; #3:Exp)), nil]  & 
+:: nil ::
+[ nil | 
+   -(#3:Exp), 
+   -(exp(g, n(b, #2:Fresh)) ; b), 
+   +(exp(g, n(b, #2:Fresh)) ; b ; #3:Exp), nil]  & 
+:: nil ::
+[ nil | 
+   -(#3:Exp), 
+   -(cp2(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ;
+    #3:Exp)), 
+   +(#3:Exp ; cp2(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ;
+    b ; #3:Exp)), nil]  & 
+:: nil ::
+[ nil | 
+   -(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp), 
+   -(exp(g, n(b, #2:Fresh)) ; b ; #3:Exp), 
+   +(cp1(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ;
+    #3:Exp)), nil]  & 
+:: nil ::
+[ nil | 
+   -(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp), 
+   -(exp(g, n(b, #2:Fresh)) ; b ; #3:Exp), 
+   +(cp2(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ;
+    #3:Exp)), nil]  & 
+:: #1:Fresh ::
+[ nil | 
+   +(exp(g, n(a, #1:Fresh)) ; a), 
+   -(#0:Exp ; cp1(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ;
+    b ; #3:Exp)), 
+   +(sign(sk(a), H(exp(g, n(b, #2:Fresh)) ; b ; #3:Exp ; cp2(exp(g, n(a,
+    #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ; #3:Exp)))), 
+   -(sign(sk(b), H(exp(g, n(b, #2:Fresh)) ; b ; #3:Exp ; cp2(exp(g, n(a,
+    #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ; #3:Exp)))), 
+   +(ok), nil]  & 
+:: #2:Fresh ::
+[ nil | 
+   +(exp(g, n(b, #2:Fresh)) ; b), 
+   -(#3:Exp ; cp2(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ;
+    b ; #3:Exp)), 
+   +(sign(sk(b), H(exp(g, n(b, #2:Fresh)) ; b ; #3:Exp ; cp2(exp(g, n(a,
+    #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ; #3:Exp)))), nil] )
+| 
+#0:Exp !inI,
+#3:Exp !inI,
+(#0:Exp ; cp1(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ;
+    #3:Exp)) !inI,
+(#3:Exp ; cp2(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ;
+    #3:Exp)) !inI,
+(exp(g, n(a, #1:Fresh)) ; a) !inI,
+(exp(g, n(b, #2:Fresh)) ; b) !inI,
+(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp) !inI,
+(exp(g, n(b, #2:Fresh)) ; b ; #3:Exp) !inI,
+sign(sk(b), H(exp(g, n(b, #2:Fresh)) ; b ; #3:Exp ; cp2(exp(g, n(a, #1:Fresh))
+    ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ; #3:Exp))) !inI,
+cp1(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ; #3:Exp)
+    !inI,
+cp2(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ; #3:Exp)
+    !inI
+| 
++(exp(g, n(b, #2:Fresh)) ; b), 
+generatedByIntruder(#3:Exp), 
+-(#3:Exp), 
+-(exp(g, n(b, #2:Fresh)) ; b), 
++(exp(g, n(b, #2:Fresh)) ; b ; #3:Exp), 
++(exp(g, n(a, #1:Fresh)) ; a), 
+generatedByIntruder(#0:Exp), 
+-(#0:Exp), 
+-(exp(g, n(a, #1:Fresh)) ; a), 
++(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp), 
+-(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp), 
+-(exp(g, n(b, #2:Fresh)) ; b ; #3:Exp), 
++(cp2(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ;
+    #3:Exp)), 
+-(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp), 
+-(exp(g, n(b, #2:Fresh)) ; b ; #3:Exp), 
++(cp1(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ;
+    #3:Exp)), 
+-(#3:Exp), 
+-(cp2(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ;
+    #3:Exp)), 
++(#3:Exp ; cp2(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b
+    ; #3:Exp)), 
+-(#0:Exp), 
+-(cp1(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ;
+    #3:Exp)), 
++(#0:Exp ; cp1(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b
+    ; #3:Exp)), 
+-(#0:Exp ; cp1(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b
+    ; #3:Exp)), 
++(sign(sk(a), H(exp(g, n(b, #2:Fresh)) ; b ; #3:Exp ; cp2(exp(g, n(a,
+    #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ; #3:Exp)))), 
+-(#3:Exp ; cp2(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b
+    ; #3:Exp)), 
++(sign(sk(b), H(exp(g, n(b, #2:Fresh)) ; b ; #3:Exp ; cp2(exp(g, n(a,
+    #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ; #3:Exp)))), 
+-(sign(sk(b), H(exp(g, n(b, #2:Fresh)) ; b ; #3:Exp ; cp2(exp(g, n(a,
+    #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ; #3:Exp)))), 
++(ok)
+| 
+nil)
+(< 1 . 1 . 4 . 1 . 5 . 8 . 11 . 15 . 7 . 1 . 5 . 4 . 1 > (
+:: nil ::
+[ nil | 
+   -(#0:Exp), 
+   -(exp(g, n(b, #1:Fresh)) ; b), 
+   +(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp), nil]  & 
+:: nil ::
+[ nil | 
+   -(#0:Exp), 
+   -(cp1(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ;
+    #3:Exp)), 
+   +(#0:Exp ; cp1(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ;
+    a ; #3:Exp)), nil]  & 
+:: nil ::
+[ nil | 
+   -(#3:Exp), 
+   -(cp2(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ;
+    #3:Exp)), 
+   +(#3:Exp ; cp2(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ;
+    a ; #3:Exp)), nil]  & 
+:: nil ::
+[ nil | 
+   -(exp(g, n(a, #2:Fresh))), 
+   -(a ; #3:Exp), 
+   +(exp(g, n(a, #2:Fresh)) ; a ; #3:Exp), nil]  & 
+:: nil ::
+[ nil | 
+   -(exp(g, n(a, #2:Fresh)) ; a), 
+   +(exp(g, n(a, #2:Fresh))), nil]  & 
+:: nil ::
+[ nil | 
+   -(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp), 
+   -(exp(g, n(a, #2:Fresh)) ; a ; #3:Exp), 
+   +(cp1(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ;
+    #3:Exp)), nil]  & 
+:: nil ::
+[ nil | 
+   -(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp), 
+   -(exp(g, n(a, #2:Fresh)) ; a ; #3:Exp), 
+   +(cp2(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ;
+    #3:Exp)), nil]  & 
+:: #1:Fresh ::
+[ nil | 
+   +(exp(g, n(b, #1:Fresh)) ; b), 
+   -(#0:Exp ; cp1(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ;
+    a ; #3:Exp)), 
+   +(sign(sk(b), H(exp(g, n(a, #2:Fresh)) ; a ; #3:Exp ; cp2(exp(g, n(b,
+    #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ; #3:Exp)))), nil]  & 
+:: #2:Fresh ::
+[ nil | 
+   +(exp(g, n(a, #2:Fresh)) ; a), 
+   -(#3:Exp ; cp2(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ;
+    a ; #3:Exp)), 
+   +(sign(sk(a), H(exp(g, n(a, #2:Fresh)) ; a ; #3:Exp ; cp2(exp(g, n(b,
+    #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ; #3:Exp)))), 
+   -(sign(sk(b), H(exp(g, n(a, #2:Fresh)) ; a ; #3:Exp ; cp2(exp(g, n(b,
+    #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ; #3:Exp)))), 
+   +(ok), nil] )
+| 
+#0:Exp !inI,
+#3:Exp !inI,
+exp(g, n(a, #2:Fresh)) !inI,
+(a ; #3:Exp) !inI,
+(#0:Exp ; cp1(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ;
+    #3:Exp)) !inI,
+(#3:Exp ; cp2(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ;
+    #3:Exp)) !inI,
+(exp(g, n(a, #2:Fresh)) ; a) !inI,
+(exp(g, n(b, #1:Fresh)) ; b) !inI,
+(exp(g, n(a, #2:Fresh)) ; a ; #3:Exp) !inI,
+(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp) !inI,
+sign(sk(b), H(exp(g, n(a, #2:Fresh)) ; a ; #3:Exp ; cp2(exp(g, n(b, #1:Fresh))
+    ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ; #3:Exp))) !inI,
+cp1(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ; #3:Exp)
+    !inI,
+cp2(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ; #3:Exp)
+    !inI
+| 
++(exp(g, n(a, #2:Fresh)) ; a), 
+-(exp(g, n(a, #2:Fresh)) ; a), 
++(exp(g, n(a, #2:Fresh))), 
+generatedByIntruder(#3:Exp), 
+generatedByIntruder(a ; #3:Exp), 
+-(exp(g, n(a, #2:Fresh))), 
+-(a ; #3:Exp), 
++(exp(g, n(a, #2:Fresh)) ; a ; #3:Exp), 
++(exp(g, n(b, #1:Fresh)) ; b), 
+generatedByIntruder(#0:Exp), 
+-(#0:Exp), 
+-(exp(g, n(b, #1:Fresh)) ; b), 
++(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp), 
+-(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp), 
+-(exp(g, n(a, #2:Fresh)) ; a ; #3:Exp), 
++(cp2(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ;
+    #3:Exp)), 
+-(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp), 
+-(exp(g, n(a, #2:Fresh)) ; a ; #3:Exp), 
++(cp1(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ;
+    #3:Exp)), 
+-(#3:Exp), 
+-(cp2(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ;
+    #3:Exp)), 
++(#3:Exp ; cp2(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a
+    ; #3:Exp)), 
+-(#0:Exp), 
+-(cp1(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ;
+    #3:Exp)), 
++(#0:Exp ; cp1(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a
+    ; #3:Exp)), 
+-(#3:Exp ; cp2(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a
+    ; #3:Exp)), 
++(sign(sk(a), H(exp(g, n(a, #2:Fresh)) ; a ; #3:Exp ; cp2(exp(g, n(b,
+    #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ; #3:Exp)))), 
+-(#0:Exp ; cp1(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a
+    ; #3:Exp)), 
++(sign(sk(b), H(exp(g, n(a, #2:Fresh)) ; a ; #3:Exp ; cp2(exp(g, n(b,
+    #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ; #3:Exp)))), 
+-(sign(sk(b), H(exp(g, n(a, #2:Fresh)) ; a ; #3:Exp ; cp2(exp(g, n(b,
+    #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ; #3:Exp)))), 
++(ok)
+| 
+nil)
+(< 1 . 1 . 4 . 1 . 5 . 8 . 11 . 15 . 8 . 2 . 5 . 4 . 1 > (
+:: nil ::
+[ nil | 
+   -(#0:Exp), 
+   -(cp1(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ;
+    #3:Exp)), 
+   +(#0:Exp ; cp1(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ;
+    a ; #3:Exp)), nil]  & 
+:: nil ::
+[ nil | 
+   -(#3:Exp), 
+   -(exp(g, n(a, #2:Fresh)) ; a), 
+   +(exp(g, n(a, #2:Fresh)) ; a ; #3:Exp), nil]  & 
+:: nil ::
+[ nil | 
+   -(#3:Exp), 
+   -(cp2(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ;
+    #3:Exp)), 
+   +(#3:Exp ; cp2(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ;
+    a ; #3:Exp)), nil]  & 
+:: nil ::
+[ nil | 
+   -(exp(g, n(b, #1:Fresh))), 
+   -(b ; #0:Exp), 
+   +(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp), nil]  & 
+:: nil ::
+[ nil | 
+   -(exp(g, n(b, #1:Fresh)) ; b), 
+   +(exp(g, n(b, #1:Fresh))), nil]  & 
+:: nil ::
+[ nil | 
+   -(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp), 
+   -(exp(g, n(a, #2:Fresh)) ; a ; #3:Exp), 
+   +(cp1(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ;
+    #3:Exp)), nil]  & 
+:: nil ::
+[ nil | 
+   -(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp), 
+   -(exp(g, n(a, #2:Fresh)) ; a ; #3:Exp), 
+   +(cp2(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ;
+    #3:Exp)), nil]  & 
+:: #1:Fresh ::
+[ nil | 
+   +(exp(g, n(b, #1:Fresh)) ; b), 
+   -(#0:Exp ; cp1(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ;
+    a ; #3:Exp)), 
+   +(sign(sk(b), H(exp(g, n(a, #2:Fresh)) ; a ; #3:Exp ; cp2(exp(g, n(b,
+    #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ; #3:Exp)))), nil]  & 
+:: #2:Fresh ::
+[ nil | 
+   +(exp(g, n(a, #2:Fresh)) ; a), 
+   -(#3:Exp ; cp2(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ;
+    a ; #3:Exp)), 
+   +(sign(sk(a), H(exp(g, n(a, #2:Fresh)) ; a ; #3:Exp ; cp2(exp(g, n(b,
+    #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ; #3:Exp)))), 
+   -(sign(sk(b), H(exp(g, n(a, #2:Fresh)) ; a ; #3:Exp ; cp2(exp(g, n(b,
+    #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ; #3:Exp)))), 
+   +(ok), nil] )
+| 
+#0:Exp !inI,
+#3:Exp !inI,
+exp(g, n(b, #1:Fresh)) !inI,
+(b ; #0:Exp) !inI,
+(#0:Exp ; cp1(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ;
+    #3:Exp)) !inI,
+(#3:Exp ; cp2(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ;
+    #3:Exp)) !inI,
+(exp(g, n(a, #2:Fresh)) ; a) !inI,
+(exp(g, n(b, #1:Fresh)) ; b) !inI,
+(exp(g, n(a, #2:Fresh)) ; a ; #3:Exp) !inI,
+(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp) !inI,
+sign(sk(b), H(exp(g, n(a, #2:Fresh)) ; a ; #3:Exp ; cp2(exp(g, n(b, #1:Fresh))
+    ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ; #3:Exp))) !inI,
+cp1(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ; #3:Exp)
+    !inI,
+cp2(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ; #3:Exp)
+    !inI
+| 
++(exp(g, n(b, #1:Fresh)) ; b), 
+-(exp(g, n(b, #1:Fresh)) ; b), 
++(exp(g, n(b, #1:Fresh))), 
+generatedByIntruder(#0:Exp), 
+generatedByIntruder(b ; #0:Exp), 
+-(exp(g, n(b, #1:Fresh))), 
+-(b ; #0:Exp), 
++(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp), 
++(exp(g, n(a, #2:Fresh)) ; a), 
+generatedByIntruder(#3:Exp), 
+-(#3:Exp), 
+-(exp(g, n(a, #2:Fresh)) ; a), 
++(exp(g, n(a, #2:Fresh)) ; a ; #3:Exp), 
+-(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp), 
+-(exp(g, n(a, #2:Fresh)) ; a ; #3:Exp), 
++(cp2(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ;
+    #3:Exp)), 
+-(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp), 
+-(exp(g, n(a, #2:Fresh)) ; a ; #3:Exp), 
++(cp1(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ;
+    #3:Exp)), 
+-(#3:Exp), 
+-(cp2(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ;
+    #3:Exp)), 
++(#3:Exp ; cp2(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a
+    ; #3:Exp)), 
+-(#0:Exp), 
+-(cp1(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ;
+    #3:Exp)), 
++(#0:Exp ; cp1(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a
+    ; #3:Exp)), 
+-(#3:Exp ; cp2(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a
+    ; #3:Exp)), 
++(sign(sk(a), H(exp(g, n(a, #2:Fresh)) ; a ; #3:Exp ; cp2(exp(g, n(b,
+    #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ; #3:Exp)))), 
+-(#0:Exp ; cp1(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a
+    ; #3:Exp)), 
++(sign(sk(b), H(exp(g, n(a, #2:Fresh)) ; a ; #3:Exp ; cp2(exp(g, n(b,
+    #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ; #3:Exp)))), 
+-(sign(sk(b), H(exp(g, n(a, #2:Fresh)) ; a ; #3:Exp ; cp2(exp(g, n(b,
+    #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ; #3:Exp)))), 
++(ok)
+| 
+nil)
+(< 1 . 1 . 5 . 1 . 5 . 8 . 11 . 15 . 7 . 1 . 5 . 4 . 1 > (
+:: nil ::
+[ nil | 
+   -(#0:Exp), 
+   -(exp(g, n(a, #1:Fresh)) ; a), 
+   +(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp), nil]  & 
+:: nil ::
+[ nil | 
+   -(#0:Exp), 
+   -(cp1(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ;
+    #3:Exp)), 
+   +(#0:Exp ; cp1(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ;
+    b ; #3:Exp)), nil]  & 
+:: nil ::
+[ nil | 
+   -(#3:Exp), 
+   -(cp2(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ;
+    #3:Exp)), 
+   +(#3:Exp ; cp2(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ;
+    b ; #3:Exp)), nil]  & 
+:: nil ::
+[ nil | 
+   -(exp(g, n(b, #2:Fresh))), 
+   -(b ; #3:Exp), 
+   +(exp(g, n(b, #2:Fresh)) ; b ; #3:Exp), nil]  & 
+:: nil ::
+[ nil | 
+   -(exp(g, n(b, #2:Fresh)) ; b), 
+   +(exp(g, n(b, #2:Fresh))), nil]  & 
+:: nil ::
+[ nil | 
+   -(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp), 
+   -(exp(g, n(b, #2:Fresh)) ; b ; #3:Exp), 
+   +(cp1(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ;
+    #3:Exp)), nil]  & 
+:: nil ::
+[ nil | 
+   -(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp), 
+   -(exp(g, n(b, #2:Fresh)) ; b ; #3:Exp), 
+   +(cp2(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ;
+    #3:Exp)), nil]  & 
+:: #1:Fresh ::
+[ nil | 
+   +(exp(g, n(a, #1:Fresh)) ; a), 
+   -(#0:Exp ; cp1(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ;
+    b ; #3:Exp)), 
+   +(sign(sk(a), H(exp(g, n(b, #2:Fresh)) ; b ; #3:Exp ; cp2(exp(g, n(a,
+    #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ; #3:Exp)))), 
+   -(sign(sk(b), H(exp(g, n(b, #2:Fresh)) ; b ; #3:Exp ; cp2(exp(g, n(a,
+    #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ; #3:Exp)))), 
+   +(ok), nil]  & 
+:: #2:Fresh ::
+[ nil | 
+   +(exp(g, n(b, #2:Fresh)) ; b), 
+   -(#3:Exp ; cp2(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ;
+    b ; #3:Exp)), 
+   +(sign(sk(b), H(exp(g, n(b, #2:Fresh)) ; b ; #3:Exp ; cp2(exp(g, n(a,
+    #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ; #3:Exp)))), nil] )
+| 
+#0:Exp !inI,
+#3:Exp !inI,
+exp(g, n(b, #2:Fresh)) !inI,
+(b ; #3:Exp) !inI,
+(#0:Exp ; cp1(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ;
+    #3:Exp)) !inI,
+(#3:Exp ; cp2(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ;
+    #3:Exp)) !inI,
+(exp(g, n(a, #1:Fresh)) ; a) !inI,
+(exp(g, n(b, #2:Fresh)) ; b) !inI,
+(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp) !inI,
+(exp(g, n(b, #2:Fresh)) ; b ; #3:Exp) !inI,
+sign(sk(b), H(exp(g, n(b, #2:Fresh)) ; b ; #3:Exp ; cp2(exp(g, n(a, #1:Fresh))
+    ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ; #3:Exp))) !inI,
+cp1(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ; #3:Exp)
+    !inI,
+cp2(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ; #3:Exp)
+    !inI
+| 
++(exp(g, n(b, #2:Fresh)) ; b), 
+-(exp(g, n(b, #2:Fresh)) ; b), 
++(exp(g, n(b, #2:Fresh))), 
+generatedByIntruder(#3:Exp), 
+generatedByIntruder(b ; #3:Exp), 
+-(exp(g, n(b, #2:Fresh))), 
+-(b ; #3:Exp), 
++(exp(g, n(b, #2:Fresh)) ; b ; #3:Exp), 
++(exp(g, n(a, #1:Fresh)) ; a), 
+generatedByIntruder(#0:Exp), 
+-(#0:Exp), 
+-(exp(g, n(a, #1:Fresh)) ; a), 
++(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp), 
+-(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp), 
+-(exp(g, n(b, #2:Fresh)) ; b ; #3:Exp), 
++(cp2(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ;
+    #3:Exp)), 
+-(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp), 
+-(exp(g, n(b, #2:Fresh)) ; b ; #3:Exp), 
++(cp1(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ;
+    #3:Exp)), 
+-(#3:Exp), 
+-(cp2(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ;
+    #3:Exp)), 
++(#3:Exp ; cp2(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b
+    ; #3:Exp)), 
+-(#0:Exp), 
+-(cp1(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ;
+    #3:Exp)), 
++(#0:Exp ; cp1(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b
+    ; #3:Exp)), 
+-(#0:Exp ; cp1(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b
+    ; #3:Exp)), 
++(sign(sk(a), H(exp(g, n(b, #2:Fresh)) ; b ; #3:Exp ; cp2(exp(g, n(a,
+    #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ; #3:Exp)))), 
+-(#3:Exp ; cp2(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b
+    ; #3:Exp)), 
++(sign(sk(b), H(exp(g, n(b, #2:Fresh)) ; b ; #3:Exp ; cp2(exp(g, n(a,
+    #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ; #3:Exp)))), 
+-(sign(sk(b), H(exp(g, n(b, #2:Fresh)) ; b ; #3:Exp ; cp2(exp(g, n(a,
+    #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ; #3:Exp)))), 
++(ok)
+| 
+nil)
+< 1 . 1 . 5 . 1 . 5 . 8 . 11 . 15 . 8 . 2 . 5 . 4 . 1 > (
+:: nil ::
+[ nil | 
+   -(#0:Exp), 
+   -(cp1(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ;
+    #3:Exp)), 
+   +(#0:Exp ; cp1(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ;
+    b ; #3:Exp)), nil]  & 
+:: nil ::
+[ nil | 
+   -(#3:Exp), 
+   -(exp(g, n(b, #2:Fresh)) ; b), 
+   +(exp(g, n(b, #2:Fresh)) ; b ; #3:Exp), nil]  & 
+:: nil ::
+[ nil | 
+   -(#3:Exp), 
+   -(cp2(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ;
+    #3:Exp)), 
+   +(#3:Exp ; cp2(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ;
+    b ; #3:Exp)), nil]  & 
+:: nil ::
+[ nil | 
+   -(exp(g, n(a, #1:Fresh))), 
+   -(a ; #0:Exp), 
+   +(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp), nil]  & 
+:: nil ::
+[ nil | 
+   -(exp(g, n(a, #1:Fresh)) ; a), 
+   +(exp(g, n(a, #1:Fresh))), nil]  & 
+:: nil ::
+[ nil | 
+   -(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp), 
+   -(exp(g, n(b, #2:Fresh)) ; b ; #3:Exp), 
+   +(cp1(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ;
+    #3:Exp)), nil]  & 
+:: nil ::
+[ nil | 
+   -(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp), 
+   -(exp(g, n(b, #2:Fresh)) ; b ; #3:Exp), 
+   +(cp2(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ;
+    #3:Exp)), nil]  & 
+:: #1:Fresh ::
+[ nil | 
+   +(exp(g, n(a, #1:Fresh)) ; a), 
+   -(#0:Exp ; cp1(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ;
+    b ; #3:Exp)), 
+   +(sign(sk(a), H(exp(g, n(b, #2:Fresh)) ; b ; #3:Exp ; cp2(exp(g, n(a,
+    #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ; #3:Exp)))), 
+   -(sign(sk(b), H(exp(g, n(b, #2:Fresh)) ; b ; #3:Exp ; cp2(exp(g, n(a,
+    #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ; #3:Exp)))), 
+   +(ok), nil]  & 
+:: #2:Fresh ::
+[ nil | 
+   +(exp(g, n(b, #2:Fresh)) ; b), 
+   -(#3:Exp ; cp2(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ;
+    b ; #3:Exp)), 
+   +(sign(sk(b), H(exp(g, n(b, #2:Fresh)) ; b ; #3:Exp ; cp2(exp(g, n(a,
+    #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ; #3:Exp)))), nil] )
+| 
+#0:Exp !inI,
+#3:Exp !inI,
+exp(g, n(a, #1:Fresh)) !inI,
+(a ; #0:Exp) !inI,
+(#0:Exp ; cp1(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ;
+    #3:Exp)) !inI,
+(#3:Exp ; cp2(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ;
+    #3:Exp)) !inI,
+(exp(g, n(a, #1:Fresh)) ; a) !inI,
+(exp(g, n(b, #2:Fresh)) ; b) !inI,
+(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp) !inI,
+(exp(g, n(b, #2:Fresh)) ; b ; #3:Exp) !inI,
+sign(sk(b), H(exp(g, n(b, #2:Fresh)) ; b ; #3:Exp ; cp2(exp(g, n(a, #1:Fresh))
+    ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ; #3:Exp))) !inI,
+cp1(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ; #3:Exp)
+    !inI,
+cp2(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ; #3:Exp)
+    !inI
+| 
++(exp(g, n(a, #1:Fresh)) ; a), 
+-(exp(g, n(a, #1:Fresh)) ; a), 
++(exp(g, n(a, #1:Fresh))), 
+generatedByIntruder(#0:Exp), 
+generatedByIntruder(a ; #0:Exp), 
+-(exp(g, n(a, #1:Fresh))), 
+-(a ; #0:Exp), 
++(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp), 
++(exp(g, n(b, #2:Fresh)) ; b), 
+generatedByIntruder(#3:Exp), 
+-(#3:Exp), 
+-(exp(g, n(b, #2:Fresh)) ; b), 
++(exp(g, n(b, #2:Fresh)) ; b ; #3:Exp), 
+-(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp), 
+-(exp(g, n(b, #2:Fresh)) ; b ; #3:Exp), 
++(cp2(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ;
+    #3:Exp)), 
+-(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp), 
+-(exp(g, n(b, #2:Fresh)) ; b ; #3:Exp), 
++(cp1(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ;
+    #3:Exp)), 
+-(#3:Exp), 
+-(cp2(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ;
+    #3:Exp)), 
++(#3:Exp ; cp2(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b
+    ; #3:Exp)), 
+-(#0:Exp), 
+-(cp1(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ;
+    #3:Exp)), 
++(#0:Exp ; cp1(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b
+    ; #3:Exp)), 
+-(#0:Exp ; cp1(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b
+    ; #3:Exp)), 
++(sign(sk(a), H(exp(g, n(b, #2:Fresh)) ; b ; #3:Exp ; cp2(exp(g, n(a,
+    #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ; #3:Exp)))), 
+-(#3:Exp ; cp2(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b
+    ; #3:Exp)), 
++(sign(sk(b), H(exp(g, n(b, #2:Fresh)) ; b ; #3:Exp ; cp2(exp(g, n(a,
+    #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ; #3:Exp)))), 
+-(sign(sk(b), H(exp(g, n(b, #2:Fresh)) ; b ; #3:Exp ; cp2(exp(g, n(a,
+    #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ; #3:Exp)))), 
++(ok)
+| 
+nil
+==========================================
+reduce in MAUDE-NPA : summary(6, 13) .
+rewrites: 45529921227 in 80986421ms cpu (80986421ms real) (562192
+    rewrites/second)
+result Summary: States>> 29 Solutions>> 7
+==========================================
+reduce in MAUDE-NPA : initials(6, 13) .
+rewrites: 6480 in 4ms cpu (3ms real) (1620000 rewrites/second)
+result IdSystemSet: (< 1 . 1 . 3 . 2 . 2 . 2 . 1 > (
+:: #1:Fresh ::
+[ nil | 
+   -(exp(g, n(a, #0:Fresh)) ; a), 
+   +(exp(g, n(b, #1:Fresh)) ; b), 
+   -(sign(sk(a), H(exp(g, n(a, #0:Fresh)) ; a ; exp(g, n(b, #1:Fresh)) ; b))), 
+   H(exp(g, n(a, #0:Fresh)) ; a ; exp(g, n(b, #1:Fresh)) ; b) eq H(exp(g, n(a,
+    #0:Fresh)) ; a ; exp(g, n(b, #1:Fresh)) ; b), 
+   +(sign(sk(b), H(exp(g, n(a, #0:Fresh)) ; a ; exp(g, n(b, #1:Fresh)) ; b))),
+    nil]  & 
+:: #0:Fresh ::
+[ nil | 
+   +(exp(g, n(a, #0:Fresh)) ; a), 
+   -(exp(g, n(b, #1:Fresh)) ; b), 
+   +(sign(sk(a), H(exp(g, n(a, #0:Fresh)) ; a ; exp(g, n(b, #1:Fresh)) ; b))), 
+   -(sign(sk(b), H(exp(g, n(a, #0:Fresh)) ; a ; exp(g, n(b, #1:Fresh)) ; b))), 
+   +(ok), nil] )
+| 
+(exp(g, n(a, #0:Fresh)) ; a) !inI,
+(exp(g, n(b, #1:Fresh)) ; b) !inI,
+sign(sk(a), H(exp(g, n(a, #0:Fresh)) ; a ; exp(g, n(b, #1:Fresh)) ; b)) !inI,
+sign(sk(b), H(exp(g, n(a, #0:Fresh)) ; a ; exp(g, n(b, #1:Fresh)) ; b)) !inI
+| 
++(exp(g, n(a, #0:Fresh)) ; a), 
+-(exp(g, n(a, #0:Fresh)) ; a), 
++(exp(g, n(b, #1:Fresh)) ; b), 
+-(exp(g, n(b, #1:Fresh)) ; b), 
++(sign(sk(a), H(exp(g, n(a, #0:Fresh)) ; a ; exp(g, n(b, #1:Fresh)) ; b))), 
+-(sign(sk(a), H(exp(g, n(a, #0:Fresh)) ; a ; exp(g, n(b, #1:Fresh)) ; b))), 
++(sign(sk(b), H(exp(g, n(a, #0:Fresh)) ; a ; exp(g, n(b, #1:Fresh)) ; b))), 
+-(sign(sk(b), H(exp(g, n(a, #0:Fresh)) ; a ; exp(g, n(b, #1:Fresh)) ; b))), 
++(ok)
+| 
+nil)
+(< 1 . 1 . 4 . 1 . 5 . 8 . 11 . 15 . 7 . 1 . 4 . 1 > (
+:: nil ::
+[ nil | 
+   -(#0:Exp), 
+   -(exp(g, n(b, #1:Fresh)) ; b), 
+   +(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp), nil]  & 
+:: nil ::
+[ nil | 
+   -(#0:Exp), 
+   -(cp1(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ;
+    #3:Exp)), 
+   +(#0:Exp ; cp1(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ;
+    a ; #3:Exp)), nil]  & 
+:: nil ::
+[ nil | 
+   -(#3:Exp), 
+   -(exp(g, n(a, #2:Fresh)) ; a), 
+   +(exp(g, n(a, #2:Fresh)) ; a ; #3:Exp), nil]  & 
+:: nil ::
+[ nil | 
+   -(#3:Exp), 
+   -(cp2(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ;
+    #3:Exp)), 
+   +(#3:Exp ; cp2(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ;
+    a ; #3:Exp)), nil]  & 
+:: nil ::
+[ nil | 
+   -(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp), 
+   -(exp(g, n(a, #2:Fresh)) ; a ; #3:Exp), 
+   +(cp1(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ;
+    #3:Exp)), nil]  & 
+:: nil ::
+[ nil | 
+   -(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp), 
+   -(exp(g, n(a, #2:Fresh)) ; a ; #3:Exp), 
+   +(cp2(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ;
+    #3:Exp)), nil]  & 
+:: #1:Fresh ::
+[ nil | 
+   +(exp(g, n(b, #1:Fresh)) ; b), 
+   -(#0:Exp ; cp1(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ;
+    a ; #3:Exp)), 
+   +(sign(sk(b), H(exp(g, n(a, #2:Fresh)) ; a ; #3:Exp ; cp2(exp(g, n(b,
+    #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ; #3:Exp)))), nil]  & 
+:: #2:Fresh ::
+[ nil | 
+   +(exp(g, n(a, #2:Fresh)) ; a), 
+   -(#3:Exp ; cp2(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ;
+    a ; #3:Exp)), 
+   +(sign(sk(a), H(exp(g, n(a, #2:Fresh)) ; a ; #3:Exp ; cp2(exp(g, n(b,
+    #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ; #3:Exp)))), 
+   -(sign(sk(b), H(exp(g, n(a, #2:Fresh)) ; a ; #3:Exp ; cp2(exp(g, n(b,
+    #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ; #3:Exp)))), 
+   +(ok), nil] )
+| 
+#0:Exp !inI,
+#3:Exp !inI,
+(#0:Exp ; cp1(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ;
+    #3:Exp)) !inI,
+(#3:Exp ; cp2(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ;
+    #3:Exp)) !inI,
+(exp(g, n(a, #2:Fresh)) ; a) !inI,
+(exp(g, n(b, #1:Fresh)) ; b) !inI,
+(exp(g, n(a, #2:Fresh)) ; a ; #3:Exp) !inI,
+(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp) !inI,
+sign(sk(b), H(exp(g, n(a, #2:Fresh)) ; a ; #3:Exp ; cp2(exp(g, n(b, #1:Fresh))
+    ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ; #3:Exp))) !inI,
+cp1(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ; #3:Exp)
+    !inI,
+cp2(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ; #3:Exp)
+    !inI
+| 
++(exp(g, n(a, #2:Fresh)) ; a), 
+generatedByIntruder(#3:Exp), 
+-(#3:Exp), 
+-(exp(g, n(a, #2:Fresh)) ; a), 
++(exp(g, n(a, #2:Fresh)) ; a ; #3:Exp), 
++(exp(g, n(b, #1:Fresh)) ; b), 
+generatedByIntruder(#0:Exp), 
+-(#0:Exp), 
+-(exp(g, n(b, #1:Fresh)) ; b), 
++(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp), 
+-(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp), 
+-(exp(g, n(a, #2:Fresh)) ; a ; #3:Exp), 
++(cp2(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ;
+    #3:Exp)), 
+-(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp), 
+-(exp(g, n(a, #2:Fresh)) ; a ; #3:Exp), 
++(cp1(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ;
+    #3:Exp)), 
+-(#3:Exp), 
+-(cp2(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ;
+    #3:Exp)), 
++(#3:Exp ; cp2(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a
+    ; #3:Exp)), 
+-(#0:Exp), 
+-(cp1(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ;
+    #3:Exp)), 
++(#0:Exp ; cp1(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a
+    ; #3:Exp)), 
+-(#3:Exp ; cp2(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a
+    ; #3:Exp)), 
++(sign(sk(a), H(exp(g, n(a, #2:Fresh)) ; a ; #3:Exp ; cp2(exp(g, n(b,
+    #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ; #3:Exp)))), 
+-(#0:Exp ; cp1(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a
+    ; #3:Exp)), 
++(sign(sk(b), H(exp(g, n(a, #2:Fresh)) ; a ; #3:Exp ; cp2(exp(g, n(b,
+    #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ; #3:Exp)))), 
+-(sign(sk(b), H(exp(g, n(a, #2:Fresh)) ; a ; #3:Exp ; cp2(exp(g, n(b,
+    #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ; #3:Exp)))), 
++(ok)
+| 
+nil)
+(< 1 . 1 . 5 . 1 . 5 . 8 . 11 . 15 . 7 . 1 . 4 . 1 > (
+:: nil ::
+[ nil | 
+   -(#0:Exp), 
+   -(exp(g, n(a, #1:Fresh)) ; a), 
+   +(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp), nil]  & 
+:: nil ::
+[ nil | 
+   -(#0:Exp), 
+   -(cp1(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ;
+    #3:Exp)), 
+   +(#0:Exp ; cp1(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ;
+    b ; #3:Exp)), nil]  & 
+:: nil ::
+[ nil | 
+   -(#3:Exp), 
+   -(exp(g, n(b, #2:Fresh)) ; b), 
+   +(exp(g, n(b, #2:Fresh)) ; b ; #3:Exp), nil]  & 
+:: nil ::
+[ nil | 
+   -(#3:Exp), 
+   -(cp2(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ;
+    #3:Exp)), 
+   +(#3:Exp ; cp2(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ;
+    b ; #3:Exp)), nil]  & 
+:: nil ::
+[ nil | 
+   -(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp), 
+   -(exp(g, n(b, #2:Fresh)) ; b ; #3:Exp), 
+   +(cp1(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ;
+    #3:Exp)), nil]  & 
+:: nil ::
+[ nil | 
+   -(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp), 
+   -(exp(g, n(b, #2:Fresh)) ; b ; #3:Exp), 
+   +(cp2(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ;
+    #3:Exp)), nil]  & 
+:: #1:Fresh ::
+[ nil | 
+   +(exp(g, n(a, #1:Fresh)) ; a), 
+   -(#0:Exp ; cp1(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ;
+    b ; #3:Exp)), 
+   +(sign(sk(a), H(exp(g, n(b, #2:Fresh)) ; b ; #3:Exp ; cp2(exp(g, n(a,
+    #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ; #3:Exp)))), 
+   -(sign(sk(b), H(exp(g, n(b, #2:Fresh)) ; b ; #3:Exp ; cp2(exp(g, n(a,
+    #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ; #3:Exp)))), 
+   +(ok), nil]  & 
+:: #2:Fresh ::
+[ nil | 
+   +(exp(g, n(b, #2:Fresh)) ; b), 
+   -(#3:Exp ; cp2(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ;
+    b ; #3:Exp)), 
+   +(sign(sk(b), H(exp(g, n(b, #2:Fresh)) ; b ; #3:Exp ; cp2(exp(g, n(a,
+    #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ; #3:Exp)))), nil] )
+| 
+#0:Exp !inI,
+#3:Exp !inI,
+(#0:Exp ; cp1(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ;
+    #3:Exp)) !inI,
+(#3:Exp ; cp2(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ;
+    #3:Exp)) !inI,
+(exp(g, n(a, #1:Fresh)) ; a) !inI,
+(exp(g, n(b, #2:Fresh)) ; b) !inI,
+(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp) !inI,
+(exp(g, n(b, #2:Fresh)) ; b ; #3:Exp) !inI,
+sign(sk(b), H(exp(g, n(b, #2:Fresh)) ; b ; #3:Exp ; cp2(exp(g, n(a, #1:Fresh))
+    ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ; #3:Exp))) !inI,
+cp1(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ; #3:Exp)
+    !inI,
+cp2(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ; #3:Exp)
+    !inI
+| 
++(exp(g, n(b, #2:Fresh)) ; b), 
+generatedByIntruder(#3:Exp), 
+-(#3:Exp), 
+-(exp(g, n(b, #2:Fresh)) ; b), 
++(exp(g, n(b, #2:Fresh)) ; b ; #3:Exp), 
++(exp(g, n(a, #1:Fresh)) ; a), 
+generatedByIntruder(#0:Exp), 
+-(#0:Exp), 
+-(exp(g, n(a, #1:Fresh)) ; a), 
++(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp), 
+-(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp), 
+-(exp(g, n(b, #2:Fresh)) ; b ; #3:Exp), 
++(cp2(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ;
+    #3:Exp)), 
+-(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp), 
+-(exp(g, n(b, #2:Fresh)) ; b ; #3:Exp), 
++(cp1(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ;
+    #3:Exp)), 
+-(#3:Exp), 
+-(cp2(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ;
+    #3:Exp)), 
++(#3:Exp ; cp2(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b
+    ; #3:Exp)), 
+-(#0:Exp), 
+-(cp1(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ;
+    #3:Exp)), 
++(#0:Exp ; cp1(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b
+    ; #3:Exp)), 
+-(#0:Exp ; cp1(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b
+    ; #3:Exp)), 
++(sign(sk(a), H(exp(g, n(b, #2:Fresh)) ; b ; #3:Exp ; cp2(exp(g, n(a,
+    #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ; #3:Exp)))), 
+-(#3:Exp ; cp2(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b
+    ; #3:Exp)), 
++(sign(sk(b), H(exp(g, n(b, #2:Fresh)) ; b ; #3:Exp ; cp2(exp(g, n(a,
+    #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ; #3:Exp)))), 
+-(sign(sk(b), H(exp(g, n(b, #2:Fresh)) ; b ; #3:Exp ; cp2(exp(g, n(a,
+    #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ; #3:Exp)))), 
++(ok)
+| 
+nil)
+(< 1 . 1 . 4 . 1 . 5 . 8 . 11 . 15 . 7 . 1 . 5 . 4 . 1 > (
+:: nil ::
+[ nil | 
+   -(#0:Exp), 
+   -(exp(g, n(b, #1:Fresh)) ; b), 
+   +(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp), nil]  & 
+:: nil ::
+[ nil | 
+   -(#0:Exp), 
+   -(cp1(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ;
+    #3:Exp)), 
+   +(#0:Exp ; cp1(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ;
+    a ; #3:Exp)), nil]  & 
+:: nil ::
+[ nil | 
+   -(#3:Exp), 
+   -(cp2(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ;
+    #3:Exp)), 
+   +(#3:Exp ; cp2(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ;
+    a ; #3:Exp)), nil]  & 
+:: nil ::
+[ nil | 
+   -(exp(g, n(a, #2:Fresh))), 
+   -(a ; #3:Exp), 
+   +(exp(g, n(a, #2:Fresh)) ; a ; #3:Exp), nil]  & 
+:: nil ::
+[ nil | 
+   -(exp(g, n(a, #2:Fresh)) ; a), 
+   +(exp(g, n(a, #2:Fresh))), nil]  & 
+:: nil ::
+[ nil | 
+   -(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp), 
+   -(exp(g, n(a, #2:Fresh)) ; a ; #3:Exp), 
+   +(cp1(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ;
+    #3:Exp)), nil]  & 
+:: nil ::
+[ nil | 
+   -(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp), 
+   -(exp(g, n(a, #2:Fresh)) ; a ; #3:Exp), 
+   +(cp2(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ;
+    #3:Exp)), nil]  & 
+:: #1:Fresh ::
+[ nil | 
+   +(exp(g, n(b, #1:Fresh)) ; b), 
+   -(#0:Exp ; cp1(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ;
+    a ; #3:Exp)), 
+   +(sign(sk(b), H(exp(g, n(a, #2:Fresh)) ; a ; #3:Exp ; cp2(exp(g, n(b,
+    #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ; #3:Exp)))), nil]  & 
+:: #2:Fresh ::
+[ nil | 
+   +(exp(g, n(a, #2:Fresh)) ; a), 
+   -(#3:Exp ; cp2(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ;
+    a ; #3:Exp)), 
+   +(sign(sk(a), H(exp(g, n(a, #2:Fresh)) ; a ; #3:Exp ; cp2(exp(g, n(b,
+    #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ; #3:Exp)))), 
+   -(sign(sk(b), H(exp(g, n(a, #2:Fresh)) ; a ; #3:Exp ; cp2(exp(g, n(b,
+    #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ; #3:Exp)))), 
+   +(ok), nil] )
+| 
+#0:Exp !inI,
+#3:Exp !inI,
+exp(g, n(a, #2:Fresh)) !inI,
+(a ; #3:Exp) !inI,
+(#0:Exp ; cp1(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ;
+    #3:Exp)) !inI,
+(#3:Exp ; cp2(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ;
+    #3:Exp)) !inI,
+(exp(g, n(a, #2:Fresh)) ; a) !inI,
+(exp(g, n(b, #1:Fresh)) ; b) !inI,
+(exp(g, n(a, #2:Fresh)) ; a ; #3:Exp) !inI,
+(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp) !inI,
+sign(sk(b), H(exp(g, n(a, #2:Fresh)) ; a ; #3:Exp ; cp2(exp(g, n(b, #1:Fresh))
+    ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ; #3:Exp))) !inI,
+cp1(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ; #3:Exp)
+    !inI,
+cp2(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ; #3:Exp)
+    !inI
+| 
++(exp(g, n(a, #2:Fresh)) ; a), 
+-(exp(g, n(a, #2:Fresh)) ; a), 
++(exp(g, n(a, #2:Fresh))), 
+generatedByIntruder(#3:Exp), 
+generatedByIntruder(a ; #3:Exp), 
+-(exp(g, n(a, #2:Fresh))), 
+-(a ; #3:Exp), 
++(exp(g, n(a, #2:Fresh)) ; a ; #3:Exp), 
++(exp(g, n(b, #1:Fresh)) ; b), 
+generatedByIntruder(#0:Exp), 
+-(#0:Exp), 
+-(exp(g, n(b, #1:Fresh)) ; b), 
++(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp), 
+-(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp), 
+-(exp(g, n(a, #2:Fresh)) ; a ; #3:Exp), 
++(cp2(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ;
+    #3:Exp)), 
+-(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp), 
+-(exp(g, n(a, #2:Fresh)) ; a ; #3:Exp), 
++(cp1(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ;
+    #3:Exp)), 
+-(#3:Exp), 
+-(cp2(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ;
+    #3:Exp)), 
++(#3:Exp ; cp2(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a
+    ; #3:Exp)), 
+-(#0:Exp), 
+-(cp1(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ;
+    #3:Exp)), 
++(#0:Exp ; cp1(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a
+    ; #3:Exp)), 
+-(#3:Exp ; cp2(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a
+    ; #3:Exp)), 
++(sign(sk(a), H(exp(g, n(a, #2:Fresh)) ; a ; #3:Exp ; cp2(exp(g, n(b,
+    #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ; #3:Exp)))), 
+-(#0:Exp ; cp1(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a
+    ; #3:Exp)), 
++(sign(sk(b), H(exp(g, n(a, #2:Fresh)) ; a ; #3:Exp ; cp2(exp(g, n(b,
+    #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ; #3:Exp)))), 
+-(sign(sk(b), H(exp(g, n(a, #2:Fresh)) ; a ; #3:Exp ; cp2(exp(g, n(b,
+    #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ; #3:Exp)))), 
++(ok)
+| 
+nil)
+(< 1 . 1 . 4 . 1 . 5 . 8 . 11 . 15 . 8 . 2 . 5 . 4 . 1 > (
+:: nil ::
+[ nil | 
+   -(#0:Exp), 
+   -(cp1(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ;
+    #3:Exp)), 
+   +(#0:Exp ; cp1(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ;
+    a ; #3:Exp)), nil]  & 
+:: nil ::
+[ nil | 
+   -(#3:Exp), 
+   -(exp(g, n(a, #2:Fresh)) ; a), 
+   +(exp(g, n(a, #2:Fresh)) ; a ; #3:Exp), nil]  & 
+:: nil ::
+[ nil | 
+   -(#3:Exp), 
+   -(cp2(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ;
+    #3:Exp)), 
+   +(#3:Exp ; cp2(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ;
+    a ; #3:Exp)), nil]  & 
+:: nil ::
+[ nil | 
+   -(exp(g, n(b, #1:Fresh))), 
+   -(b ; #0:Exp), 
+   +(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp), nil]  & 
+:: nil ::
+[ nil | 
+   -(exp(g, n(b, #1:Fresh)) ; b), 
+   +(exp(g, n(b, #1:Fresh))), nil]  & 
+:: nil ::
+[ nil | 
+   -(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp), 
+   -(exp(g, n(a, #2:Fresh)) ; a ; #3:Exp), 
+   +(cp1(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ;
+    #3:Exp)), nil]  & 
+:: nil ::
+[ nil | 
+   -(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp), 
+   -(exp(g, n(a, #2:Fresh)) ; a ; #3:Exp), 
+   +(cp2(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ;
+    #3:Exp)), nil]  & 
+:: #1:Fresh ::
+[ nil | 
+   +(exp(g, n(b, #1:Fresh)) ; b), 
+   -(#0:Exp ; cp1(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ;
+    a ; #3:Exp)), 
+   +(sign(sk(b), H(exp(g, n(a, #2:Fresh)) ; a ; #3:Exp ; cp2(exp(g, n(b,
+    #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ; #3:Exp)))), nil]  & 
+:: #2:Fresh ::
+[ nil | 
+   +(exp(g, n(a, #2:Fresh)) ; a), 
+   -(#3:Exp ; cp2(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ;
+    a ; #3:Exp)), 
+   +(sign(sk(a), H(exp(g, n(a, #2:Fresh)) ; a ; #3:Exp ; cp2(exp(g, n(b,
+    #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ; #3:Exp)))), 
+   -(sign(sk(b), H(exp(g, n(a, #2:Fresh)) ; a ; #3:Exp ; cp2(exp(g, n(b,
+    #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ; #3:Exp)))), 
+   +(ok), nil] )
+| 
+#0:Exp !inI,
+#3:Exp !inI,
+exp(g, n(b, #1:Fresh)) !inI,
+(b ; #0:Exp) !inI,
+(#0:Exp ; cp1(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ;
+    #3:Exp)) !inI,
+(#3:Exp ; cp2(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ;
+    #3:Exp)) !inI,
+(exp(g, n(a, #2:Fresh)) ; a) !inI,
+(exp(g, n(b, #1:Fresh)) ; b) !inI,
+(exp(g, n(a, #2:Fresh)) ; a ; #3:Exp) !inI,
+(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp) !inI,
+sign(sk(b), H(exp(g, n(a, #2:Fresh)) ; a ; #3:Exp ; cp2(exp(g, n(b, #1:Fresh))
+    ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ; #3:Exp))) !inI,
+cp1(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ; #3:Exp)
+    !inI,
+cp2(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ; #3:Exp)
+    !inI
+| 
++(exp(g, n(b, #1:Fresh)) ; b), 
+-(exp(g, n(b, #1:Fresh)) ; b), 
++(exp(g, n(b, #1:Fresh))), 
+generatedByIntruder(#0:Exp), 
+generatedByIntruder(b ; #0:Exp), 
+-(exp(g, n(b, #1:Fresh))), 
+-(b ; #0:Exp), 
++(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp), 
++(exp(g, n(a, #2:Fresh)) ; a), 
+generatedByIntruder(#3:Exp), 
+-(#3:Exp), 
+-(exp(g, n(a, #2:Fresh)) ; a), 
++(exp(g, n(a, #2:Fresh)) ; a ; #3:Exp), 
+-(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp), 
+-(exp(g, n(a, #2:Fresh)) ; a ; #3:Exp), 
++(cp2(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ;
+    #3:Exp)), 
+-(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp), 
+-(exp(g, n(a, #2:Fresh)) ; a ; #3:Exp), 
++(cp1(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ;
+    #3:Exp)), 
+-(#3:Exp), 
+-(cp2(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ;
+    #3:Exp)), 
++(#3:Exp ; cp2(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a
+    ; #3:Exp)), 
+-(#0:Exp), 
+-(cp1(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ;
+    #3:Exp)), 
++(#0:Exp ; cp1(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a
+    ; #3:Exp)), 
+-(#3:Exp ; cp2(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a
+    ; #3:Exp)), 
++(sign(sk(a), H(exp(g, n(a, #2:Fresh)) ; a ; #3:Exp ; cp2(exp(g, n(b,
+    #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ; #3:Exp)))), 
+-(#0:Exp ; cp1(exp(g, n(b, #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a
+    ; #3:Exp)), 
++(sign(sk(b), H(exp(g, n(a, #2:Fresh)) ; a ; #3:Exp ; cp2(exp(g, n(b,
+    #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ; #3:Exp)))), 
+-(sign(sk(b), H(exp(g, n(a, #2:Fresh)) ; a ; #3:Exp ; cp2(exp(g, n(b,
+    #1:Fresh)) ; b ; #0:Exp, exp(g, n(a, #2:Fresh)) ; a ; #3:Exp)))), 
++(ok)
+| 
+nil)
+(< 1 . 1 . 5 . 1 . 5 . 8 . 11 . 15 . 7 . 1 . 5 . 4 . 1 > (
+:: nil ::
+[ nil | 
+   -(#0:Exp), 
+   -(exp(g, n(a, #1:Fresh)) ; a), 
+   +(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp), nil]  & 
+:: nil ::
+[ nil | 
+   -(#0:Exp), 
+   -(cp1(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ;
+    #3:Exp)), 
+   +(#0:Exp ; cp1(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ;
+    b ; #3:Exp)), nil]  & 
+:: nil ::
+[ nil | 
+   -(#3:Exp), 
+   -(cp2(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ;
+    #3:Exp)), 
+   +(#3:Exp ; cp2(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ;
+    b ; #3:Exp)), nil]  & 
+:: nil ::
+[ nil | 
+   -(exp(g, n(b, #2:Fresh))), 
+   -(b ; #3:Exp), 
+   +(exp(g, n(b, #2:Fresh)) ; b ; #3:Exp), nil]  & 
+:: nil ::
+[ nil | 
+   -(exp(g, n(b, #2:Fresh)) ; b), 
+   +(exp(g, n(b, #2:Fresh))), nil]  & 
+:: nil ::
+[ nil | 
+   -(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp), 
+   -(exp(g, n(b, #2:Fresh)) ; b ; #3:Exp), 
+   +(cp1(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ;
+    #3:Exp)), nil]  & 
+:: nil ::
+[ nil | 
+   -(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp), 
+   -(exp(g, n(b, #2:Fresh)) ; b ; #3:Exp), 
+   +(cp2(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ;
+    #3:Exp)), nil]  & 
+:: #1:Fresh ::
+[ nil | 
+   +(exp(g, n(a, #1:Fresh)) ; a), 
+   -(#0:Exp ; cp1(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ;
+    b ; #3:Exp)), 
+   +(sign(sk(a), H(exp(g, n(b, #2:Fresh)) ; b ; #3:Exp ; cp2(exp(g, n(a,
+    #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ; #3:Exp)))), 
+   -(sign(sk(b), H(exp(g, n(b, #2:Fresh)) ; b ; #3:Exp ; cp2(exp(g, n(a,
+    #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ; #3:Exp)))), 
+   +(ok), nil]  & 
+:: #2:Fresh ::
+[ nil | 
+   +(exp(g, n(b, #2:Fresh)) ; b), 
+   -(#3:Exp ; cp2(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ;
+    b ; #3:Exp)), 
+   +(sign(sk(b), H(exp(g, n(b, #2:Fresh)) ; b ; #3:Exp ; cp2(exp(g, n(a,
+    #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ; #3:Exp)))), nil] )
+| 
+#0:Exp !inI,
+#3:Exp !inI,
+exp(g, n(b, #2:Fresh)) !inI,
+(b ; #3:Exp) !inI,
+(#0:Exp ; cp1(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ;
+    #3:Exp)) !inI,
+(#3:Exp ; cp2(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ;
+    #3:Exp)) !inI,
+(exp(g, n(a, #1:Fresh)) ; a) !inI,
+(exp(g, n(b, #2:Fresh)) ; b) !inI,
+(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp) !inI,
+(exp(g, n(b, #2:Fresh)) ; b ; #3:Exp) !inI,
+sign(sk(b), H(exp(g, n(b, #2:Fresh)) ; b ; #3:Exp ; cp2(exp(g, n(a, #1:Fresh))
+    ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ; #3:Exp))) !inI,
+cp1(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ; #3:Exp)
+    !inI,
+cp2(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ; #3:Exp)
+    !inI
+| 
++(exp(g, n(b, #2:Fresh)) ; b), 
+-(exp(g, n(b, #2:Fresh)) ; b), 
++(exp(g, n(b, #2:Fresh))), 
+generatedByIntruder(#3:Exp), 
+generatedByIntruder(b ; #3:Exp), 
+-(exp(g, n(b, #2:Fresh))), 
+-(b ; #3:Exp), 
++(exp(g, n(b, #2:Fresh)) ; b ; #3:Exp), 
++(exp(g, n(a, #1:Fresh)) ; a), 
+generatedByIntruder(#0:Exp), 
+-(#0:Exp), 
+-(exp(g, n(a, #1:Fresh)) ; a), 
++(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp), 
+-(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp), 
+-(exp(g, n(b, #2:Fresh)) ; b ; #3:Exp), 
++(cp2(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ;
+    #3:Exp)), 
+-(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp), 
+-(exp(g, n(b, #2:Fresh)) ; b ; #3:Exp), 
++(cp1(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ;
+    #3:Exp)), 
+-(#3:Exp), 
+-(cp2(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ;
+    #3:Exp)), 
++(#3:Exp ; cp2(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b
+    ; #3:Exp)), 
+-(#0:Exp), 
+-(cp1(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ;
+    #3:Exp)), 
++(#0:Exp ; cp1(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b
+    ; #3:Exp)), 
+-(#0:Exp ; cp1(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b
+    ; #3:Exp)), 
++(sign(sk(a), H(exp(g, n(b, #2:Fresh)) ; b ; #3:Exp ; cp2(exp(g, n(a,
+    #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ; #3:Exp)))), 
+-(#3:Exp ; cp2(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b
+    ; #3:Exp)), 
++(sign(sk(b), H(exp(g, n(b, #2:Fresh)) ; b ; #3:Exp ; cp2(exp(g, n(a,
+    #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ; #3:Exp)))), 
+-(sign(sk(b), H(exp(g, n(b, #2:Fresh)) ; b ; #3:Exp ; cp2(exp(g, n(a,
+    #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ; #3:Exp)))), 
++(ok)
+| 
+nil)
+< 1 . 1 . 5 . 1 . 5 . 8 . 11 . 15 . 8 . 2 . 5 . 4 . 1 > (
+:: nil ::
+[ nil | 
+   -(#0:Exp), 
+   -(cp1(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ;
+    #3:Exp)), 
+   +(#0:Exp ; cp1(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ;
+    b ; #3:Exp)), nil]  & 
+:: nil ::
+[ nil | 
+   -(#3:Exp), 
+   -(exp(g, n(b, #2:Fresh)) ; b), 
+   +(exp(g, n(b, #2:Fresh)) ; b ; #3:Exp), nil]  & 
+:: nil ::
+[ nil | 
+   -(#3:Exp), 
+   -(cp2(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ;
+    #3:Exp)), 
+   +(#3:Exp ; cp2(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ;
+    b ; #3:Exp)), nil]  & 
+:: nil ::
+[ nil | 
+   -(exp(g, n(a, #1:Fresh))), 
+   -(a ; #0:Exp), 
+   +(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp), nil]  & 
+:: nil ::
+[ nil | 
+   -(exp(g, n(a, #1:Fresh)) ; a), 
+   +(exp(g, n(a, #1:Fresh))), nil]  & 
+:: nil ::
+[ nil | 
+   -(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp), 
+   -(exp(g, n(b, #2:Fresh)) ; b ; #3:Exp), 
+   +(cp1(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ;
+    #3:Exp)), nil]  & 
+:: nil ::
+[ nil | 
+   -(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp), 
+   -(exp(g, n(b, #2:Fresh)) ; b ; #3:Exp), 
+   +(cp2(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ;
+    #3:Exp)), nil]  & 
+:: #1:Fresh ::
+[ nil | 
+   +(exp(g, n(a, #1:Fresh)) ; a), 
+   -(#0:Exp ; cp1(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ;
+    b ; #3:Exp)), 
+   +(sign(sk(a), H(exp(g, n(b, #2:Fresh)) ; b ; #3:Exp ; cp2(exp(g, n(a,
+    #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ; #3:Exp)))), 
+   -(sign(sk(b), H(exp(g, n(b, #2:Fresh)) ; b ; #3:Exp ; cp2(exp(g, n(a,
+    #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ; #3:Exp)))), 
+   +(ok), nil]  & 
+:: #2:Fresh ::
+[ nil | 
+   +(exp(g, n(b, #2:Fresh)) ; b), 
+   -(#3:Exp ; cp2(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ;
+    b ; #3:Exp)), 
+   +(sign(sk(b), H(exp(g, n(b, #2:Fresh)) ; b ; #3:Exp ; cp2(exp(g, n(a,
+    #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ; #3:Exp)))), nil] )
+| 
+#0:Exp !inI,
+#3:Exp !inI,
+exp(g, n(a, #1:Fresh)) !inI,
+(a ; #0:Exp) !inI,
+(#0:Exp ; cp1(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ;
+    #3:Exp)) !inI,
+(#3:Exp ; cp2(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ;
+    #3:Exp)) !inI,
+(exp(g, n(a, #1:Fresh)) ; a) !inI,
+(exp(g, n(b, #2:Fresh)) ; b) !inI,
+(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp) !inI,
+(exp(g, n(b, #2:Fresh)) ; b ; #3:Exp) !inI,
+sign(sk(b), H(exp(g, n(b, #2:Fresh)) ; b ; #3:Exp ; cp2(exp(g, n(a, #1:Fresh))
+    ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ; #3:Exp))) !inI,
+cp1(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ; #3:Exp)
+    !inI,
+cp2(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ; #3:Exp)
+    !inI
+| 
++(exp(g, n(a, #1:Fresh)) ; a), 
+-(exp(g, n(a, #1:Fresh)) ; a), 
++(exp(g, n(a, #1:Fresh))), 
+generatedByIntruder(#0:Exp), 
+generatedByIntruder(a ; #0:Exp), 
+-(exp(g, n(a, #1:Fresh))), 
+-(a ; #0:Exp), 
++(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp), 
++(exp(g, n(b, #2:Fresh)) ; b), 
+generatedByIntruder(#3:Exp), 
+-(#3:Exp), 
+-(exp(g, n(b, #2:Fresh)) ; b), 
++(exp(g, n(b, #2:Fresh)) ; b ; #3:Exp), 
+-(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp), 
+-(exp(g, n(b, #2:Fresh)) ; b ; #3:Exp), 
++(cp2(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ;
+    #3:Exp)), 
+-(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp), 
+-(exp(g, n(b, #2:Fresh)) ; b ; #3:Exp), 
++(cp1(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ;
+    #3:Exp)), 
+-(#3:Exp), 
+-(cp2(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ;
+    #3:Exp)), 
++(#3:Exp ; cp2(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b
+    ; #3:Exp)), 
+-(#0:Exp), 
+-(cp1(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ;
+    #3:Exp)), 
++(#0:Exp ; cp1(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b
+    ; #3:Exp)), 
+-(#0:Exp ; cp1(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b
+    ; #3:Exp)), 
++(sign(sk(a), H(exp(g, n(b, #2:Fresh)) ; b ; #3:Exp ; cp2(exp(g, n(a,
+    #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ; #3:Exp)))), 
+-(#3:Exp ; cp2(exp(g, n(a, #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b
+    ; #3:Exp)), 
++(sign(sk(b), H(exp(g, n(b, #2:Fresh)) ; b ; #3:Exp ; cp2(exp(g, n(a,
+    #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ; #3:Exp)))), 
+-(sign(sk(b), H(exp(g, n(b, #2:Fresh)) ; b ; #3:Exp ; cp2(exp(g, n(a,
+    #1:Fresh)) ; a ; #0:Exp, exp(g, n(b, #2:Fresh)) ; b ; #3:Exp)))), 
++(ok)
+| 
+nil
+==========================================
+reduce in MAUDE-NPA : summary(6, 14) .
