@@ -257,3 +257,675 @@ pi1(H(a ; n(a, #0:Fresh))) != a ; n(a, #0:Fresh)
 nil
 ==========================================
 reduce in MAUDE-NPA : summary(11, 10) .
+rewrites: 879343980 in 635736ms cpu (635761ms real) (1383190 rewrites/second)
+result Summary: States>> 76 Solutions>> 1
+==========================================
+reduce in MAUDE-NPA : initials(11, 10) .
+rewrites: 9231 in 11ms cpu (11ms real) (839181 rewrites/second)
+result ShortIdSystem: < 1 . 2 . 1 . 1 . 1 . 2 . 8{2} . 3 . 1 > (
+:: nil ::
+[ nil | 
+   -(H(a ; n(a, #0:Fresh))), 
+   +(pi1(H(a ; n(a, #0:Fresh)))), nil]  & 
+:: nil ::
+[ nil | 
+   -(pi1(H(a ; n(a, #0:Fresh)))), 
+   +(H(a ; n(a, #0:Fresh))), nil]  & 
+:: nil ::
+[ nil | 
+   -(n(b, #1:Fresh)), 
+   -(H(a ; n(a, #0:Fresh)) * n(b, #1:Fresh)), 
+   +(H(a ; n(a, #0:Fresh))), nil]  & 
+:: #1:Fresh ::
+[ nil | 
+   +(n(b, #1:Fresh)), 
+   -(H(a ; n(a, #0:Fresh)) * n(b, #1:Fresh)), 
+   -(mac(key(a, b), a ; n(a, #0:Fresh) ; n(b, #1:Fresh))), 
+   (H(a ; n(a, #0:Fresh)) * n(b, #1:Fresh)) eq (H(a ; n(a, #0:Fresh)) * n(b,
+    #1:Fresh)), 
+   +(ok), nil]  & 
+:: #0:Fresh ::
+[ nil | 
+   -(n(b, #1:Fresh)), 
+   +(H(a ; n(a, #0:Fresh)) * n(b, #1:Fresh)), 
+   +(mac(key(a, b), a ; n(a, #0:Fresh) ; n(b, #1:Fresh))), 
+   -(ok), nil] )
+| 
+ok !inI,
+H(a ; n(a, #0:Fresh)) !inI,
+pi1(H(a ; n(a, #0:Fresh))) !inI,
+mac(key(a, b), a ; n(a, #0:Fresh) ; n(b, #1:Fresh)) !inI,
+n(b, #1:Fresh) !inI,
+H(a ; n(a, #0:Fresh)) * n(b, #1:Fresh) !inI,
+pi1(H(a ; n(a, #0:Fresh))) != a ; n(a, #0:Fresh)
+| 
++(n(b, #1:Fresh)), 
+-(n(b, #1:Fresh)), 
++(H(a ; n(a, #0:Fresh)) * n(b, #1:Fresh)), 
+-(n(b, #1:Fresh)), 
+-(H(a ; n(a, #0:Fresh)) * n(b, #1:Fresh)), 
++(H(a ; n(a, #0:Fresh))), 
++(mac(key(a, b), a ; n(a, #0:Fresh) ; n(b, #1:Fresh))), 
+-(H(a ; n(a, #0:Fresh)) * n(b, #1:Fresh)), 
+-(mac(key(a, b), a ; n(a, #0:Fresh) ; n(b, #1:Fresh))), 
++(ok), 
+-(H(a ; n(a, #0:Fresh))), 
++(pi1(H(a ; n(a, #0:Fresh)))), 
+-(pi1(H(a ; n(a, #0:Fresh)))), 
++(H(a ; n(a, #0:Fresh))), 
+-(ok)
+| 
+nil
+==========================================
+reduce in MAUDE-NPA : summary(11, 11) .
+rewrites: 614841111 in 457697ms cpu (457713ms real) (1343336 rewrites/second)
+result Summary: States>> 53 Solutions>> 1
+==========================================
+reduce in MAUDE-NPA : initials(11, 11) .
+rewrites: 10098 in 15ms cpu (15ms real) (673200 rewrites/second)
+result ShortIdSystem: < 1 . 2 . 1 . 1 . 1 . 2 . 8{2} . 3 . 1 > (
+:: nil ::
+[ nil | 
+   -(H(a ; n(a, #0:Fresh))), 
+   +(pi1(H(a ; n(a, #0:Fresh)))), nil]  & 
+:: nil ::
+[ nil | 
+   -(pi1(H(a ; n(a, #0:Fresh)))), 
+   +(H(a ; n(a, #0:Fresh))), nil]  & 
+:: nil ::
+[ nil | 
+   -(n(b, #1:Fresh)), 
+   -(H(a ; n(a, #0:Fresh)) * n(b, #1:Fresh)), 
+   +(H(a ; n(a, #0:Fresh))), nil]  & 
+:: #1:Fresh ::
+[ nil | 
+   +(n(b, #1:Fresh)), 
+   -(H(a ; n(a, #0:Fresh)) * n(b, #1:Fresh)), 
+   -(mac(key(a, b), a ; n(a, #0:Fresh) ; n(b, #1:Fresh))), 
+   (H(a ; n(a, #0:Fresh)) * n(b, #1:Fresh)) eq (H(a ; n(a, #0:Fresh)) * n(b,
+    #1:Fresh)), 
+   +(ok), nil]  & 
+:: #0:Fresh ::
+[ nil | 
+   -(n(b, #1:Fresh)), 
+   +(H(a ; n(a, #0:Fresh)) * n(b, #1:Fresh)), 
+   +(mac(key(a, b), a ; n(a, #0:Fresh) ; n(b, #1:Fresh))), 
+   -(ok), nil] )
+| 
+ok !inI,
+H(a ; n(a, #0:Fresh)) !inI,
+pi1(H(a ; n(a, #0:Fresh))) !inI,
+mac(key(a, b), a ; n(a, #0:Fresh) ; n(b, #1:Fresh)) !inI,
+n(b, #1:Fresh) !inI,
+H(a ; n(a, #0:Fresh)) * n(b, #1:Fresh) !inI,
+pi1(H(a ; n(a, #0:Fresh))) != a ; n(a, #0:Fresh)
+| 
++(n(b, #1:Fresh)), 
+-(n(b, #1:Fresh)), 
++(H(a ; n(a, #0:Fresh)) * n(b, #1:Fresh)), 
+-(n(b, #1:Fresh)), 
+-(H(a ; n(a, #0:Fresh)) * n(b, #1:Fresh)), 
++(H(a ; n(a, #0:Fresh))), 
++(mac(key(a, b), a ; n(a, #0:Fresh) ; n(b, #1:Fresh))), 
+-(H(a ; n(a, #0:Fresh)) * n(b, #1:Fresh)), 
+-(mac(key(a, b), a ; n(a, #0:Fresh) ; n(b, #1:Fresh))), 
++(ok), 
+-(H(a ; n(a, #0:Fresh))), 
++(pi1(H(a ; n(a, #0:Fresh)))), 
+-(pi1(H(a ; n(a, #0:Fresh)))), 
++(H(a ; n(a, #0:Fresh))), 
+-(ok)
+| 
+nil
+==========================================
+reduce in MAUDE-NPA : summary(11, 12) .
+rewrites: 765187898 in 589064ms cpu (589086ms real) (1298989 rewrites/second)
+result Summary: States>> 34 Solutions>> 1
+==========================================
+reduce in MAUDE-NPA : initials(11, 12) .
+rewrites: 10613 in 17ms cpu (17ms real) (624294 rewrites/second)
+result ShortIdSystem: < 1 . 2 . 1 . 1 . 1 . 2 . 8{2} . 3 . 1 > (
+:: nil ::
+[ nil | 
+   -(H(a ; n(a, #0:Fresh))), 
+   +(pi1(H(a ; n(a, #0:Fresh)))), nil]  & 
+:: nil ::
+[ nil | 
+   -(pi1(H(a ; n(a, #0:Fresh)))), 
+   +(H(a ; n(a, #0:Fresh))), nil]  & 
+:: nil ::
+[ nil | 
+   -(n(b, #1:Fresh)), 
+   -(H(a ; n(a, #0:Fresh)) * n(b, #1:Fresh)), 
+   +(H(a ; n(a, #0:Fresh))), nil]  & 
+:: #1:Fresh ::
+[ nil | 
+   +(n(b, #1:Fresh)), 
+   -(H(a ; n(a, #0:Fresh)) * n(b, #1:Fresh)), 
+   -(mac(key(a, b), a ; n(a, #0:Fresh) ; n(b, #1:Fresh))), 
+   (H(a ; n(a, #0:Fresh)) * n(b, #1:Fresh)) eq (H(a ; n(a, #0:Fresh)) * n(b,
+    #1:Fresh)), 
+   +(ok), nil]  & 
+:: #0:Fresh ::
+[ nil | 
+   -(n(b, #1:Fresh)), 
+   +(H(a ; n(a, #0:Fresh)) * n(b, #1:Fresh)), 
+   +(mac(key(a, b), a ; n(a, #0:Fresh) ; n(b, #1:Fresh))), 
+   -(ok), nil] )
+| 
+ok !inI,
+H(a ; n(a, #0:Fresh)) !inI,
+pi1(H(a ; n(a, #0:Fresh))) !inI,
+mac(key(a, b), a ; n(a, #0:Fresh) ; n(b, #1:Fresh)) !inI,
+n(b, #1:Fresh) !inI,
+H(a ; n(a, #0:Fresh)) * n(b, #1:Fresh) !inI,
+pi1(H(a ; n(a, #0:Fresh))) != a ; n(a, #0:Fresh)
+| 
++(n(b, #1:Fresh)), 
+-(n(b, #1:Fresh)), 
++(H(a ; n(a, #0:Fresh)) * n(b, #1:Fresh)), 
+-(n(b, #1:Fresh)), 
+-(H(a ; n(a, #0:Fresh)) * n(b, #1:Fresh)), 
++(H(a ; n(a, #0:Fresh))), 
++(mac(key(a, b), a ; n(a, #0:Fresh) ; n(b, #1:Fresh))), 
+-(H(a ; n(a, #0:Fresh)) * n(b, #1:Fresh)), 
+-(mac(key(a, b), a ; n(a, #0:Fresh) ; n(b, #1:Fresh))), 
++(ok), 
+-(H(a ; n(a, #0:Fresh))), 
++(pi1(H(a ; n(a, #0:Fresh)))), 
+-(pi1(H(a ; n(a, #0:Fresh)))), 
++(H(a ; n(a, #0:Fresh))), 
+-(ok)
+| 
+nil
+==========================================
+reduce in MAUDE-NPA : summary(11, 13) .
+rewrites: 693114909 in 566501ms cpu (566522ms real) (1223501 rewrites/second)
+result Summary: States>> 20 Solutions>> 1
+==========================================
+reduce in MAUDE-NPA : initials(11, 13) .
+rewrites: 10887 in 19ms cpu (18ms real) (573000 rewrites/second)
+result ShortIdSystem: < 1 . 2 . 1 . 1 . 1 . 2 . 8{2} . 3 . 1 > (
+:: nil ::
+[ nil | 
+   -(H(a ; n(a, #0:Fresh))), 
+   +(pi1(H(a ; n(a, #0:Fresh)))), nil]  & 
+:: nil ::
+[ nil | 
+   -(pi1(H(a ; n(a, #0:Fresh)))), 
+   +(H(a ; n(a, #0:Fresh))), nil]  & 
+:: nil ::
+[ nil | 
+   -(n(b, #1:Fresh)), 
+   -(H(a ; n(a, #0:Fresh)) * n(b, #1:Fresh)), 
+   +(H(a ; n(a, #0:Fresh))), nil]  & 
+:: #1:Fresh ::
+[ nil | 
+   +(n(b, #1:Fresh)), 
+   -(H(a ; n(a, #0:Fresh)) * n(b, #1:Fresh)), 
+   -(mac(key(a, b), a ; n(a, #0:Fresh) ; n(b, #1:Fresh))), 
+   (H(a ; n(a, #0:Fresh)) * n(b, #1:Fresh)) eq (H(a ; n(a, #0:Fresh)) * n(b,
+    #1:Fresh)), 
+   +(ok), nil]  & 
+:: #0:Fresh ::
+[ nil | 
+   -(n(b, #1:Fresh)), 
+   +(H(a ; n(a, #0:Fresh)) * n(b, #1:Fresh)), 
+   +(mac(key(a, b), a ; n(a, #0:Fresh) ; n(b, #1:Fresh))), 
+   -(ok), nil] )
+| 
+ok !inI,
+H(a ; n(a, #0:Fresh)) !inI,
+pi1(H(a ; n(a, #0:Fresh))) !inI,
+mac(key(a, b), a ; n(a, #0:Fresh) ; n(b, #1:Fresh)) !inI,
+n(b, #1:Fresh) !inI,
+H(a ; n(a, #0:Fresh)) * n(b, #1:Fresh) !inI,
+pi1(H(a ; n(a, #0:Fresh))) != a ; n(a, #0:Fresh)
+| 
++(n(b, #1:Fresh)), 
+-(n(b, #1:Fresh)), 
++(H(a ; n(a, #0:Fresh)) * n(b, #1:Fresh)), 
+-(n(b, #1:Fresh)), 
+-(H(a ; n(a, #0:Fresh)) * n(b, #1:Fresh)), 
++(H(a ; n(a, #0:Fresh))), 
++(mac(key(a, b), a ; n(a, #0:Fresh) ; n(b, #1:Fresh))), 
+-(H(a ; n(a, #0:Fresh)) * n(b, #1:Fresh)), 
+-(mac(key(a, b), a ; n(a, #0:Fresh) ; n(b, #1:Fresh))), 
++(ok), 
+-(H(a ; n(a, #0:Fresh))), 
++(pi1(H(a ; n(a, #0:Fresh)))), 
+-(pi1(H(a ; n(a, #0:Fresh)))), 
++(H(a ; n(a, #0:Fresh))), 
+-(ok)
+| 
+nil
+==========================================
+reduce in MAUDE-NPA : summary(11, 14) .
+rewrites: 436318761 in 414536ms cpu (414552ms real) (1052547 rewrites/second)
+result Summary: States>> 9 Solutions>> 1
+==========================================
+reduce in MAUDE-NPA : initials(11, 14) .
+rewrites: 10951 in 20ms cpu (20ms real) (547550 rewrites/second)
+result ShortIdSystem: < 1 . 2 . 1 . 1 . 1 . 2 . 8{2} . 3 . 1 > (
+:: nil ::
+[ nil | 
+   -(H(a ; n(a, #0:Fresh))), 
+   +(pi1(H(a ; n(a, #0:Fresh)))), nil]  & 
+:: nil ::
+[ nil | 
+   -(pi1(H(a ; n(a, #0:Fresh)))), 
+   +(H(a ; n(a, #0:Fresh))), nil]  & 
+:: nil ::
+[ nil | 
+   -(n(b, #1:Fresh)), 
+   -(H(a ; n(a, #0:Fresh)) * n(b, #1:Fresh)), 
+   +(H(a ; n(a, #0:Fresh))), nil]  & 
+:: #1:Fresh ::
+[ nil | 
+   +(n(b, #1:Fresh)), 
+   -(H(a ; n(a, #0:Fresh)) * n(b, #1:Fresh)), 
+   -(mac(key(a, b), a ; n(a, #0:Fresh) ; n(b, #1:Fresh))), 
+   (H(a ; n(a, #0:Fresh)) * n(b, #1:Fresh)) eq (H(a ; n(a, #0:Fresh)) * n(b,
+    #1:Fresh)), 
+   +(ok), nil]  & 
+:: #0:Fresh ::
+[ nil | 
+   -(n(b, #1:Fresh)), 
+   +(H(a ; n(a, #0:Fresh)) * n(b, #1:Fresh)), 
+   +(mac(key(a, b), a ; n(a, #0:Fresh) ; n(b, #1:Fresh))), 
+   -(ok), nil] )
+| 
+ok !inI,
+H(a ; n(a, #0:Fresh)) !inI,
+pi1(H(a ; n(a, #0:Fresh))) !inI,
+mac(key(a, b), a ; n(a, #0:Fresh) ; n(b, #1:Fresh)) !inI,
+n(b, #1:Fresh) !inI,
+H(a ; n(a, #0:Fresh)) * n(b, #1:Fresh) !inI,
+pi1(H(a ; n(a, #0:Fresh))) != a ; n(a, #0:Fresh)
+| 
++(n(b, #1:Fresh)), 
+-(n(b, #1:Fresh)), 
++(H(a ; n(a, #0:Fresh)) * n(b, #1:Fresh)), 
+-(n(b, #1:Fresh)), 
+-(H(a ; n(a, #0:Fresh)) * n(b, #1:Fresh)), 
++(H(a ; n(a, #0:Fresh))), 
++(mac(key(a, b), a ; n(a, #0:Fresh) ; n(b, #1:Fresh))), 
+-(H(a ; n(a, #0:Fresh)) * n(b, #1:Fresh)), 
+-(mac(key(a, b), a ; n(a, #0:Fresh) ; n(b, #1:Fresh))), 
++(ok), 
+-(H(a ; n(a, #0:Fresh))), 
++(pi1(H(a ; n(a, #0:Fresh)))), 
+-(pi1(H(a ; n(a, #0:Fresh)))), 
++(H(a ; n(a, #0:Fresh))), 
+-(ok)
+| 
+nil
+==========================================
+reduce in MAUDE-NPA : summary(11, 15) .
+rewrites: 159252264 in 183187ms cpu (183194ms real) (869342 rewrites/second)
+result Summary: States>> 2 Solutions>> 1
+==========================================
+reduce in MAUDE-NPA : initials(11, 15) .
+rewrites: 10902 in 19ms cpu (19ms real) (573789 rewrites/second)
+result ShortIdSystem: < 1 . 2 . 1 . 1 . 1 . 2 . 8{2} . 3 . 1 > (
+:: nil ::
+[ nil | 
+   -(H(a ; n(a, #0:Fresh))), 
+   +(pi1(H(a ; n(a, #0:Fresh)))), nil]  & 
+:: nil ::
+[ nil | 
+   -(pi1(H(a ; n(a, #0:Fresh)))), 
+   +(H(a ; n(a, #0:Fresh))), nil]  & 
+:: nil ::
+[ nil | 
+   -(n(b, #1:Fresh)), 
+   -(H(a ; n(a, #0:Fresh)) * n(b, #1:Fresh)), 
+   +(H(a ; n(a, #0:Fresh))), nil]  & 
+:: #1:Fresh ::
+[ nil | 
+   +(n(b, #1:Fresh)), 
+   -(H(a ; n(a, #0:Fresh)) * n(b, #1:Fresh)), 
+   -(mac(key(a, b), a ; n(a, #0:Fresh) ; n(b, #1:Fresh))), 
+   (H(a ; n(a, #0:Fresh)) * n(b, #1:Fresh)) eq (H(a ; n(a, #0:Fresh)) * n(b,
+    #1:Fresh)), 
+   +(ok), nil]  & 
+:: #0:Fresh ::
+[ nil | 
+   -(n(b, #1:Fresh)), 
+   +(H(a ; n(a, #0:Fresh)) * n(b, #1:Fresh)), 
+   +(mac(key(a, b), a ; n(a, #0:Fresh) ; n(b, #1:Fresh))), 
+   -(ok), nil] )
+| 
+ok !inI,
+H(a ; n(a, #0:Fresh)) !inI,
+pi1(H(a ; n(a, #0:Fresh))) !inI,
+mac(key(a, b), a ; n(a, #0:Fresh) ; n(b, #1:Fresh)) !inI,
+n(b, #1:Fresh) !inI,
+H(a ; n(a, #0:Fresh)) * n(b, #1:Fresh) !inI,
+pi1(H(a ; n(a, #0:Fresh))) != a ; n(a, #0:Fresh)
+| 
++(n(b, #1:Fresh)), 
+-(n(b, #1:Fresh)), 
++(H(a ; n(a, #0:Fresh)) * n(b, #1:Fresh)), 
+-(n(b, #1:Fresh)), 
+-(H(a ; n(a, #0:Fresh)) * n(b, #1:Fresh)), 
++(H(a ; n(a, #0:Fresh))), 
++(mac(key(a, b), a ; n(a, #0:Fresh) ; n(b, #1:Fresh))), 
+-(H(a ; n(a, #0:Fresh)) * n(b, #1:Fresh)), 
+-(mac(key(a, b), a ; n(a, #0:Fresh) ; n(b, #1:Fresh))), 
++(ok), 
+-(H(a ; n(a, #0:Fresh))), 
++(pi1(H(a ; n(a, #0:Fresh)))), 
+-(pi1(H(a ; n(a, #0:Fresh)))), 
++(H(a ; n(a, #0:Fresh))), 
+-(ok)
+| 
+nil
+==========================================
+reduce in MAUDE-NPA : summary(11, 16) .
+rewrites: 1291382 in 1901ms cpu (1901ms real) (679317 rewrites/second)
+result Summary: States>> 1 Solutions>> 1
+==========================================
+reduce in MAUDE-NPA : initials(11, 16) .
+rewrites: 10903 in 19ms cpu (19ms real) (573842 rewrites/second)
+result ShortIdSystem: < 1 . 2 . 1 . 1 . 1 . 2 . 8{2} . 3 . 1 > (
+:: nil ::
+[ nil | 
+   -(H(a ; n(a, #0:Fresh))), 
+   +(pi1(H(a ; n(a, #0:Fresh)))), nil]  & 
+:: nil ::
+[ nil | 
+   -(pi1(H(a ; n(a, #0:Fresh)))), 
+   +(H(a ; n(a, #0:Fresh))), nil]  & 
+:: nil ::
+[ nil | 
+   -(n(b, #1:Fresh)), 
+   -(H(a ; n(a, #0:Fresh)) * n(b, #1:Fresh)), 
+   +(H(a ; n(a, #0:Fresh))), nil]  & 
+:: #1:Fresh ::
+[ nil | 
+   +(n(b, #1:Fresh)), 
+   -(H(a ; n(a, #0:Fresh)) * n(b, #1:Fresh)), 
+   -(mac(key(a, b), a ; n(a, #0:Fresh) ; n(b, #1:Fresh))), 
+   (H(a ; n(a, #0:Fresh)) * n(b, #1:Fresh)) eq (H(a ; n(a, #0:Fresh)) * n(b,
+    #1:Fresh)), 
+   +(ok), nil]  & 
+:: #0:Fresh ::
+[ nil | 
+   -(n(b, #1:Fresh)), 
+   +(H(a ; n(a, #0:Fresh)) * n(b, #1:Fresh)), 
+   +(mac(key(a, b), a ; n(a, #0:Fresh) ; n(b, #1:Fresh))), 
+   -(ok), nil] )
+| 
+ok !inI,
+H(a ; n(a, #0:Fresh)) !inI,
+pi1(H(a ; n(a, #0:Fresh))) !inI,
+mac(key(a, b), a ; n(a, #0:Fresh) ; n(b, #1:Fresh)) !inI,
+n(b, #1:Fresh) !inI,
+H(a ; n(a, #0:Fresh)) * n(b, #1:Fresh) !inI,
+pi1(H(a ; n(a, #0:Fresh))) != a ; n(a, #0:Fresh)
+| 
++(n(b, #1:Fresh)), 
+-(n(b, #1:Fresh)), 
++(H(a ; n(a, #0:Fresh)) * n(b, #1:Fresh)), 
+-(n(b, #1:Fresh)), 
+-(H(a ; n(a, #0:Fresh)) * n(b, #1:Fresh)), 
++(H(a ; n(a, #0:Fresh))), 
++(mac(key(a, b), a ; n(a, #0:Fresh) ; n(b, #1:Fresh))), 
+-(H(a ; n(a, #0:Fresh)) * n(b, #1:Fresh)), 
+-(mac(key(a, b), a ; n(a, #0:Fresh) ; n(b, #1:Fresh))), 
++(ok), 
+-(H(a ; n(a, #0:Fresh))), 
++(pi1(H(a ; n(a, #0:Fresh)))), 
+-(pi1(H(a ; n(a, #0:Fresh)))), 
++(H(a ; n(a, #0:Fresh))), 
+-(ok)
+| 
+nil
+==========================================
+reduce in MAUDE-NPA : summary(11, 17) .
+rewrites: 10910 in 20ms cpu (19ms real) (545500 rewrites/second)
+result Summary: States>> 1 Solutions>> 1
+==========================================
+reduce in MAUDE-NPA : initials(11, 17) .
+rewrites: 10904 in 20ms cpu (19ms real) (545200 rewrites/second)
+result ShortIdSystem: < 1 . 2 . 1 . 1 . 1 . 2 . 8{2} . 3 . 1 > (
+:: nil ::
+[ nil | 
+   -(H(a ; n(a, #0:Fresh))), 
+   +(pi1(H(a ; n(a, #0:Fresh)))), nil]  & 
+:: nil ::
+[ nil | 
+   -(pi1(H(a ; n(a, #0:Fresh)))), 
+   +(H(a ; n(a, #0:Fresh))), nil]  & 
+:: nil ::
+[ nil | 
+   -(n(b, #1:Fresh)), 
+   -(H(a ; n(a, #0:Fresh)) * n(b, #1:Fresh)), 
+   +(H(a ; n(a, #0:Fresh))), nil]  & 
+:: #1:Fresh ::
+[ nil | 
+   +(n(b, #1:Fresh)), 
+   -(H(a ; n(a, #0:Fresh)) * n(b, #1:Fresh)), 
+   -(mac(key(a, b), a ; n(a, #0:Fresh) ; n(b, #1:Fresh))), 
+   (H(a ; n(a, #0:Fresh)) * n(b, #1:Fresh)) eq (H(a ; n(a, #0:Fresh)) * n(b,
+    #1:Fresh)), 
+   +(ok), nil]  & 
+:: #0:Fresh ::
+[ nil | 
+   -(n(b, #1:Fresh)), 
+   +(H(a ; n(a, #0:Fresh)) * n(b, #1:Fresh)), 
+   +(mac(key(a, b), a ; n(a, #0:Fresh) ; n(b, #1:Fresh))), 
+   -(ok), nil] )
+| 
+ok !inI,
+H(a ; n(a, #0:Fresh)) !inI,
+pi1(H(a ; n(a, #0:Fresh))) !inI,
+mac(key(a, b), a ; n(a, #0:Fresh) ; n(b, #1:Fresh)) !inI,
+n(b, #1:Fresh) !inI,
+H(a ; n(a, #0:Fresh)) * n(b, #1:Fresh) !inI,
+pi1(H(a ; n(a, #0:Fresh))) != a ; n(a, #0:Fresh)
+| 
++(n(b, #1:Fresh)), 
+-(n(b, #1:Fresh)), 
++(H(a ; n(a, #0:Fresh)) * n(b, #1:Fresh)), 
+-(n(b, #1:Fresh)), 
+-(H(a ; n(a, #0:Fresh)) * n(b, #1:Fresh)), 
++(H(a ; n(a, #0:Fresh))), 
++(mac(key(a, b), a ; n(a, #0:Fresh) ; n(b, #1:Fresh))), 
+-(H(a ; n(a, #0:Fresh)) * n(b, #1:Fresh)), 
+-(mac(key(a, b), a ; n(a, #0:Fresh) ; n(b, #1:Fresh))), 
++(ok), 
+-(H(a ; n(a, #0:Fresh))), 
++(pi1(H(a ; n(a, #0:Fresh)))), 
+-(pi1(H(a ; n(a, #0:Fresh)))), 
++(H(a ; n(a, #0:Fresh))), 
+-(ok)
+| 
+nil
+==========================================
+reduce in MAUDE-NPA : summary(11, 18) .
+rewrites: 10910 in 19ms cpu (19ms real) (574210 rewrites/second)
+result Summary: States>> 1 Solutions>> 1
+==========================================
+reduce in MAUDE-NPA : initials(11, 18) .
+rewrites: 10904 in 19ms cpu (19ms real) (573894 rewrites/second)
+result ShortIdSystem: < 1 . 2 . 1 . 1 . 1 . 2 . 8{2} . 3 . 1 > (
+:: nil ::
+[ nil | 
+   -(H(a ; n(a, #0:Fresh))), 
+   +(pi1(H(a ; n(a, #0:Fresh)))), nil]  & 
+:: nil ::
+[ nil | 
+   -(pi1(H(a ; n(a, #0:Fresh)))), 
+   +(H(a ; n(a, #0:Fresh))), nil]  & 
+:: nil ::
+[ nil | 
+   -(n(b, #1:Fresh)), 
+   -(H(a ; n(a, #0:Fresh)) * n(b, #1:Fresh)), 
+   +(H(a ; n(a, #0:Fresh))), nil]  & 
+:: #1:Fresh ::
+[ nil | 
+   +(n(b, #1:Fresh)), 
+   -(H(a ; n(a, #0:Fresh)) * n(b, #1:Fresh)), 
+   -(mac(key(a, b), a ; n(a, #0:Fresh) ; n(b, #1:Fresh))), 
+   (H(a ; n(a, #0:Fresh)) * n(b, #1:Fresh)) eq (H(a ; n(a, #0:Fresh)) * n(b,
+    #1:Fresh)), 
+   +(ok), nil]  & 
+:: #0:Fresh ::
+[ nil | 
+   -(n(b, #1:Fresh)), 
+   +(H(a ; n(a, #0:Fresh)) * n(b, #1:Fresh)), 
+   +(mac(key(a, b), a ; n(a, #0:Fresh) ; n(b, #1:Fresh))), 
+   -(ok), nil] )
+| 
+ok !inI,
+H(a ; n(a, #0:Fresh)) !inI,
+pi1(H(a ; n(a, #0:Fresh))) !inI,
+mac(key(a, b), a ; n(a, #0:Fresh) ; n(b, #1:Fresh)) !inI,
+n(b, #1:Fresh) !inI,
+H(a ; n(a, #0:Fresh)) * n(b, #1:Fresh) !inI,
+pi1(H(a ; n(a, #0:Fresh))) != a ; n(a, #0:Fresh)
+| 
++(n(b, #1:Fresh)), 
+-(n(b, #1:Fresh)), 
++(H(a ; n(a, #0:Fresh)) * n(b, #1:Fresh)), 
+-(n(b, #1:Fresh)), 
+-(H(a ; n(a, #0:Fresh)) * n(b, #1:Fresh)), 
++(H(a ; n(a, #0:Fresh))), 
++(mac(key(a, b), a ; n(a, #0:Fresh) ; n(b, #1:Fresh))), 
+-(H(a ; n(a, #0:Fresh)) * n(b, #1:Fresh)), 
+-(mac(key(a, b), a ; n(a, #0:Fresh) ; n(b, #1:Fresh))), 
++(ok), 
+-(H(a ; n(a, #0:Fresh))), 
++(pi1(H(a ; n(a, #0:Fresh)))), 
+-(pi1(H(a ; n(a, #0:Fresh)))), 
++(H(a ; n(a, #0:Fresh))), 
+-(ok)
+| 
+nil
+==========================================
+reduce in MAUDE-NPA : summary(11, 19) .
+rewrites: 10910 in 20ms cpu (19ms real) (545500 rewrites/second)
+result Summary: States>> 1 Solutions>> 1
+==========================================
+reduce in MAUDE-NPA : initials(11, 19) .
+rewrites: 10904 in 20ms cpu (19ms real) (545200 rewrites/second)
+result ShortIdSystem: < 1 . 2 . 1 . 1 . 1 . 2 . 8{2} . 3 . 1 > (
+:: nil ::
+[ nil | 
+   -(H(a ; n(a, #0:Fresh))), 
+   +(pi1(H(a ; n(a, #0:Fresh)))), nil]  & 
+:: nil ::
+[ nil | 
+   -(pi1(H(a ; n(a, #0:Fresh)))), 
+   +(H(a ; n(a, #0:Fresh))), nil]  & 
+:: nil ::
+[ nil | 
+   -(n(b, #1:Fresh)), 
+   -(H(a ; n(a, #0:Fresh)) * n(b, #1:Fresh)), 
+   +(H(a ; n(a, #0:Fresh))), nil]  & 
+:: #1:Fresh ::
+[ nil | 
+   +(n(b, #1:Fresh)), 
+   -(H(a ; n(a, #0:Fresh)) * n(b, #1:Fresh)), 
+   -(mac(key(a, b), a ; n(a, #0:Fresh) ; n(b, #1:Fresh))), 
+   (H(a ; n(a, #0:Fresh)) * n(b, #1:Fresh)) eq (H(a ; n(a, #0:Fresh)) * n(b,
+    #1:Fresh)), 
+   +(ok), nil]  & 
+:: #0:Fresh ::
+[ nil | 
+   -(n(b, #1:Fresh)), 
+   +(H(a ; n(a, #0:Fresh)) * n(b, #1:Fresh)), 
+   +(mac(key(a, b), a ; n(a, #0:Fresh) ; n(b, #1:Fresh))), 
+   -(ok), nil] )
+| 
+ok !inI,
+H(a ; n(a, #0:Fresh)) !inI,
+pi1(H(a ; n(a, #0:Fresh))) !inI,
+mac(key(a, b), a ; n(a, #0:Fresh) ; n(b, #1:Fresh)) !inI,
+n(b, #1:Fresh) !inI,
+H(a ; n(a, #0:Fresh)) * n(b, #1:Fresh) !inI,
+pi1(H(a ; n(a, #0:Fresh))) != a ; n(a, #0:Fresh)
+| 
++(n(b, #1:Fresh)), 
+-(n(b, #1:Fresh)), 
++(H(a ; n(a, #0:Fresh)) * n(b, #1:Fresh)), 
+-(n(b, #1:Fresh)), 
+-(H(a ; n(a, #0:Fresh)) * n(b, #1:Fresh)), 
++(H(a ; n(a, #0:Fresh))), 
++(mac(key(a, b), a ; n(a, #0:Fresh) ; n(b, #1:Fresh))), 
+-(H(a ; n(a, #0:Fresh)) * n(b, #1:Fresh)), 
+-(mac(key(a, b), a ; n(a, #0:Fresh) ; n(b, #1:Fresh))), 
++(ok), 
+-(H(a ; n(a, #0:Fresh))), 
++(pi1(H(a ; n(a, #0:Fresh)))), 
+-(pi1(H(a ; n(a, #0:Fresh)))), 
++(H(a ; n(a, #0:Fresh))), 
+-(ok)
+| 
+nil
+==========================================
+reduce in MAUDE-NPA : summary(11, 20) .
+rewrites: 10910 in 20ms cpu (19ms real) (545500 rewrites/second)
+result Summary: States>> 1 Solutions>> 1
+==========================================
+reduce in MAUDE-NPA : initials(11, 20) .
+rewrites: 10904 in 19ms cpu (19ms real) (573894 rewrites/second)
+result ShortIdSystem: < 1 . 2 . 1 . 1 . 1 . 2 . 8{2} . 3 . 1 > (
+:: nil ::
+[ nil | 
+   -(H(a ; n(a, #0:Fresh))), 
+   +(pi1(H(a ; n(a, #0:Fresh)))), nil]  & 
+:: nil ::
+[ nil | 
+   -(pi1(H(a ; n(a, #0:Fresh)))), 
+   +(H(a ; n(a, #0:Fresh))), nil]  & 
+:: nil ::
+[ nil | 
+   -(n(b, #1:Fresh)), 
+   -(H(a ; n(a, #0:Fresh)) * n(b, #1:Fresh)), 
+   +(H(a ; n(a, #0:Fresh))), nil]  & 
+:: #1:Fresh ::
+[ nil | 
+   +(n(b, #1:Fresh)), 
+   -(H(a ; n(a, #0:Fresh)) * n(b, #1:Fresh)), 
+   -(mac(key(a, b), a ; n(a, #0:Fresh) ; n(b, #1:Fresh))), 
+   (H(a ; n(a, #0:Fresh)) * n(b, #1:Fresh)) eq (H(a ; n(a, #0:Fresh)) * n(b,
+    #1:Fresh)), 
+   +(ok), nil]  & 
+:: #0:Fresh ::
+[ nil | 
+   -(n(b, #1:Fresh)), 
+   +(H(a ; n(a, #0:Fresh)) * n(b, #1:Fresh)), 
+   +(mac(key(a, b), a ; n(a, #0:Fresh) ; n(b, #1:Fresh))), 
+   -(ok), nil] )
+| 
+ok !inI,
+H(a ; n(a, #0:Fresh)) !inI,
+pi1(H(a ; n(a, #0:Fresh))) !inI,
+mac(key(a, b), a ; n(a, #0:Fresh) ; n(b, #1:Fresh)) !inI,
+n(b, #1:Fresh) !inI,
+H(a ; n(a, #0:Fresh)) * n(b, #1:Fresh) !inI,
+pi1(H(a ; n(a, #0:Fresh))) != a ; n(a, #0:Fresh)
+| 
++(n(b, #1:Fresh)), 
+-(n(b, #1:Fresh)), 
++(H(a ; n(a, #0:Fresh)) * n(b, #1:Fresh)), 
+-(n(b, #1:Fresh)), 
+-(H(a ; n(a, #0:Fresh)) * n(b, #1:Fresh)), 
++(H(a ; n(a, #0:Fresh))), 
++(mac(key(a, b), a ; n(a, #0:Fresh) ; n(b, #1:Fresh))), 
+-(H(a ; n(a, #0:Fresh)) * n(b, #1:Fresh)), 
+-(mac(key(a, b), a ; n(a, #0:Fresh) ; n(b, #1:Fresh))), 
++(ok), 
+-(H(a ; n(a, #0:Fresh))), 
++(pi1(H(a ; n(a, #0:Fresh)))), 
+-(pi1(H(a ; n(a, #0:Fresh)))), 
++(H(a ; n(a, #0:Fresh))), 
+-(ok)
+| 
+nil
+Warning: <standard input>, line 45: skipped unexpected token: EOF
+Warning: <standard input>, line 46: skipped unexpected token: date
+Bye.
