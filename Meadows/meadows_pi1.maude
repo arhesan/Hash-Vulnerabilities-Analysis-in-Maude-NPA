@@ -40,7 +40,7 @@ fmod PROTOCOL-EXAMPLE-SYMBOLS is
   
 
   --- Exclusive or (DY strand not included to reduce search space) 
-  op _*_ : MsgGroup MsgGroup -> MsgGroup [comm frozen prec 11 gather (e E)]  . ---assoc
+  op _*_ : MsgGroup MsgGroup -> MsgGroup [comm frozen prec 11 gather (e E)]  .
   op null : -> MsgGroup .
 
   --- HASH FUNCTION
@@ -65,10 +65,10 @@ fmod PROTOCOL-EXAMPLE-ALGEBRAIC is
 
 *** Hash function algebraic properties ***
 
-  vars H : Hash .
+  vars HA : Hash .
   vars X Z T T' : MsgGroup .
   var r : Fresh .
-  eq H(pi1(H)) = H [variant] . --- firstPreImg
+  eq H(pi1(HA)) = HA [variant] . --- firstPreImg
 
 
 endfm
@@ -92,21 +92,16 @@ fmod PROTOCOL-SPECIFICATION is
   vars N NA NB : Nonce .
   vars HA : Hash .
   var MC : Mac .
-  op C : -> MsgGroup .
 
   eq STRANDS-DOLEVYAO =
      :: nil :: [ nil | +(null), nil ] & 
      :: nil :: [ nil | +(key(i,AB)), nil ] & --- Intruder is able to sent symetric key
      :: r ::   [ nil | +(n(i,r)), nil ] & --- Intruder is able to generate and send nonces
-     :: nil :: [ nil | -(X), 
-                       -(Y), 
-                       +(X ; Y), nil ] &
-     :: nil :: [ nil | -(Ke),
-                       -(X), 
-                       +(mac(Ke,X)), nil ] &
+     :: nil :: [ nil | -(X), -(Y), +(X ; Y), nil ] &             
+     :: nil :: [ nil | -(Ke), -(X), +(mac(Ke,X)), nil ] &
      ------------------------- HASH PROPERTIES ------------------------------
      :: nil :: [ nil | -(HA), +(pi1(HA)), nil ] &  --- fstPreImg
-    :: nil :: [ nil | -(X), +(C), +(H(X)), nil ] &
+    :: nil :: [ nil | -(X), +(H(X)), nil ] &
     :: nil :: [ nil | -(X), -(Y), +(X * Y),  nil ]    
      --------------------------------------------------------------------------
 
@@ -157,7 +152,8 @@ eq STRANDS-PROTOCOL =
           eq
           (n(b, rB) * H(a ; NA)),
           +(ok) |
-          nil] &
+          nil] 
+          &
       :: nil ::
       [nil,
         -(H(a ; n(a,rA))),
@@ -165,7 +161,6 @@ eq STRANDS-PROTOCOL =
       :: nil ::
       [nil,
           -(pi1(H(a ; n(a,rA)))),
-          +(C),
           +(H(pi1(H(a ; n(a,rA))))) | nil]
         || pi1(H(a ; n(a,rA))) != (a ; n(a,rA))
         || nil
