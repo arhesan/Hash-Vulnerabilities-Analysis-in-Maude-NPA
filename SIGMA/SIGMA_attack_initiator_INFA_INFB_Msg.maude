@@ -1,0 +1,245 @@
+
+***(
+SIGMA PROTOCOL
+)***
+
+fmod PROTOCOL-EXAMPLE-SYMBOLS is
+  --- Importing sorts Msg, Fresh, Public
+  protecting DEFINITION-PROTOCOL-RULES .
+  
+  ----------------------------------------------------------
+  --- Overwrite this module with the syntax of your protocol
+  --- Notes:
+  --- * Sort Msg and Fresh are special and imported
+  --- * Every sort must be a subsort of Msg
+  --- * No sort can be a supersort of Msg
+  ----------------------------------------------------------
+
+  --- Sort Information 
+  sorts Name Nonce NeNonceSet Gen Exp Key GenvExp Hash MsgElem .
+  subsort Gen Exp < GenvExp .
+  subsort Name Exp < MsgElem .
+  subsort NeNonceSet GenvExp Key Hash  MsgElem < Msg .
+  subsort Exp < Key .
+  subsort Name < Public . --- This is quite relevant and necessary
+  subsort Gen < Public . --- This is quite relevant and necessary
+
+  --- Nonce operator
+  op n : Name Fresh -> Nonce [frozen] .
+
+  --- Participants
+  ops a b i : -> Name .
+
+  --- Exp
+  op exp : GenvExp NeNonceSet -> Exp [frozen] .
+
+  --- Gen
+  op g : -> Gen .
+
+  --- --- NeNonceSet
+  subsort Nonce < NeNonceSet .
+  op _*_ : NeNonceSet NeNonceSet -> NeNonceSet [frozen assoc comm] .
+
+  --- Concatenation
+  op _;_ : Msg Msg -> Msg [frozen assoc] .
+
+  ---- Sign
+  op sign : Key Msg -> Msg [frozen] .
+  op sk : Name -> Key [frozen] .
+
+  --- Hash
+  op H : Msg -> Hash [frozen] .
+
+  op cp1 : Msg Msg -> MsgElem [frozen] .
+  op cp2 : Msg Msg -> MsgElem [frozen] .
+
+  op ok : -> Msg . 
+endfm
+
+fmod PROTOCOL-EXAMPLE-ALGEBRAIC is
+  protecting PROTOCOL-EXAMPLE-SYMBOLS .
+  
+  ----------------------------------------------------------
+  --- Overwrite this module with the algebraic properties 
+  --- of your protocol
+  ----------------------------------------------------------
+  *** DH ALGEBRAIC PROPERTIES ***
+  eq exp(exp(W:Gen,Y:NeNonceSet),Z:NeNonceSet) 
+   = exp(W:Gen, Y:NeNonceSet * Z:NeNonceSet) [variant] .
+
+
+*** Hash function algebraic properties ***
+  var r : Fresh .
+
+  eq H((X:Msg ; cp1(X:Msg,Y:Msg))) = H((Y:Msg ; cp2(X:Msg,Y:Msg))) [variant] . --- chsnPrfx + colExt
+ 
+endfm
+
+fmod PROTOCOL-SPECIFICATION is
+  protecting PROTOCOL-EXAMPLE-SYMBOLS .
+  protecting DEFINITION-PROTOCOL-RULES .
+  protecting DEFINITION-CONSTRAINTS-INPUT .
+
+  ----------------------------------------------------------
+  --- Overwrite this module with the strands 
+  --- of your protocol
+  ----------------------------------------------------------
+  vars rA rB rA' rB' : Fresh .
+  vars NS1 NS2 NS3 NS : NeNonceSet .
+  var GE : GenvExp .
+  vars A B : Name .
+  var r : Fresh .
+  vars EXPA EXPB EXPI : Exp .
+  vars M1 M2 M INFA INFB : Msg .
+  var H1 H2 : Hash .
+  vars S X Y : Msg .
+  vars X1 X2 X3 Y1 Y2 Y3 S1 S2 : MsgElem .
+
+  eq STRANDS-DOLEVYAO = 
+     :: nil :: [ nil | -(M1 ; X1 ; M2), +(X1), nil ] &
+     :: nil :: [ nil | -(M1 ; X1), +(X1), nil ] &
+     :: nil :: [ nil | -(X1 ; M2), +(X1), nil ] &
+     :: nil :: [ nil | -(X1), -(M1 ; M2), +(M1 ; X1 ; M2), nil ] &
+     :: nil :: [ nil | -(X1), -(M2), +(X1 ; M2), nil ] &
+     :: nil :: [ nil | -(X1), -(M1), +(M1 ; X1), nil ] &
+     :: nil :: [ nil | -(NS1), -(NS2), +(NS1 * NS2), nil ] &
+     :: nil :: [ nil | -(GE), -(NS), +(exp(GE,NS)), nil ] &
+     :: nil :: [ nil | -(exp(GE,NS)), +(GE), nil ] &
+     :: r ::   [ nil | +(n(i,r)), nil ] &
+     :: nil :: [ nil | +(g), nil ] &
+     :: nil :: [ nil | +(A), nil ] &
+     :: nil :: [ nil | -(M), +(sign(sk(i),M)), nil ] &
+     :: nil :: [ nil | -(sign(sk(A),M)), +(M), nil ] &  
+     ------------------------- HASH PROPERTIES ------------------------------
+    ---  :: nil :: [ nil | +(ID), nil ] &
+     :: nil :: [ nil | -(X), +(H(X)), nil ] &    
+     :: nil :: [ nil | -(X), -(Y), +(cp1(X,Y)), nil ] &
+     :: nil :: [ nil | -(X), -(Y), +(cp2(X,Y)), nil ]
+     --------------------------------------------------------------------------
+  [nonexec] .
+
+ eq STRANDS-PROTOCOL =
+    :: rA ::
+    [nil | 
+      +(exp(g, n(A, rA)) ; A), 
+      -(EXPB ; INFB), 
+      +(sign(sk(A), H(exp(g, n(A, rA)) ; A ; EXPB ; INFB))), 
+      -(sign(sk(B), H2)),
+      (H(exp(g, n(A, rA)) ; A ; EXPB ; INFB))
+       eq
+       (H2),
+      +(ok),
+      nil]
+    &
+    :: rB ::
+    [nil | 
+      -(EXPA ; INFA), 
+      +(exp(g, n(B, rB)) ; B), 
+      -(sign(sk(A), H1)),
+      (H1) 
+       eq
+       (H(EXPA ; INFA ; exp(g, n(B, rB)) ; B)), 
+      +(sign(sk(B), H(EXPA ; INFA ; exp(g, n(B, rB)) ; B))),
+      -(ok),
+      nil]
+    [nonexec] .
+
+
+ eq ATTACK-STATE(6)
+      =
+        :: rA ::
+        [ nil, 
+          +(exp(g, n(a, rA)) ; a), 
+          -(EXPB ; X1),
+          +(sign(sk(a), H(exp(g, n(a, rA)) ; a ; EXPB ; X1))),
+          -(sign(sk(b), H(exp(g, n(a, rA)) ; a ; EXPB ; X1))),
+          +(ok)
+          |
+          nil ]
+        || empty 
+        || nil
+        || nil
+        || never(
+           *** for authentication
+              (:: rA ::
+              [ nil |
+              +(exp(g, n(a, rA)) ; a),
+              -(exp(g, n(b, rB)) ; b),
+              +(sign(sk(a), H(exp(g, n(a, rA)) ; a ; exp(g, n(b, rB)) ; b))),
+              -(sign(sk(b), H(exp(g, n(a, rA)) ; a ; exp(g, n(b, rB)) ; b))),
+              (H(exp(g, n(a, rA)) ; a ; exp(g, n(b, rB)) ; b) eq H(exp(g, n(a, rA)) ; a ; exp(g, n(b, rB)) ; b)),
+              +(ok), nil ] &
+               :: rB ::
+              [ nil | 
+                -(exp(g, n(a, rA)) ; a),  
+                +(exp(g, n(b, rB)) ; b),
+                -(sign(sk(a), H(exp(g, n(a, rA)) ; a ; exp(g, n(b, rB)) ; b))),
+                (H(exp(g, n(a, rA)) ; a ; exp(g, n(b, rB)) ; b) eq H(exp(g, n(a, rA)) ; a ; exp(g, n(b, rB)) ; b)),
+                +(sign(sk(b), H(exp(g, n(a, rA)) ; a ; exp(g, n(b, rB)) ; b))),
+                -(ok), nil ]
+              & S:StrandSet
+              || K:IntruderKnowledge)
+              *** for authentication
+              (:: rA ::
+              [ nil |
+              +(exp(g, n(a, rA)) ; a),
+              -(exp(g, n(b, rB)) ; b),
+              +(sign(sk(a), H(exp(g, n(a, rA)) ; a ; exp(g, n(b, rB)) ; b))),
+              -(sign(sk(b), H(exp(g, n(a, rA)) ; a ; exp(g, n(b, rB)) ; b))),
+              nil ] &
+               :: rB ::
+              [ nil | 
+                -(exp(g, n(a, rA)) ; a),  
+                +(exp(g, n(b, rB)) ; b),
+                -(sign(sk(a), H(exp(g, n(a, rA)) ; a ; exp(g, n(b, rB)) ; b))),
+                (H(exp(g, n(a, rA)) ; a ; exp(g, n(b, rB)) ; b) eq H(exp(g, n(a, rA)) ; a ; exp(g, n(b, rB)) ; b)), 
+                +(sign(sk(b), H(exp(g, n(a, rA)) ; a ; exp(g, n(b, rB)) ; b))),
+                nil ]
+              & S:StrandSet
+              || K:IntruderKnowledge)
+              *** for authentication
+              (:: rA ::
+              [ nil |
+              +(exp(g, n(a, rA)) ; a),
+              -(exp(g, n(b, rB)) ; b),
+              nil ] &
+               :: rB ::
+              [ nil | 
+                -(exp(g, n(a, rA)) ; a),  
+                +(exp(g, n(b, rB)) ; b),
+                nil ]
+              & S:StrandSet
+              || K:IntruderKnowledge)
+               *** Avoids any responder's strand ***
+              (:: rB ::
+              [ nil | 
+                -(EXPA ; INFA),  
+                +(exp(g, n(b, rB)) ; b),
+                nil ]
+              & S:StrandSet
+              || K:IntruderKnowledge)
+                         *** To avoid trivial attacks that does not deppend on hash functions weaknesses.***
+              (:: rA ::
+              [ nil |
+              +(exp(g, n(a, rA)) ; a),
+              -(EXPI ; exp(g, n(b, rB)) ; b),
+              +(sign(sk(a), H(exp(g, n(a, rA)) ; a ; EXPI ; exp(g, n(b, rB)) ; b))),
+              -(sign(sk(b), H(exp(g, n(a, rA)) ; a ; EXPI ; exp(g, n(b, rB)) ; b))),
+              (H(exp(g, n(a, rA)) ; a ; EXPI ; exp(g, n(b, rB)) ; b) eq H(exp(g, n(a, rA)) ; a ; EXPI ; exp(g, n(b, rB)) ; b)),
+              +(ok), nil ] &
+               :: rB ::
+              [ nil | 
+                -(exp(g, n(a, rA)) ; a ; EXPI),  
+                +(exp(g, n(b, rB)) ; b),
+                -(sign(sk(a), H(exp(g, n(a, rA)) ; a ; EXPI ; exp(g, n(b, rB)) ; b))),
+                (H(exp(g, n(a, rA)) ; a ; EXPI ; exp(g, n(b, rB)) ; b) eq H(exp(g, n(a, rA)) ; a ; EXPI ; exp(g, n(b, rB)) ; b)), 
+                +(sign(sk(b), H(exp(g, n(a, rA)) ; a ; EXPI ; exp(g, n(b, rB)) ; b))),
+                -(ok), nil ]
+              & S:StrandSet
+              || K:IntruderKnowledge)
+              )
+      [nonexec] .
+
+endfm
+
+select MAUDE-NPA .
