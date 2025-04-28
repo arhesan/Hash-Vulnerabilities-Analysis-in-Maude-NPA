@@ -32,7 +32,7 @@ fmod PROTOCOL-EXAMPLE-SYMBOLS is
   op n : Name Fresh -> Nonce [frozen] .
 
   --- The intruder cannot deconcatenate messages in this protocol
-  op _;_ : MsgGroup  MsgGroup  -> T4 [frozen gather (e E)] . ---assoc
+  op _;_ : MsgGroup  MsgGroup  -> T4 [frozen gather (e E)] .
 
   --- Principals
   ops a b : -> Honest .
@@ -40,7 +40,7 @@ fmod PROTOCOL-EXAMPLE-SYMBOLS is
   
 
   --- Exclusive or (DY strand not included to reduce search space) 
-  op _*_ : MsgGroup MsgGroup -> MsgGroup [comm frozen prec 11 gather (e E)]  .  ---assco
+  op _*_ : MsgGroup MsgGroup -> MsgGroup [comm frozen prec 11 gather (e E)]  .
   op null : -> MsgGroup .
   --- HASH FUNCTION
   op H : T3 -> T1 [frozen] . 
@@ -65,7 +65,6 @@ fmod PROTOCOL-EXAMPLE-ALGEBRAIC is
   eq XN * null = XN    [variant] .
 
 *** Hash function algebraic properties ***
-  vars H : Hash .
   vars X : MsgGroup .
   var Y : T4 .
 
@@ -152,13 +151,14 @@ eq STRANDS-PROTOCOL =
       :: rB ::
       [ nil,
           +(n(b, rB)),
-          -(n(b, rB) * H(T')),
+          -(n(b, rB) * H(pi2(inLeak(H(a ; n(a,rA)))))),
           -(mac(key(a,b), a ; n(a,rA) ; n(b, rB))),
-          (n(b, rB) * H(T'))
+          (n(b, rB) * H(pi2(inLeak(H(a ; n(a,rA))))))
           eq
           (n(b, rB) * H(a ; n(a,rA))),
           +(ok) |
-          nil] &
+          nil] 
+          &
       :: nil ::
       [nil,
         -(H(a ; n(a,rA))),
@@ -171,7 +171,7 @@ eq STRANDS-PROTOCOL =
       [nil, 
         -(pi2(inLeak(H(a ; n(a,rA))))),
         +(H(pi2(inLeak(H(a ; n(a,rA)))))) | nil] 
-        || pi2(inLeak(H(a ; n(a,rA)))) != (a ; n(a,rA))
+        || (pi2(inLeak(H(a ; n(a,rA))))) != (a ; n(a,rA))
         || nil
         || nil
         || nil
