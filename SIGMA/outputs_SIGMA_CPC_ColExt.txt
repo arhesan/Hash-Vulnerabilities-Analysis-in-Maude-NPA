@@ -221,12 +221,12 @@ reduce in MAUDE-NPA : initials(4, 7) .
 rewrites: 23010 in 20ms cpu (19ms real) (1150500 rewrites/second)
 result IdSystemSet: (empty).IdSystemSet
 ==========================================
-reduce in MAUDE-NPA : summary(4, 7) .
-rewrites: 24042 in 20ms cpu (20ms real) (1202100 rewrites/second)
-result Summary: States>> 515 Solutions>> 0
+reduce in MAUDE-NPA : summary(4, 8) .
+rewrites: 24042 in 20ms cpu (61920605ms real) (1202100 rewrites/second)
+result Summary: States>> 718 Solutions>> 0
 ==========================================
-reduce in MAUDE-NPA : initials(4, 7) .
-rewrites: 23010 in 20ms cpu (19ms real) (1150500 rewrites/second)
+reduce in MAUDE-NPA : initials(4, 8) .
+rewrites: 23010 in 20ms cpu (83ms real) (1150500 rewrites/second)
 result IdSystemSet: (empty).IdSystemSet
 ==========================================
 reduce in MAUDE-NPA : summary(4, 9) .
